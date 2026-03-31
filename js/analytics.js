@@ -1,6 +1,6 @@
 const ANALYTICS_ENABLED_HOSTS = new Set([
-  "ocam.site",
-  "www.ocam.site",
+  "kritiquekapital.com",
+  "www.kritiquekapital.com",
 ]);
 
 function analyticsAllowed() {
