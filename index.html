@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=1, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>.oCam</title>
 
-  <!-- Fonts & Core CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script defer src="https://cloud.umami.is/script.js" data-website-id="2828c034-f1fe-4f26-9807-8cfe87875bd7"></script>
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kritiquekapital/marjork/main/suprises/icon/favicon.ico"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kritiquekapital/marjork/main/suprises/icon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/kritiquekapital/marjork/main/suprises/icon/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/kritiquekapital/marjork/main/suprises/icon/apple-touch-icon.png">
   <link rel="mask-icon" href="https://raw.githubusercontent.com/kritiquekapital/marjork/main/suprises/icon/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-  
-  <!-- Scripts -->
-  <script type="module" src="js/bounceable.js" defer></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script type="module" src="js/themeSwitcher_0.9.js" defer></script> 
-  <script type="module" src="js/photoButton_0.9.js" defer></script>
-  <script type="module" src="js/chaseable.js" defer></script>
-  <script type="module" src="js/kissButton_0.9.js" defer></script>
-  <script type="module" src="js/musicPlayer_1.0.js" defer></script>
-  <script type="module" src="js/cinema.js" defer></script>
-  <script src="js/vinylButton_0.9.js" defer></script>
-  <script type="module" src="js/coolgamesilike.js" defer></script>
-  <script type="module" src="js/minesweeper.js" defer></script>
-  <script src="js/touch-events.js" defer></script>
-  <script type="module" src="js/handleLinks.js"></script>
-  <script src="js/spinna.js"></script>
-  <script type="module" src="js/settingsPanel.js" defer></script>
-  <script type="module" src="js/library.js" defer></script>
-  
-<footer class="site-footer">
-  <span>© .oCam Studios</span>
-</footer>
-  
+<body>
+  <main class="site-shell">
+    <section class="radial-stage" id="radialStage">
+      <div id="radial" class="radial">
+        <button class="center" id="centerHub" aria-label="Return to home view">
+          <span class="center-core">.oCam</span>
+          <span class="center-sub">choose a direction</span>
+        </button>
+
+        <button class="slice slice-music" data-section="music" data-angle="0">
+          <span class="slice-label">music</span>
+        </button>
+
+        <button class="slice slice-code" data-section="code" data-angle="90">
+          <span class="slice-label">code</span>
+        </button>
+
+        <button class="slice slice-photo" data-section="photo" data-angle="180">
+          <span class="slice-label">photo</span>
+        </button>
+
+        <button class="slice slice-writing" data-section="writing" data-angle="270">
+          <span class="slice-label">writing</span>
+        </button>
+      </div>
+
+      <div id="contentLayer" class="content-layer" aria-live="polite"></div>
+
+      <button id="backButton" class="back-button" aria-label="Go back">
+        back
+      </button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© .oCam Studios</span>
+  </footer>
+
+  <script type="module" src="js/radial.js"></script>
+
+  <!-- keep these if needed later, but I’d leave them out until radial is stable -->
+  <!-- <script type="module" src="js/bounceable.js"></script> -->
+  <!-- <script type="module" src="js/chaseable.js"></script> -->
+  <!-- <script src="js/touch-events.js"></script> -->
+  <!-- <script type="module" src="js/handleLinks.js"></script> -->
 </body>
 </html>
