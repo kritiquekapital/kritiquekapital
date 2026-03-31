@@ -1,156 +1,3 @@
-const radial = document.getElementById("radial");
-const slices = [...document.querySelectorAll(".slice")];
-const contentLayer = document.getElementById("contentLayer");
-const backButton = document.getElementById("backButton");
-const centerHub = document.getElementById("centerHub");
-
-let activeSection = null;
-
-const sectionContent = {
-  music: {
-    title: "music",
-    kicker: "playlists, sound, motion, mood",
-    cards: [
-      {
-        title: "playlists",
-        body: "A living archive of sequencing, atmosphere, and emotional architecture."
-      },
-      {
-        title: "sound experiments",
-        body: "Interactive media, transport controls, embedded players, and ambient systems."
-      },
-      {
-        title: "score logic",
-        body: "Moments where sound is not just content but part of navigation itself."
-      }
-    ]
-  },
-  code: {
-    title: "code",
-    kicker: "systems, experiments, site logic",
-    cards: [
-      {
-        title: "front-end builds",
-        body: "Interactive UI systems, theme engines, custom behavior, and playful motion."
-      },
-      {
-        title: "site mechanics",
-        body: "Physics objects, modular controls, state-based UI, and experimental navigation."
-      },
-      {
-        title: "projects",
-        body: "Small digital objects that feel authored instead of templated."
-      }
-    ]
-  },
-  photo: {
-    title: "photo",
-    kicker: "framing, texture, presence",
-    cards: [
-      {
-        title: "portraits",
-        body: "Work focused on tension, intimacy, and strong visual identity."
-      },
-      {
-        title: "atmosphere",
-        body: "Images built around light, stillness, environment, and subtle unease."
-      },
-      {
-        title: "selected work",
-        body: "A space for galleries, sequences, and image-led storytelling."
-      }
-    ]
-  },
-  writing: {
-    title: "writing",
-    kicker: "analysis, reflection, construction",
-    cards: [
-      {
-        title: "critical work",
-        body: "Longer writing on film, ideology, aesthetics, and historical memory."
-      },
-      {
-        title: "statements",
-        body: "Short-form pieces, captions, fragments, and personal positioning."
-      },
-      {
-        title: "notes",
-        body: "A place for unfinished thoughts that still deserve shape."
-      }
-    ]
-  }
-};
-
-function buildPanel(section) {
-  const data = sectionContent[section];
-  if (!data) return null;
-
-  const panel = document.createElement("section");
-  panel.className = "content-panel";
-  panel.dataset.from = section;
-
-  panel.innerHTML = `
-    <h2 class="content-title">${data.title}</h2>
-    <p class="content-kicker">${data.kicker}</p>
-    <div class="content-grid">
-      ${data.cards.map(card => `
-        <article class="content-card">
-          <h3>${card.title}</h3>
-          <p>${card.body}</p>
-        </article>
-      `).join("")}
-    </div>
-  `;
-
-  return panel;
-}
-
-function openSection(section, angle, clickedSlice) {
-  if (activeSection === section) return;
-
-  activeSection = section;
-  contentLayer.innerHTML = "";
-
-  slices.forEach(slice => {
-    slice.classList.remove("is-selected");
-  });
-
-  clickedSlice.classList.add("is-selected");
-  radial.classList.add("is-active");
-
-  const rotation = -Number(angle);
-  radial.style.transform = `scale(1.16) rotate(${rotation}deg)`;
-
-  const panel = buildPanel(section);
-  if (!panel) return;
-
-  contentLayer.appendChild(panel);
-
-  requestAnimationFrame(() => {
-    panel.classList.add("is-visible");
-    backButton.classList.add("is-visible");
-  });
-}
-
-function closeSection() {
-  activeSection = null;
-  radial.classList.remove("is-active");
-  radial.style.transform = "scale(1) rotate(0deg)";
-  backButton.classList.remove("is-visible");
-
-  const panel = contentLayer.querySelector(".content-panel");
-  if (panel) {
-    panel.classList.remove("is-visible");
-    setTimeout(() => {
-      contentLayer.innerHTML = "";
-    }, 450);
-  }
-
-  slices.forEach(slice => {
-    slice.classList.remove("is-selected");
-  });
-}
-
 import { track } from "./analytics.js";
 
 const radial = document.getElementById("radial");
@@ -162,111 +9,116 @@ const centerHub = document.getElementById("centerHub");
 let activeSection = null;
 
 const sectionContent = {
-  music: {
-    title: "music",
-    kicker: "playlists, sound, motion, mood",
+  marketing: {
+    title: "marketing",
+    kicker: "strategy, positioning, audience, direction",
     cards: [
       {
-        title: "playlists",
-        body: "A living archive of sequencing, atmosphere, and emotional architecture."
+        title: "brand thinking",
+        body: "Messaging, identity shaping, and the structure behind how things are perceived."
       },
       {
-        title: "sound experiments",
-        body: "Interactive media, transport controls, embedded players, and ambient systems."
+        title: "market perspective",
+        body: "An interest in trends, attention, risk, and how positioning changes outcomes."
       },
       {
-        title: "score logic",
-        body: "Moments where sound is not just content but part of navigation itself."
+        title: "applied work",
+        body: "A place for campaign thinking, audience insight, and practical business direction."
       }
     ]
   },
-  code: {
-    title: "code",
-    kicker: "systems, experiments, site logic",
+
+  creative: {
+    title: "creative",
+    kicker: "image, design, experimentation, authorship",
     cards: [
       {
-        title: "front-end builds",
-        body: "Interactive UI systems, theme engines, custom behavior, and authored motion."
+        title: "visual work",
+        body: "Photography, design language, and projects built around strong visual identity."
       },
       {
-        title: "site mechanics",
-        body: "Physics objects, modular controls, state-based UI, and experimental navigation."
+        title: "digital experiments",
+        body: "Interfaces, motion, and interactive pieces that feel authored rather than templated."
       },
       {
-        title: "projects",
-        body: "Small digital objects that feel authored instead of templated."
+        title: "creative direction",
+        body: "A space for mood, presentation, sequencing, and aesthetic construction."
       }
     ]
   },
-  photo: {
-    title: "photo",
-    kicker: "framing, texture, presence",
+
+  resume: {
+    title: "resume",
+    kicker: "experience, skills, trajectory",
     cards: [
       {
-        title: "portraits",
-        body: "Work focused on tension, intimacy, and strong visual identity."
+        title: "background",
+        body: "Work history, study, and the experiences that shaped both discipline and range."
       },
       {
-        title: "atmosphere",
-        body: "Images built around light, stillness, environment, and subtle unease."
+        title: "skills",
+        body: "A practical overview of technical, creative, and analytical abilities."
       },
       {
-        title: "selected work",
-        body: "A space for galleries, sequences, and image-led storytelling."
+        title: "next step",
+        body: "A section for formal credentials, current direction, and where things are headed."
       }
     ]
   },
-  writing: {
-    title: "writing",
-    kicker: "analysis, reflection, construction",
+
+  "global cultures": {
+    title: "global cultures",
+    kicker: "history, identity, cinema, interpretation",
     cards: [
       {
-        title: "critical work",
-        body: "Longer writing on film, ideology, aesthetics, and historical memory."
+        title: "cultural analysis",
+        body: "Work centered on history, ideology, identity, and the meanings carried across cultures."
       },
       {
-        title: "statements",
-        body: "Short-form pieces, captions, fragments, and personal positioning."
+        title: "cinema and memory",
+        body: "Film-based analysis tied to national identity, historical trauma, and visual language."
       },
       {
-        title: "notes",
-        body: "A place for unfinished thoughts that still deserve shape."
+        title: "research threads",
+        body: "A space for critical writing, comparative study, and longer-form reflection."
       }
     ]
   },
-  film: {
-    title: "film",
-    kicker: "cinema, image, sequence",
+
+  placeholder: {
+    title: "placeholder",
+    kicker: "expansion, experiments, future section",
     cards: [
       {
-        title: "analysis",
-        body: "Writing and visual work tied to cinema, national identity, and form."
+        title: "in progress",
+        body: "A temporary sector reserved for future work or a new category still taking shape."
       },
       {
-        title: "selections",
-        body: "Curated films, references, and projects built around moving image."
+        title: "testing ground",
+        body: "Useful as a live slot for prototypes, alternate layouts, or upcoming content."
       },
       {
-        title: "direction",
-        body: "A place for visual pacing, montage logic, and screen-based experiments."
+        title: "future direction",
+        body: "This can later become a dedicated portfolio section once the structure is clearer."
       }
     ]
   },
+
   about: {
     title: "about",
     kicker: "identity, direction, contact",
     cards: [
       {
         title: "approach",
-        body: "A personal portfolio built around authored systems, mood, and structure."
+        body: "A portfolio built around strategy, creativity, and authored digital presentation."
       },
       {
         title: "background",
-        body: "Code, writing, image-making, and digital objects treated as connected practice."
+        body: "A mix of marketing interest, creative work, technical experimentation, and analysis."
       },
       {
-        title: "next steps",
-        body: "A landing space for contact, statements, and future expansion."
+        title: "contact",
+        body: "A landing space for personal statement, links, and ways to get in touch."
       }
     ]
   }
@@ -316,7 +168,6 @@ function openSection(section, angle, clickedSlice) {
   if (!panel) return;
 
   contentLayer.appendChild(panel);
-
   track("section_open", { section });
 
   requestAnimationFrame(() => {
@@ -365,13 +216,7 @@ slices.forEach(slice => {
 backButton.addEventListener("click", closeSection);
 centerHub.addEventListener("click", closeSection);
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && activeSection) {
-    closeSection();
-  }
-});
-
-document.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", event => {
   if (event.key === "Escape" && activeSection) {
     closeSection();
   }
