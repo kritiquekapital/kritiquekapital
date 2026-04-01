@@ -1,6 +1,7 @@
 const ANALYTICS_ENABLED_HOSTS = new Set([
   "kritiquekapital.com",
   "www.kritiquekapital.com",
+  "kritiquekapital.github.io",
 ]);
 
 function analyticsAllowed() {
