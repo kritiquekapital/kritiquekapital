@@ -145,21 +145,21 @@ const sectionContent = {
 };
 
 const desktopCameraTargets = {
-  marketing: { x: 0, y: 250 },
-  creative: { x: -320, y: 200 },
-  resume: { x: -320, y: -180 },
-  writing: { x: 0, y: -255 },
-  film: { x: 320, y: -180 },
-  about: { x: 320, y: 200 }
+  1: { x: 0, y: 250 },
+  2: { x: -320, y: 200 },
+  3: { x: -320, y: -180 },
+  4: { x: 0, y: -255 },
+  5: { x: 320, y: -180 },
+  6: { x: 320, y: 200 }
 };
 
 const mobileCameraTargets = {
-  marketing: { x: 0, y: 220 },
-  creative: { x: -205, y: 175 },
-  resume: { x: -205, y: -160 },
-  writing: { x: 0, y: -230 },
-  film: { x: 205, y: -160 },
-  about: { x: 205, y: 175 }
+  1: { x: 0, y: 220 },
+  2: { x: -205, y: 175 },
+  3: { x: -205, y: -160 },
+  4: { x: 0, y: -230 },
+  5: { x: 205, y: -160 },
+  6: { x: 205, y: 175 }
 };
 
 function getCameraTargets() {
@@ -174,19 +174,19 @@ function getPanel(section) {
   return panels.find(panel => panel.dataset.section === section) ?? null;
 }
 
-function clearHoveredLabels() {
-  labels.forEach(label => label.classList.remove("is-hovered"));
+function getSliceBySection(section) {
+  return slices.find(slice => slice.dataset.section === section) ?? null;
 }
 
-function applyCamera(section) {
-  if (!section) {
+function applyCamera(slot) {
+  if (!slot) {
     root.style.setProperty("--camera-x", "0px");
     root.style.setProperty("--camera-y", "0px");
     return;
   }
 
   const targets = getCameraTargets();
-  const target = targets[section] ?? { x: 0, y: 0 };
+  const target = targets[slot] ?? { x: 0, y: 0 };
 
   root.style.setProperty("--camera-x", `${target.x}px`);
   root.style.setProperty("--camera-y", `${target.y}px`);
@@ -284,15 +284,17 @@ function buildAllPanels() {
 
 function clearSelectedState() {
   slices.forEach(slice => slice.classList.remove("is-selected"));
-  labels.forEach(label => label.classList.remove("is-selected"));
+  labels.forEach(label => label.classList.remove("is-selected", "is-hovered"));
   panels.forEach(panel => panel.classList.remove("is-active"));
 }
 
 function openSection(section, clickedSlice) {
   if (!section || !clickedSlice) return;
 
+  const slot = clickedSlice.dataset.slot;
+  if (!slot) return;
+
   activeSection = section;
-  clearHoveredLabels();
   clearSelectedState();
 
   clickedSlice.classList.add("is-selected");
@@ -304,7 +306,7 @@ function openSection(section, clickedSlice) {
   if (panel) panel.classList.add("is-active");
 
   radial.classList.add("is-active");
-  applyCamera(section);
+  applyCamera(slot);
 
   track("slice_click", { section });
   track("section_open", { section });
@@ -316,7 +318,6 @@ function resetView() {
   }
 
   activeSection = null;
-  clearHoveredLabels();
   clearSelectedState();
   radial.classList.remove("is-active");
   applyCamera(null);
@@ -334,36 +335,32 @@ function handleSliceActivate(slice) {
   openSection(section, slice);
 }
 
-function bindEvents() {
+function bindHoverEvents() {
   slices.forEach(slice => {
+    const section = slice.dataset.section;
+    const label = getLabel(section);
+    if (!label) return;
+
     slice.addEventListener("mouseenter", () => {
-      const section = slice.dataset.section;
-      const label = getLabel(section);
-      if (!label || activeSection === section) return;
-      label.classList.add("is-hovered");
+      if (!activeSection) label.classList.add("is-hovered");
     });
 
     slice.addEventListener("mouseleave", () => {
-      const section = slice.dataset.section;
-      const label = getLabel(section);
-      if (!label) return;
-      label.classList.remove("is-hovered");
+      if (!activeSection) label.classList.remove("is-hovered");
     });
 
     slice.addEventListener("focus", () => {
-      const section = slice.dataset.section;
-      const label = getLabel(section);
-      if (!label || activeSection === section) return;
-      label.classList.add("is-hovered");
+      if (!activeSection) label.classList.add("is-hovered");
     });
 
     slice.addEventListener("blur", () => {
-      const section = slice.dataset.section;
-      const label = getLabel(section);
-      if (!label) return;
-      label.classList.remove("is-hovered");
+      if (!activeSection) label.classList.remove("is-hovered");
     });
+  });
+}
 
+function bindEvents() {
+  slices.forEach(slice => {
     slice.addEventListener("click", () => handleSliceActivate(slice));
 
     slice.addEventListener("keydown", event => {
@@ -387,10 +384,18 @@ function bindEvents() {
   });
 
   window.addEventListener("resize", () => {
-    applyCamera(activeSection);
+    if (!activeSection) {
+      applyCamera(null);
+      return;
+    }
+
+    const activeSlice = getSliceBySection(activeSection);
+    const activeSlot = activeSlice?.dataset.slot ?? null;
+    applyCamera(activeSlot);
   });
 }
 
 buildAllPanels();
+bindHoverEvents();
 bindEvents();
 applyCamera(null);
