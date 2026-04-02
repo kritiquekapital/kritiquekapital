@@ -195,6 +195,21 @@ function setPanTransitionEnabled(enabled) {
   spaceCamera.style.transition = enabled ? "" : "none";
 }
 
+function resetPanOffset() {
+  panOffset.x = 0;
+  panOffset.y = 0;
+  applyCombinedCamera();
+}
+
+function centerRadialView() {
+  resetPanOffset();
+  applyCamera(null);
+}
+
+function setPanTransitionForReset() {
+  setPanTransitionEnabled(true);
+}
+
 function startMiddlePan(event) {
   if (event.button !== 1) return;
 
@@ -263,6 +278,7 @@ function renderHeaderActions(actions = []) {
             ${href === "#" ? 'onclick="event.preventDefault()"' : ""}
           >
             <span class="panel-action-icon" aria-hidden="true">${icon}</span>
+            <span class="panel-action-text">${label}</span>
           </a>
         `;
       }).join("")}
@@ -272,38 +288,84 @@ function renderHeaderActions(actions = []) {
 
 function renderResumeIntroModule(module) {
   return `
-    <section class="module resume-intro-module">
-      <div class="module-inner">
-        <div class="resume-intro-grid">
-          <article class="resume-intro-card">
+    <div class="resume-main-copy">
+      <div class="resume-intro-grid">
+        <article class="resume-intro-card">
+          <div class="stack-card-inner">
             <h4 class="stack-card-title">${module.profile.title}</h4>
             <p class="module-copy">${module.profile.copy}</p>
-          </article>
-          <article class="resume-intro-card">
+          </div>
+        </article>
+        <article class="resume-intro-card">
+          <div class="stack-card-inner">
             <h4 class="stack-card-title">${module.skills.title}</h4>
             <p class="module-copy">${module.skills.copy}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  `;
+}
+
+function renderResumeWorkCard(module) {
+  return `
+    <section class="resume-card resume-card-work">
+      <div class="module-inner">
+        <h3 class="module-title">${module.title}</h3>
+      </div>
+      <div class="stack-module-list">
+        ${module.items.map(item => `
+          <article class="stack-card resume-work-item">
+            <div class="stack-card-inner">
+              <h4 class="stack-card-title">${item.title}</h4>
+              <p class="module-copy resume-work-summary">${item.summary}</p>
+              <ul class="resume-bullet-list">
+                ${item.bullets.map(bullet => `<li>${bullet}</li>`).join("")}
+              </ul>
+            </div>
           </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderResumeEducationCard(module) {
+  return `
+    <section class="resume-card resume-card-education">
+      <div class="module-inner">
+        <h3 class="module-title">${module.title}</h3>
+        <div class="paired-stacks-grid">
+          ${module.items.map(item => `
+            <article class="stack-card paired-stack-card">
+              <div class="stack-card-inner">
+                <h4 class="stack-card-title">${item.title}</h4>
+                <p class="module-copy">${item.copy}</p>
+                <div class="module-subsection">
+                  <h4 class="module-subtitle">${item.subTitle}</h4>
+                  <p class="module-copy">${item.subCopy}</p>
+                </div>
+              </div>
+            </article>
+          `).join("")}
         </div>
       </div>
     </section>
   `;
 }
 
-function renderResumeMetaModule(module) {
+function renderResumeListCard(module, className) {
   return `
-    <section class="module resume-meta-module">
+    <section class="resume-card ${className}">
       <div class="module-inner">
         <h3 class="module-title">${module.title}</h3>
-      </div>
-      <div class="resume-meta-grid">
-        ${module.items.map(item => `
-          <article class="stack-card resume-meta-card">
-            <div class="stack-card-inner">
-              <h4 class="stack-card-title">${item.title}</h4>
-              <p class="module-copy">${item.copy}</p>
+        <div class="resume-pill-list">
+          ${module.items.map(item => `
+            <div class="resume-pill-item">
+              <span>${item}</span>
             </div>
-          </article>
-        `).join("")}
+          `).join("")}
+        </div>
       </div>
     </section>
   `;
@@ -363,52 +425,6 @@ function renderTwoUpModule(module) {
   `;
 }
 
-function renderPairedStacksModule(module) {
-  return `
-    <section class="module module-paired-stacks">
-      ${module.title ? `
-        <div class="module module-paired-stacks-heading">
-          <div class="module-inner">
-            <h3 class="module-title">${module.title}</h3>
-          </div>
-        </div>
-      ` : ""}
-      ${module.items.map(item => `
-        <div class="module paired-stack-card">
-          <div class="module-inner">
-            <h3 class="module-title">${item.title}</h3>
-            <p class="module-copy">${item.copy}</p>
-            <div class="module-subsection">
-              <h4 class="module-subtitle">${item.subTitle}</h4>
-              <p class="module-copy">${item.subCopy}</p>
-            </div>
-          </div>
-        </div>
-      `).join("")}
-    </section>
-  `;
-}
-
-function renderStackModule(module) {
-  return `
-    <section class="module stack-module">
-      <div class="module-inner">
-        <h3 class="module-title">${module.title}</h3>
-      </div>
-      <div class="stack-module-list">
-        ${module.items.map(item => `
-          <article class="stack-card">
-            <div class="stack-card-inner">
-              <h4 class="stack-card-title">${item.title}</h4>
-              <p class="module-copy">${item.copy}</p>
-            </div>
-          </article>
-        `).join("")}
-      </div>
-    </section>
-  `;
-}
-
 function renderModule(module) {
   switch (module.type) {
     case "text":
@@ -419,22 +435,71 @@ function renderModule(module) {
       return renderSlideshowModule(module);
     case "two-up":
       return renderTwoUpModule(module);
-    case "paired-stacks":
-      return renderPairedStacksModule(module);
-    case "stack":
-      return renderStackModule(module);
-    case "resume-intro":
-      return renderResumeIntroModule(module);
-    case "resume-meta":
-      return renderResumeMetaModule(module);
     default:
       return "";
   }
 }
 
+function applyPanelSectionClass(panel, section) {
+  if (!panel) return;
+
+  const removableClasses = [...panel.classList].filter(className =>
+    className.startsWith("panel-") && className !== "section-panel"
+  );
+
+  removableClasses.forEach(className => panel.classList.remove(className));
+
+  if (section) {
+    panel.classList.add(`panel-${section}`);
+  }
+}
+
+function buildResumePanel(panel, data, section) {
+  const introModule = data.modules[0];
+  const workModule = data.modules[1];
+  const educationModule = data.modules[2];
+  const languagesModule = data.modules[3];
+  const certsAwardsModule = data.modules[4];
+  const interestsModule = data.modules[5];
+
+  panel.innerHTML = `
+    <div class="resume-layout">
+      ${renderResumeWorkCard(workModule)}
+
+      <div class="resume-center-stack">
+        <section class="resume-card resume-card-main">
+          <header class="panel-header ${data.headerActions?.length ? "has-actions" : ""}">
+            <div class="panel-header-main">
+              <h2 class="panel-title" id="panel-title-${section}">${data.title}</h2>
+              <p class="panel-kicker">${data.kicker}</p>
+            </div>
+            ${renderHeaderActions(data.headerActions)}
+          </header>
+          ${renderResumeIntroModule(introModule)}
+        </section>
+
+        ${renderResumeEducationCard(educationModule)}
+      </div>
+
+      <div class="resume-right-stack">
+        ${renderResumeListCard(languagesModule, "resume-card-lang")}
+        ${renderResumeListCard(certsAwardsModule, "resume-card-certs-awards")}
+        ${renderResumeListCard(interestsModule, "resume-card-interest")}
+      </div>
+    </div>
+  `;
+}
+
 function buildPanel(section, data) {
   const panel = getPanel(section);
   if (!panel || !data) return;
+
+  applyPanelSectionClass(panel, section);
+
+  if (section === "resume") {
+    buildResumePanel(panel, data, section);
+    return;
+  }
 
   panel.innerHTML = `
     <header class="panel-header ${data.headerActions?.length ? "has-actions" : ""}">
@@ -494,7 +559,8 @@ function resetView() {
   activeSection = null;
   clearSelectedState();
   radial.classList.remove("is-active");
-  applyCamera(null);
+  setPanTransitionForReset();
+  centerRadialView();
 }
 
 function handleSliceActivate(slice) {
@@ -580,7 +646,7 @@ function bindEvents() {
 
   window.addEventListener("resize", () => {
     if (!activeSection) {
-      applyCamera(null);
+      centerRadialView();
       return;
     }
 
@@ -595,4 +661,4 @@ function bindEvents() {
 buildAllPanels();
 bindHoverEvents();
 bindEvents();
-applyCamera(null);
+centerRadialView();
