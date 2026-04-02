@@ -1,15 +1,25 @@
 import { track } from "./analytics.js";
+import { resumeSection } from "./sections/resume-section.js";
 
 const root = document.documentElement;
 const radial = document.getElementById("radial");
 const centerHub = document.getElementById("centerHub");
 const homeButton = document.getElementById("homeButton");
+const spaceView = document.querySelector(".space-view");
+const spaceCamera = document.querySelector(".space-camera");
 
 const slices = [...document.querySelectorAll(".slice-group")];
 const labels = [...document.querySelectorAll(".slice-label")];
 const panels = [...document.querySelectorAll(".section-panel")];
 
 let activeSection = null;
+
+const baseCamera = { x: 0, y: 0 };
+const panOffset = { x: 0, y: 0 };
+
+let isMiddlePanning = false;
+let middlePanPointerId = null;
+let lastPanPoint = { x: 0, y: 0 };
 
 const sectionContent = {
   marketing: {
@@ -59,30 +69,7 @@ const sectionContent = {
     ]
   },
 
-  resume: {
-    title: "resume",
-    kicker: "experience, skills, trajectory",
-    modules: [
-      {
-        type: "two-up",
-        items: [
-          {
-            title: "experience",
-            copy: "Work history, study, operational ability, and the discipline behind the presentation."
-          },
-          {
-            title: "skills",
-            copy: "Technical, analytical, creative, and practical strengths."
-          }
-        ]
-      },
-      {
-        type: "text",
-        title: "next step",
-        copy: "This section can become a more formal resume surface with downloadable assets, links, and structured milestones."
-      }
-    ]
-  },
+  resume: resumeSection,
 
   writing: {
     title: "writing",
@@ -91,12 +78,12 @@ const sectionContent = {
       {
         type: "text",
         title: "critical work",
-        copy: "Long-form writing, historical analysis, cultural interpretation, and comparative work can all sit here in proper reading layouts."
+        copy: "Long-form writing, historical analysis, and interpretation."
       },
       {
         type: "embed",
         title: "essay or publication",
-        mediaLabel: "article embed / document preview / pdf window"
+        mediaLabel: "article embed / pdf window"
       }
     ]
   },
@@ -113,7 +100,7 @@ const sectionContent = {
       {
         type: "text",
         title: "notes",
-        copy: "This can hold reviews, national cinema work, lists, sequences, and visual arguments."
+        copy: "Reviews, national cinema work, and visual arguments."
       }
     ]
   },
@@ -125,18 +112,18 @@ const sectionContent = {
       {
         type: "text",
         title: "approach",
-        copy: "A portfolio built around strategy, creativity, authorship, and strong digital presentation."
+        copy: "A portfolio built around strategy, creativity, and digital presentation."
       },
       {
         type: "two-up",
         items: [
           {
             title: "background",
-            copy: "Marketing interest, creative work, technical experimentation, writing, and visual thinking."
+            copy: "Marketing, creative work, technical experimentation, and writing."
           },
           {
             title: "contact / links",
-            copy: "This side can later hold social links, contact details, or a compact intro statement."
+            copy: "Social links, contact details, or intro."
           }
         ]
       }
@@ -148,7 +135,7 @@ const desktopCameraTargets = {
   1: { x: 0, y: 250 },
   2: { x: -320, y: 200 },
   3: { x: -320, y: -180 },
-  4: { x: 0, y: -255 },
+  4: { x: 145, y: -110 },
   5: { x: 320, y: -180 },
   6: { x: 320, y: 200 }
 };
@@ -157,7 +144,7 @@ const mobileCameraTargets = {
   1: { x: 0, y: 220 },
   2: { x: -205, y: 175 },
   3: { x: -205, y: -160 },
-  4: { x: 0, y: -230 },
+  4: { x: 92, y: -88 },
   5: { x: 205, y: -160 },
   6: { x: 205, y: 175 }
 };
@@ -178,18 +165,148 @@ function getSliceBySection(section) {
   return slices.find(slice => slice.dataset.section === section) ?? null;
 }
 
-function applyCamera(slot) {
+function applyCombinedCamera() {
+  root.style.setProperty("--camera-x", `${baseCamera.x + panOffset.x}px`);
+  root.style.setProperty("--camera-y", `${baseCamera.y + panOffset.y}px`);
+}
+
+function setBaseCamera(slot) {
   if (!slot) {
-    root.style.setProperty("--camera-x", "0px");
-    root.style.setProperty("--camera-y", "0px");
+    baseCamera.x = 0;
+    baseCamera.y = 0;
+    applyCombinedCamera();
     return;
   }
 
   const targets = getCameraTargets();
   const target = targets[slot] ?? { x: 0, y: 0 };
 
-  root.style.setProperty("--camera-x", `${target.x}px`);
-  root.style.setProperty("--camera-y", `${target.y}px`);
+  baseCamera.x = target.x;
+  baseCamera.y = target.y;
+  applyCombinedCamera();
+}
+
+function applyCamera(slot) {
+  setBaseCamera(slot);
+}
+
+function setPanTransitionEnabled(enabled) {
+  if (!spaceCamera) return;
+  spaceCamera.style.transition = enabled ? "" : "none";
+}
+
+function startMiddlePan(event) {
+  if (event.button !== 1) return;
+
+  event.preventDefault();
+
+  isMiddlePanning = true;
+  middlePanPointerId = event.pointerId;
+  lastPanPoint.x = event.clientX;
+  lastPanPoint.y = event.clientY;
+
+  setPanTransitionEnabled(false);
+
+  if (spaceView && typeof spaceView.setPointerCapture === "function") {
+    try {
+      spaceView.setPointerCapture(event.pointerId);
+    } catch (_) {}
+  }
+}
+
+function moveMiddlePan(event) {
+  if (!isMiddlePanning || event.pointerId !== middlePanPointerId) return;
+
+  const deltaX = event.clientX - lastPanPoint.x;
+  const deltaY = event.clientY - lastPanPoint.y;
+
+  panOffset.x += deltaX;
+  panOffset.y += deltaY;
+
+  lastPanPoint.x = event.clientX;
+  lastPanPoint.y = event.clientY;
+
+  applyCombinedCamera();
+}
+
+function endMiddlePan(event) {
+  if (!isMiddlePanning) return;
+  if (event.pointerId !== middlePanPointerId) return;
+
+  isMiddlePanning = false;
+
+  if (spaceView && typeof spaceView.releasePointerCapture === "function") {
+    try {
+      spaceView.releasePointerCapture(event.pointerId);
+    } catch (_) {}
+  }
+
+  middlePanPointerId = null;
+  setPanTransitionEnabled(true);
+}
+
+function renderHeaderActions(actions = []) {
+  if (!actions.length) return "";
+
+  return `
+    <div class="panel-header-actions">
+      ${actions.map(action => {
+        const href = action.href ?? "#";
+        const label = action.label ?? "";
+        const icon = action.icon ?? "";
+        return `
+          <a
+            class="panel-action-link"
+            href="${href}"
+            aria-label="${label}"
+            title="${label}"
+            ${href === "#" ? 'onclick="event.preventDefault()"' : ""}
+          >
+            <span class="panel-action-icon" aria-hidden="true">${icon}</span>
+          </a>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+function renderResumeIntroModule(module) {
+  return `
+    <section class="module resume-intro-module">
+      <div class="module-inner">
+        <div class="resume-intro-grid">
+          <article class="resume-intro-card">
+            <h4 class="stack-card-title">${module.profile.title}</h4>
+            <p class="module-copy">${module.profile.copy}</p>
+          </article>
+          <article class="resume-intro-card">
+            <h4 class="stack-card-title">${module.skills.title}</h4>
+            <p class="module-copy">${module.skills.copy}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderResumeMetaModule(module) {
+  return `
+    <section class="module resume-meta-module">
+      <div class="module-inner">
+        <h3 class="module-title">${module.title}</h3>
+      </div>
+      <div class="resume-meta-grid">
+        ${module.items.map(item => `
+          <article class="stack-card resume-meta-card">
+            <div class="stack-card-inner">
+              <h4 class="stack-card-title">${item.title}</h4>
+              <p class="module-copy">${item.copy}</p>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
 }
 
 function renderTextModule(module) {
@@ -246,6 +363,52 @@ function renderTwoUpModule(module) {
   `;
 }
 
+function renderPairedStacksModule(module) {
+  return `
+    <section class="module module-paired-stacks">
+      ${module.title ? `
+        <div class="module module-paired-stacks-heading">
+          <div class="module-inner">
+            <h3 class="module-title">${module.title}</h3>
+          </div>
+        </div>
+      ` : ""}
+      ${module.items.map(item => `
+        <div class="module paired-stack-card">
+          <div class="module-inner">
+            <h3 class="module-title">${item.title}</h3>
+            <p class="module-copy">${item.copy}</p>
+            <div class="module-subsection">
+              <h4 class="module-subtitle">${item.subTitle}</h4>
+              <p class="module-copy">${item.subCopy}</p>
+            </div>
+          </div>
+        </div>
+      `).join("")}
+    </section>
+  `;
+}
+
+function renderStackModule(module) {
+  return `
+    <section class="module stack-module">
+      <div class="module-inner">
+        <h3 class="module-title">${module.title}</h3>
+      </div>
+      <div class="stack-module-list">
+        ${module.items.map(item => `
+          <article class="stack-card">
+            <div class="stack-card-inner">
+              <h4 class="stack-card-title">${item.title}</h4>
+              <p class="module-copy">${item.copy}</p>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderModule(module) {
   switch (module.type) {
     case "text":
@@ -256,6 +419,14 @@ function renderModule(module) {
       return renderSlideshowModule(module);
     case "two-up":
       return renderTwoUpModule(module);
+    case "paired-stacks":
+      return renderPairedStacksModule(module);
+    case "stack":
+      return renderStackModule(module);
+    case "resume-intro":
+      return renderResumeIntroModule(module);
+    case "resume-meta":
+      return renderResumeMetaModule(module);
     default:
       return "";
   }
@@ -266,9 +437,12 @@ function buildPanel(section, data) {
   if (!panel || !data) return;
 
   panel.innerHTML = `
-    <header class="panel-header">
-      <h2 class="panel-title" id="panel-title-${section}">${data.title}</h2>
-      <p class="panel-kicker">${data.kicker}</p>
+    <header class="panel-header ${data.headerActions?.length ? "has-actions" : ""}">
+      <div class="panel-header-main">
+        <h2 class="panel-title" id="panel-title-${section}">${data.title}</h2>
+        <p class="panel-kicker">${data.kicker}</p>
+      </div>
+      ${renderHeaderActions(data.headerActions)}
     </header>
     <div class="panel-content">
       ${data.modules.map(renderModule).join("")}
@@ -359,6 +533,27 @@ function bindHoverEvents() {
   });
 }
 
+function bindDevPanEvents() {
+  if (!spaceView) return;
+
+  spaceView.addEventListener("pointerdown", startMiddlePan);
+  spaceView.addEventListener("pointermove", moveMiddlePan);
+  spaceView.addEventListener("pointerup", endMiddlePan);
+  spaceView.addEventListener("pointercancel", endMiddlePan);
+
+  spaceView.addEventListener("auxclick", event => {
+    if (event.button === 1) {
+      event.preventDefault();
+    }
+  });
+
+  spaceView.addEventListener("mousedown", event => {
+    if (event.button === 1) {
+      event.preventDefault();
+    }
+  });
+}
+
 function bindEvents() {
   slices.forEach(slice => {
     slice.addEventListener("click", () => handleSliceActivate(slice));
@@ -393,6 +588,8 @@ function bindEvents() {
     const activeSlot = activeSlice?.dataset.slot ?? null;
     applyCamera(activeSlot);
   });
+
+  bindDevPanEvents();
 }
 
 buildAllPanels();
