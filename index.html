@@ -31,18 +31,23 @@
   <meta name="theme-color" content="#0c0d11">
 
   <link rel="stylesheet" href="css/radial.css">
+  <link rel="stylesheet" href="css/sections/resume-section.css">
+  <link rel="stylesheet" href="css/sections/about-section.css">
+  <link rel="stylesheet" href="css/sections/writing-section.css">
+  <link rel="stylesheet" href="css/sections/marketing-section.css">
+  <link rel="stylesheet" href="css/sections/creative-section.css">
+  <link rel="stylesheet" href="css/sections/film-section.css">
 </head>
 <body>
   <main class="site-shell">
     <section class="space-view" id="spaceView" aria-label="Portfolio navigation space">
       <div class="space-camera" id="spaceCamera">
-        <section class="section-panel panel-marketing" data-section="marketing" aria-labelledby="panel-title-marketing"></section>
-        <section class="section-panel panel-creative" data-section="creative" aria-labelledby="panel-title-creative"></section>
-        <section class="section-panel panel-resume" data-section="resume" aria-labelledby="panel-title-resume"></section>
-        <section class="section-panel panel-writing" data-section="writing" aria-labelledby="panel-title-writing"></section>
-        <section class="section-panel panel-film" data-section="film" aria-labelledby="panel-title-film"></section>
-        <section class="section-panel panel-about" data-section="about" aria-labelledby="panel-title-about"></section>
-
+        <section class="section-panel" data-slot="1" data-section="marketing" aria-labelledby="panel-title-marketing"></section>
+        <section class="section-panel" data-slot="2" data-section="creative" aria-labelledby="panel-title-creative"></section>
+        <section class="section-panel" data-slot="3" data-section="about" aria-labelledby="panel-title-about"></section>
+        <section class="section-panel" data-slot="4" data-section="resume" aria-labelledby="panel-title-resume"></section>
+        <section class="section-panel" data-slot="5" data-section="film" aria-labelledby="panel-title-film"></section>
+        <section class="section-panel" data-slot="6" data-section="writing" aria-labelledby="panel-title-writing"></section>
         <div id="radial" class="radial" aria-label="Portfolio wheel">
           <svg
             class="radial-svg"
@@ -107,6 +112,14 @@
     <span>© .oCam Studios</span>
   </footer>
 
+  <script src="js/analytics.js"></script>
   <script type="module" src="js/radial.js"></script>
+  <script type="module" src="js/sections/resume-section.js"></script>
+  <script type="module" src="js/sections/about-section.js"></script>
+  <script type="module" src="js/sections/film-section.js"></script>
+  <script type="module" src="js/sections/marketing-section.js"></script>
+  <script type="module" src="js/sections/writing-section.js"></script>
+  <script type="module" src="js/sections/creative-section.js"></script>
+
 </body>
 </html>
