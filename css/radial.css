@@ -216,40 +216,39 @@ svg g:focus-visible {
   opacity: 1;
 }
 
-/* desktop label positions */
 .slice-label[data-section="marketing"] {
-  top: 13%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="creative"] {
-  top: 31%;
-  left: 84%;
+  top: 35%;
+  left: 71.5%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="resume"] {
-  top: 69%;
-  left: 84%;
+  top: 65%;
+  left: 71.5%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="writing"] {
-  top: 87%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="film"] {
-  top: 69%;
-  left: 16%;
+  top: 65%;
+  left: 28.5%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="about"] {
-  top: 31%;
-  left: 16%;
+  top: 35%;
+  left: 28.5%;
   transform: translate(-50%, -50%);
 }
 
