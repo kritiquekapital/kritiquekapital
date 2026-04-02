@@ -217,38 +217,38 @@ svg g:focus-visible {
 }
 
 .slice-label[data-section="marketing"] {
-  top: 20%;
-  left: 50%;
+  top: 18%;
+  left: 69%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="creative"] {
-  top: 35%;
-  left: 71.5%;
+  top: 50%;
+  left: 87%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="resume"] {
-  top: 65%;
-  left: 71.5%;
+  top: 82%;
+  left: 69%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="writing"] {
-  top: 80%;
-  left: 50%;
+  top: 82%;
+  left: 31%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="film"] {
-  top: 65%;
-  left: 28.5%;
+  top: 50%;
+  left: 13%;
   transform: translate(-50%, -50%);
 }
 
 .slice-label[data-section="about"] {
-  top: 35%;
-  left: 28.5%;
+  top: 18%;
+  left: 31%;
   transform: translate(-50%, -50%);
 }
 
