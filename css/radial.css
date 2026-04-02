@@ -216,37 +216,37 @@ svg g:focus-visible {
   opacity: 1;
 }
 
-.slice-label[data-section="marketing"] {
+.slice-label[data-slot="1"] {
   top: 18%;
   left: 69%;
   transform: translate(-50%, -50%);
 }
 
-.slice-label[data-section="creative"] {
+.slice-label[data-slot="2"] {
   top: 50%;
   left: 87%;
   transform: translate(-50%, -50%);
 }
 
-.slice-label[data-section="resume"] {
+.slice-label[data-slot="3"] {
   top: 82%;
   left: 69%;
   transform: translate(-50%, -50%);
 }
 
-.slice-label[data-section="writing"] {
+.slice-label[data-slot="4"] {
   top: 82%;
   left: 31%;
   transform: translate(-50%, -50%);
 }
 
-.slice-label[data-section="film"] {
+.slice-label[data-slot="5"] {
   top: 50%;
   left: 13%;
   transform: translate(-50%, -50%);
 }
 
-.slice-label[data-section="about"] {
+.slice-label[data-slot="6"] {
   top: 18%;
   left: 31%;
   transform: translate(-50%, -50%);
@@ -531,37 +531,37 @@ svg g:focus-visible {
     letter-spacing: 0.06em;
   }
 
-  .slice-label[data-section="marketing"] {
+  .slice-label[data-slot="1"] {
     top: 19%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  .slice-label[data-section="creative"] {
+  .slice-label[data-slot="2"] {
     top: 35%;
     left: 73%;
     transform: translate(-50%, -50%);
   }
 
-  .slice-label[data-section="resume"] {
+  .slice-label[data-slot="3"] {
     top: 65%;
     left: 73%;
     transform: translate(-50%, -50%);
   }
 
-  .slice-label[data-section="writing"] {
+  .slice-label[data-slot="4"] {
     top: 81%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  .slice-label[data-section="film"] {
+  .slice-label[data-slot="5"] {
     top: 65%;
     left: 27%;
     transform: translate(-50%, -50%);
   }
 
-  .slice-label[data-section="about"] {
+  .slice-label[data-slot="6"] {
     top: 35%;
     left: 27%;
     transform: translate(-50%, -50%);
