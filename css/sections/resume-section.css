@@ -7,6 +7,8 @@
   border: 0;
   box-shadow: none;
   overflow: visible;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .panel-resume .resume-layout {
@@ -51,6 +53,10 @@
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: start;
+}
+
+.panel-resume .panel-header-main {
+  min-width: 0;
 }
 
 .panel-resume .panel-header-actions {
@@ -165,6 +171,8 @@
   font-size: 0.88rem;
   letter-spacing: 0.09em;
   text-transform: lowercase;
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .panel-resume .module-copy {
@@ -172,6 +180,8 @@
   font-size: 0.9rem;
   line-height: 1.62;
   color: rgba(245,247,251,0.76);
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .panel-resume .stack-card-title {
@@ -180,6 +190,17 @@
   text-transform: lowercase;
   letter-spacing: 0.07em;
   color: #eaf7ff;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.panel-resume .panel-title,
+.panel-resume .panel-kicker,
+.panel-resume .module-subtitle,
+.panel-resume .resume-bullet-list li,
+.panel-resume .resume-pill-item span {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .panel-resume .stack-card,
