@@ -21,6 +21,8 @@ let isMiddlePanning = false;
 let middlePanPointerId = null;
 let lastPanPoint = { x: 0, y: 0 };
 
+const slideshowRegistry = new Map();
+
 const sectionContent = {
   marketing: {
     title: "marketing",
@@ -59,12 +61,217 @@ const sectionContent = {
       {
         type: "slideshow",
         title: "selected visual work",
-        mediaLabel: "slideshow / gallery goes here"
+        description: "Series-based gallery with switchable bodies of work and slide-level navigation.",
+        series: [
+          {
+            id: "failure-to-hold",
+            label: "failure to hold",
+            cover: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/fruit-loops-gif.GIF",
+            slides: [
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/fruit-loops-gif.GIF",
+                alt: "Fruit Loops GIF by Cameron Greenleaf",
+                pieceTitle: "loops of fruit",
+                meta: "animated digital work · 2026",
+                caption: "Motion-led opening piece."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/quandry-11.jpg",
+                alt: "Quandry by Cameron Greenleaf",
+                pieceTitle: "quandry-11",
+                meta: "digital photograph · 2026",
+                caption: "Tension without stable resolution."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/SIG.DECAY_01.gif",
+                alt: "SIG.DECAY by Cameron Greenleaf",
+                pieceTitle: "SIG.DECAY_01",
+                meta: "animated digital work · 2026",
+                caption: "Signal degradation and persistence."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/industry.jpg",
+                alt: "Ever Industry by Cameron Greenleaf",
+                pieceTitle: "ever industry",
+                meta: "digital photograph · 2026",
+                caption: "Industry as what persists."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/heat.jpg",
+                alt: "Heat by Cameron Greenleaf",
+                pieceTitle: "heat",
+                meta: "digital photograph · 2026",
+                caption: "Pressure, atmosphere, and force."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/afterparty.jpg",
+                alt: "Afterparty by Cameron Greenleaf",
+                pieceTitle: "afterparty",
+                meta: "digital photograph · 2026",
+                caption: "Residual energy after the event."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/afterimage.jpg",
+                alt: "Afterimage by Cameron Greenleaf",
+                pieceTitle: "afterimage",
+                meta: "digital photograph · 2026",
+                caption: "What remains after the image passes."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/surface-into-space.jpg",
+                alt: "Surface Into Space by Cameron Greenleaf",
+                pieceTitle: "surface into space",
+                meta: "digital photograph · 2026",
+                caption: "Flattened surface opening into depth."
+              }
+            ]
+          },
+          {
+            id: "visual-design-theory",
+            label: "visual design theory",
+            cover: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/fromtheheart.jpg",
+              slides: [
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/fromtheheart.jpg",
+                alt: "From the Heart by Cameron Greenleaf",
+                pieceTitle: "from the heart",
+                meta: '6" x 6" · mixed media · 2026',
+                caption: "Opening piece."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/dawgs.jpg",
+                alt: "Dawgs by Cameron Greenleaf",
+                pieceTitle: "dawgs",
+                meta: '6" x 6" · mixed media paper, gauche, acrylic painter pen · 2026',
+                caption: "Shape study."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/bubbly.jpg",
+                alt: "Bubbly by Cameron Greenleaf",
+                pieceTitle: "bubbly",
+                meta: '11" x 8.5" · B & H pencils, colored pencils, various objects · 2026',
+                caption: "Texture study."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/sqrd.png",
+                alt: "sqr² by Cameron Greenleaf",
+                pieceTitle: "sqr²",
+                meta: '6" x 6" · digital illustration (Procreate) · 2026',
+                caption: "Color study."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/fruit-loops.JPG",
+                alt: "Fruit Loops by Cameron Greenleaf",
+                pieceTitle: "fruit loops",
+                meta: '15.5" x 15.5" · digital illustration (Procreate) · 2026',
+                caption: "Value study."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/where-everything-returns.jpg",
+                alt: "Where Everything Returns by Cameron Greenleaf",
+                pieceTitle: "where everything returns",
+                meta: '16" x 12" · digital photograph · 2026',
+                caption: "Radial symmetry."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/where-nothing-settles.jpg",
+                alt: "Where Nothing Settles by Cameron Greenleaf",
+                pieceTitle: "where nothing settles",
+                meta: '12" x 16" · digital photograph · 2026',
+                caption: "Asymmetry."
+              },
+              {
+                src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/ask-for-assitance.jpg",
+                alt: "Ask for Assistance by Cameron Greenleaf",
+                pieceTitle: "ask for assistance",
+                meta: '16" x 12" · digital photograph · 2026',
+                caption: "Symmetry under strain."
+              }
+            ]
+          },
+          {
+            id: "emphasis",
+            label: "emphasis",
+            cover: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/emphasis/cover.jpg",
+            slides: [
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/emphasis/signal-exceeds-structure.jpg",
+                alt: "signal exceeds structure by Cameron Greenleaf",
+                pieceTitle: "signal exceeds structure",
+                meta: '16" x 12" · digital photograph · 2026',
+                caption: "Emphasis through color, contrast, and central placement."
+              },
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/emphasis/gheist.jpg",
+                alt: "gheist by Cameron Greenleaf",
+                pieceTitle: "gheist",
+                meta: '16" x 12" · digital photograph · 2026',
+                caption: "Emphasis through contrast, diagonal placement, and shadow."
+              },
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/emphasis/flowrpowr.jpg",
+                alt: "flowrpowr by Cameron Greenleaf",
+                pieceTitle: "flowrpowr",
+                meta: '16" x 12" · digital photograph (collage) · 2026',
+                caption: "Emphasis through saturation and centered focus."
+              }
+            ]
+          },
+          {
+            id: "conditions-of-symmetry",
+            label: "conditions of symmetry",
+            cover: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/conditions-of-symmetry/cover.jpg",
+            slides: [
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/conditions-of-symmetry/line-as-decision.jpg",
+                alt: "line as decision by Cameron Greenleaf",
+                pieceTitle: "line as decision",
+                meta: '12" x 16" · digital photograph · 2026',
+                caption: "A single line establishes direction and organizes the frame."
+              },
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/conditions-of-symmetry/twice.jpg",
+                alt: "twice by Cameron Greenleaf",
+                pieceTitle: "twice",
+                meta: '16" x 12" · digital photograph · 2026',
+                caption: "Balance through duplication across a central axis."
+              },
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/conditions-of-symmetry/center-doesnt-hold.jpg",
+                alt: "center doesn’t hold by Cameron Greenleaf",
+                pieceTitle: "center doesn’t hold",
+                meta: '16" x 12" · digital photograph · 2026',
+                caption: "A radial structure disrupted by irregular elements."
+              }
+            ]
+          },
+          {
+            id: "loosies",
+            label: "loosies",
+            cover: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/loosies/cover.jpg",
+            slides: [
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/loosies/placeholder-01.jpg",
+                alt: "Loose work placeholder 1",
+                pieceTitle: "loose work 01",
+                meta: "placeholder meta",
+                caption: "Standalone work placeholder."
+              },
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/loosies/placeholder-02.jpg",
+                alt: "Loose work placeholder 2",
+                pieceTitle: "loose work 02",
+                meta: "placeholder meta",
+                caption: "Standalone work placeholder."
+              }
+            ]
+          }
+        ]
       },
       {
         type: "text",
         title: "direction",
-        copy: "Photography, interface work, and digital experiments can live side by side here with room to breathe."
+        copy: "Bodies of work can live as switchable series rather than flat uploads — each with their own internal sequencing, pacing, and image logic."
       }
     ]
   },
@@ -95,7 +302,30 @@ const sectionContent = {
       {
         type: "slideshow",
         title: "frames / posters / stills",
-        mediaLabel: "film slideshow goes here"
+        description: "Film stills, posters, or visual sequences can use the same slideshow system.",
+        series: [
+          {
+            id: "film-series-placeholder",
+            label: "series one",
+            cover: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/film/series-one/cover.jpg",
+            slides: [
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/film/series-one/placeholder-01.jpg",
+                alt: "Film placeholder still 1",
+                pieceTitle: "placeholder still 01",
+                meta: "film / year / format",
+                caption: "Replace with your still, poster, or frame."
+              },
+              {
+                src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/film/series-one/placeholder-02.jpg",
+                alt: "Film placeholder still 2",
+                pieceTitle: "placeholder still 02",
+                meta: "film / year / format",
+                caption: "Replace with your still, poster, or frame."
+              }
+            ]
+          }
+        ]
       },
       {
         type: "text",
@@ -163,6 +393,15 @@ function getPanel(section) {
 
 function getSliceBySection(section) {
   return slices.find(slice => slice.dataset.section === section) ?? null;
+}
+
+function escapeHTML(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 function applyCombinedCamera() {
@@ -393,13 +632,78 @@ function renderEmbedModule(module) {
   `;
 }
 
-function renderSlideshowModule(module) {
+function renderSlideshowModule(module, section, moduleIndex) {
+  const key = `${section}-slideshow-${moduleIndex}`;
+  const series = Array.isArray(module.series) ? module.series : [];
+
+  slideshowRegistry.set(key, {
+    key,
+    title: module.title ?? "",
+    series,
+    activeSeriesIndex: 0,
+    activeSlideIndex: 0
+  });
+
+  const firstSeries = series[0] ?? null;
+  const firstSlide = firstSeries?.slides?.[0] ?? null;
+
   return `
-    <section class="module">
+    <section class="module slideshow-module" data-slideshow-key="${escapeHTML(key)}">
       <div class="module-inner">
-        <h3 class="module-title">${module.title}</h3>
+        <div class="slideshow-heading">
+          <div class="slideshow-heading-copy">
+            <h3 class="module-title">${module.title}</h3>
+            ${module.description ? `<p class="module-copy slideshow-description">${module.description}</p>` : ""}
+          </div>
+          <div class="slideshow-series-switch" role="tablist" aria-label="${escapeHTML(module.title)} series">
+            ${series.map((item, index) => `
+              <button
+                class="slideshow-series-tab ${index === 0 ? "is-active" : ""}"
+                type="button"
+                role="tab"
+                aria-selected="${index === 0 ? "true" : "false"}"
+                data-series-index="${index}"
+              >
+                ${escapeHTML(item.label ?? `series ${index + 1}`)}
+              </button>
+            `).join("")}
+          </div>
+        </div>
       </div>
-      <div class="slideshow-placeholder">${module.mediaLabel}</div>
+
+      <div class="slideshow-frame">
+        <button class="slideshow-arrow slideshow-arrow-left" type="button" aria-label="Previous slide">
+          <span aria-hidden="true">‹</span>
+        </button>
+
+        <div class="slideshow-stage">
+          <div class="slideshow-image-shell">
+            ${
+              firstSlide
+                ? `<img class="slideshow-image" src="${escapeHTML(firstSlide.src)}" alt="${escapeHTML(firstSlide.alt ?? firstSlide.pieceTitle ?? "")}" loading="lazy">`
+                : `<div class="slideshow-empty">add slideshow images</div>`
+            }
+          </div>
+
+          <div class="slideshow-overlay">
+            <div class="slideshow-meta">
+              <p class="slideshow-series-label">${escapeHTML(firstSeries?.label ?? "")}</p>
+              <h4 class="slideshow-piece-title">${escapeHTML(firstSlide?.pieceTitle ?? "untitled")}</h4>
+              <p class="slideshow-piece-meta">${escapeHTML(firstSlide?.meta ?? "")}</p>
+              <p class="slideshow-piece-caption">${escapeHTML(firstSlide?.caption ?? "")}</p>
+            </div>
+            <div class="slideshow-counter">
+              <span class="slideshow-counter-current">1</span>
+              <span class="slideshow-counter-separator">/</span>
+              <span class="slideshow-counter-total">${firstSeries?.slides?.length ?? 0}</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="slideshow-arrow slideshow-arrow-right" type="button" aria-label="Next slide">
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
     </section>
   `;
 }
@@ -425,14 +729,14 @@ function renderTwoUpModule(module) {
   `;
 }
 
-function renderModule(module) {
+function renderModule(module, section, moduleIndex) {
   switch (module.type) {
     case "text":
       return renderTextModule(module);
     case "embed":
       return renderEmbedModule(module);
     case "slideshow":
-      return renderSlideshowModule(module);
+      return renderSlideshowModule(module, section, moduleIndex);
     case "two-up":
       return renderTwoUpModule(module);
     default:
@@ -510,14 +814,202 @@ function buildPanel(section, data) {
       ${renderHeaderActions(data.headerActions)}
     </header>
     <div class="panel-content">
-      ${data.modules.map(renderModule).join("")}
+      ${data.modules.map((module, moduleIndex) => renderModule(module, section, moduleIndex)).join("")}
     </div>
   `;
 }
 
 function buildAllPanels() {
+  slideshowRegistry.clear();
+
   Object.entries(sectionContent).forEach(([section, data]) => {
     buildPanel(section, data);
+  });
+}
+
+function getSlideshowState(key) {
+  return slideshowRegistry.get(key) ?? null;
+}
+
+function getSeriesForState(state) {
+  if (!state) return null;
+  return state.series[state.activeSeriesIndex] ?? null;
+}
+
+function normalizeSlideIndex(series, index) {
+  const total = series?.slides?.length ?? 0;
+  if (!total) return 0;
+  return ((index % total) + total) % total;
+}
+
+function preloadImage(src) {
+  if (!src) return;
+  const img = new Image();
+  img.decoding = "async";
+  img.src = src;
+}
+
+function updateSlideshowUI(moduleEl) {
+  if (!moduleEl) return;
+
+  const key = moduleEl.dataset.slideshowKey;
+  const state = getSlideshowState(key);
+  if (!state) return;
+
+  const series = getSeriesForState(state);
+  const slides = series?.slides ?? [];
+
+  if (!slides.length) return;
+
+  state.activeSlideIndex = normalizeSlideIndex(series, state.activeSlideIndex);
+
+  const slide = slides[state.activeSlideIndex];
+
+  const imageEl = moduleEl.querySelector(".slideshow-image");
+  const emptyEl = moduleEl.querySelector(".slideshow-empty");
+  const seriesLabelEl = moduleEl.querySelector(".slideshow-series-label");
+  const pieceTitleEl = moduleEl.querySelector(".slideshow-piece-title");
+  const pieceMetaEl = moduleEl.querySelector(".slideshow-piece-meta");
+  const pieceCaptionEl = moduleEl.querySelector(".slideshow-piece-caption");
+  const counterCurrentEl = moduleEl.querySelector(".slideshow-counter-current");
+  const counterTotalEl = moduleEl.querySelector(".slideshow-counter-total");
+  const leftArrow = moduleEl.querySelector(".slideshow-arrow-left");
+  const rightArrow = moduleEl.querySelector(".slideshow-arrow-right");
+  const seriesTabs = [...moduleEl.querySelectorAll(".slideshow-series-tab")];
+
+  if (imageEl) {
+    imageEl.src = slide.src ?? "";
+    imageEl.alt = slide.alt ?? slide.pieceTitle ?? series?.label ?? "slide image";
+  }
+
+  if (emptyEl) {
+    emptyEl.style.display = "none";
+  }
+
+  if (seriesLabelEl) {
+    seriesLabelEl.textContent = series?.label ?? "";
+  }
+
+  if (pieceTitleEl) {
+    pieceTitleEl.textContent = slide.pieceTitle ?? "untitled";
+  }
+
+  if (pieceMetaEl) {
+    pieceMetaEl.textContent = slide.meta ?? "";
+  }
+
+  if (pieceCaptionEl) {
+    pieceCaptionEl.textContent = slide.caption ?? "";
+  }
+
+  if (counterCurrentEl) {
+    counterCurrentEl.textContent = String(state.activeSlideIndex + 1);
+  }
+
+  if (counterTotalEl) {
+    counterTotalEl.textContent = String(slides.length);
+  }
+
+  const shouldDisableNav = slides.length <= 1;
+
+  if (leftArrow) leftArrow.disabled = shouldDisableNav;
+  if (rightArrow) rightArrow.disabled = shouldDisableNav;
+
+  seriesTabs.forEach((tab, index) => {
+    const isActive = index === state.activeSeriesIndex;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", isActive ? "true" : "false");
+  });
+
+  const nextIndex = normalizeSlideIndex(series, state.activeSlideIndex + 1);
+  const prevIndex = normalizeSlideIndex(series, state.activeSlideIndex - 1);
+
+  const nextSlide = slides[nextIndex];
+  const prevSlide = slides[prevIndex];
+
+  if (nextIndex !== state.activeSlideIndex) {
+    preloadImage(nextSlide?.src);
+  }
+
+  if (prevIndex !== state.activeSlideIndex && prevIndex !== nextIndex) {
+    preloadImage(prevSlide?.src);
+  }
+}
+
+function switchSlideshowSeries(moduleEl, nextSeriesIndex) {
+  if (!moduleEl) return;
+
+  const key = moduleEl.dataset.slideshowKey;
+  const state = getSlideshowState(key);
+  if (!state) return;
+
+  if (!state.series[nextSeriesIndex]) return;
+
+  state.activeSeriesIndex = nextSeriesIndex;
+  state.activeSlideIndex = 0;
+
+  updateSlideshowUI(moduleEl);
+
+  track("slideshow_series_change", {
+    section: activeSection ?? "unknown",
+    slideshow: key,
+    series: state.series[nextSeriesIndex]?.id ?? nextSeriesIndex
+  });
+}
+
+function stepSlideshow(moduleEl, direction) {
+  if (!moduleEl) return;
+
+  const key = moduleEl.dataset.slideshowKey;
+  const state = getSlideshowState(key);
+  if (!state) return;
+
+  const series = getSeriesForState(state);
+  const slides = series?.slides ?? [];
+  if (!slides.length) return;
+
+  state.activeSlideIndex = normalizeSlideIndex(series, state.activeSlideIndex + direction);
+  updateSlideshowUI(moduleEl);
+
+  track("slideshow_slide_change", {
+    section: activeSection ?? "unknown",
+    slideshow: key,
+    series: series?.id ?? state.activeSeriesIndex,
+    slideIndex: state.activeSlideIndex
+  });
+}
+
+function initSlideshows() {
+  const slideshowModules = [...document.querySelectorAll(".slideshow-module")];
+
+  slideshowModules.forEach(moduleEl => {
+    updateSlideshowUI(moduleEl);
+
+    const leftArrow = moduleEl.querySelector(".slideshow-arrow-left");
+    const rightArrow = moduleEl.querySelector(".slideshow-arrow-right");
+    const seriesTabs = [...moduleEl.querySelectorAll(".slideshow-series-tab")];
+
+    leftArrow?.addEventListener("click", () => stepSlideshow(moduleEl, -1));
+    rightArrow?.addEventListener("click", () => stepSlideshow(moduleEl, 1));
+
+    seriesTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const nextSeriesIndex = Number(tab.dataset.seriesIndex);
+        switchSlideshowSeries(moduleEl, nextSeriesIndex);
+      });
+    });
+
+    moduleEl.addEventListener("keydown", event => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        stepSlideshow(moduleEl, -1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        stepSlideshow(moduleEl, 1);
+      }
+    });
   });
 }
 
@@ -659,6 +1151,7 @@ function bindEvents() {
 }
 
 buildAllPanels();
+initSlideshows();
 bindHoverEvents();
 bindEvents();
 centerRadialView();
