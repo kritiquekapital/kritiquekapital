@@ -4,8 +4,8 @@ export const creativeSection = {
   modules: [
     {
       type: "slideshow",
-      title: "selected visual work",
-      description: "Series-based gallery with switchable bodies of work and slide-level navigation.",
+      title: "selected visual works",
+      description: "my explorations of creative authorship",
       series: [
         {
           id: "failure-to-hold",
@@ -15,58 +15,164 @@ export const creativeSection = {
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/fruit-loops-gif.GIF",
               alt: "Fruit Loops GIF by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "loops of fruit",
-              meta: "animated digital work · 2026",
-              caption: "Motion-led opening piece."
+              size: "variable dimensions",
+              medium: "animated digital work",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Sometimes everything accidently happens just like you thought it would."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/quandry-11.jpg",
               alt: "Quandry by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "quandry-11",
-              meta: "digital photograph · 2026",
-              caption: "Tension without stable resolution."
+              size: "16 in × 12 in",
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "In quandry-11 color functions as a system of conflict. Orange expands as heat and density, while blue enters as signal – cool, disruptive, and resistant. Pink emerges not as balance, but as residue, a byproduct of collision and compression between opposing states. The image does not resolve into harmony; instead, it accumulates interference, where each color asserts itself through obstruction. Perception is forced to negotiate between competing signals, making color unstable – not as a palette, but as a field of ongoing disruption."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/SIG.DECAY_01.gif",
-              alt: "SIG.DECAY by Cameron Greenleaf",
+              alt: "SIG.DECAY_01 by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "SIG.DECAY_01",
-              meta: "animated digital work · 2026",
-              caption: "Signal degradation and persistence."
+              size: "variable dimensions",
+              medium: "animated digital work",
+              year: "2026",
+              location: "USA",
+              fullDescription: "SIG.DECAY_01 demonstrates contrast in value through a shifting field of light and dark that functions as signal loss rather than stable form. Rather than describing volume, the value changes operate as interruption, degradation, and the manufactured instability of a digital image breaking down. Light and dark act as carriers of distortion, making the image transmitted rather than observed. Value is not neutral structure, but evidence of mediation."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/industry.jpg",
               alt: "Ever Industry by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "ever industry",
-              meta: "digital photograph · 2026",
-              caption: "Industry as what persists."
+              size: "16 in × 12 in",
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "ever industry demonstrates contrast in size not as measurement, but as condition. The industrial structure occupies the frame as continuous and unending, imposing itself with a cold, persistent violence that dominates the space. The sparse organic growth refuses absorption or diminishment, asserting itself without expansion or concession. What appears large or small is not determined by proportion, but by what persists within the space. Size is unstable – dominance belongs not to what is largest, but to what remains, and to what does not yield."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/heat.jpg",
               alt: "Heat by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "heat",
-              meta: "digital photograph · 2026",
-              caption: "Pressure, atmosphere, and force."
+              size: "16 in × 12 in",
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "heat demonstrates contrast in space through the isolation of a single figure within a nearly blank white field, where space does not exist as a stable environment but only becomes legible through what is impressed onto it. His tracks remain visible, marking movement and entry, while the glow around him functions as a heat signature – a temporary inscription of life within a space that actively erases it. Presence is not inherent to the space itself, but produced through these traces. Space is defined not by what it contains, but by what manages to leave an impression before disappearing."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/afterparty.jpg",
               alt: "Afterparty by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "afterparty",
-              meta: "digital photograph · 2026",
-              caption: "Residual energy after the event."
+              size: "16 in × 12 in",
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "both Afterparty and Afterimage demonstrate contrast in subject matter through the staged collision of taxidermy and celebration. A dead mounted animal is given the visual codes of liveliness and social presence, creating tension between stillness and performance, object and personality. The phrase “life of the party” is implied, yet denied by the subject itself. This produces a failure of perception, where the subject oscillates between being read as animate and being recognized as inert. With inversion, that instability intensifies, pushing the image from constructed believability into visual disturbance, where the subject resists coherent interpretation altogether."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/afterimage.jpg",
               alt: "Afterimage by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "afterimage",
-              meta: "digital photograph · 2026",
-              caption: "What remains after the image passes."
+              size: "16 in × 12 in",
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "both Afterparty and Afterimage demonstrate contrast in subject matter through the staged collision of taxidermy and celebration. A dead mounted animal is given the visual codes of liveliness and social presence, creating tension between stillness and performance, object and personality. The phrase “life of the party” is implied, yet denied by the subject itself. This produces a failure of perception, where the subject oscillates between being read as animate and being recognized as inert. With inversion, that instability intensifies, pushing the image from constructed believability into visual disturbance, where the subject resists coherent interpretation altogether."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/surface-into-space.jpg",
               alt: "Surface Into Space by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "surface into space",
-              meta: "digital photograph · 2026",
-              caption: "Flattened surface opening into depth."
+              size: "16 in × 12 in",
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "surface through space demonstrates contrast between two-dimensional and three-dimensional space where depth is not inherent, but produced through what is impressed onto the surface. Light, shadow, and edge construct the appearance of volume while remaining marks on a flat plane. This construction does not fully stabilize; the image oscillates between depth and flatness, never committing to either. What reads as space is continuously inferred, then withdrawn, exposing depth as a fragile effect rather than a condition. The image does not contain space – it performs it, and in doing so, reveals its failure to hold."
+            }
+          ]
+        },
+
+        {
+          id: "conditions-of-symmetry",
+          label: "conditions of symmetry",
+          cover: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/conditions-of-symmetry/cover.jpg",
+          slides: [
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/conditions-of-symmetry/line-as-decision.jpg",
+              alt: "line as decision by Cameron Greenleaf",
+              artist: ".oCam",
+              pieceTitle: "line as decision",
+              size: '12 in × 16 in',
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "A single line establishes direction and organizes the frame. Minimal structure imposes order and defines perception."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/conditions-of-symmetry/twice.jpg",
+              alt: "twice by Cameron Greenleaf",
+              artist: ".oCam",
+              pieceTitle: "twice",
+              size: '16 in × 12 in',
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "The form repeats across a central axis, creating balance through duplication. Symmetry emerges from a simple rule applied twice."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/conditions-of-symmetry/center-doesnt-hold.jpg",
+              alt: "center doesn’t hold by Cameron Greenleaf",
+              artist: ".oCam",
+              pieceTitle: "center doesn’t hold",
+              size: '16 in × 12 in',
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "A radial structure is present but disrupted by irregular elements that break its continuity. Symmetry remains as a framework, but fails to contain what moves through it."
+            },
+            {
+              src: "https://sammlung.staedelmuseum.de/images/102706/hiroshi-sugimoto-ionian-sea-santa-cesarea-i-dzf14--thumb-xl.jpg",
+              alt: "Ionian Sea, Santa Cesarea I by Hiroshi Sugimoto",
+              artist: "Hiroshi Sugimoto",
+              pieceTitle: "ionian sea, santa cesarea I",
+              size: '18 in × 22 in',
+              medium: "gelatin silver print",
+              year: "1990",
+              location: "Japan",
+              fullDescription: "The horizon divides the frame into two equal fields, establishing a strict bilateral symmetry. Like line as decision, a single structural division organizes the entire image and defines how it is perceived."
+            },
+            {
+              src: "https://scontent-iad6-1.xx.fbcdn.net/v/t1.6435-9/89779891_10156800633212321_6732505976877875200_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=0327a3&_nc_ohc=UrpbNmqMVK8Q7kNvwH8NsLH&_nc_oc=AdqmI4sJDVSIyLsgcqooGGMtgbQwqMVYI8J2mK4leT0Z5tgyCp6KFiHVbF2p89yx0zC4rQwLurzWmPPCPEP3jNIR&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&_nc_gid=2Bsjgpw4SK-jXAxrsyPkXQ&_nc_ss=7a389&oh=00_Af1F2Wmqh-vaFAPIY_08YZZqG3_d9VsbteM43pnp6PdDLQ&oe=69FCAD83",
+              alt: "Pentagon by Monir Shahroudy Farmanfarmaian",
+              artist: "Monir Shahroudy Farmanfarmaian",
+              pieceTitle: "pentagon",
+              size: "not specified",
+              medium: "mirror, glass, paint, mixed materials",
+              year: "2011",
+              location: "Iran",
+              fullDescription: "Geometric forms radiate outward from a central point, reinforcing a radial system. Like center doesn’t hold, symmetry operates as a framework, though here it remains intact and fully resolved."
+            },
+            {
+              src: "https://www.moma.org/media/W1siZiIsIjUxNzA1OCJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=4fe224aea6b56acf",
+              alt: "Untitled Photogram by László Moholy-Nagy",
+              artist: "László Moholy-Nagy",
+              pieceTitle: "untitled photogram",
+              size: '9 5/16 in × 7 in',
+              medium: "photogram, gelatin silver print",
+              year: "1926",
+              location: "USA",
+              fullDescription: "Balance emerges without symmetry through the distribution of light and dark forms. This extends the logic of twice and center doesn’t hold, showing how equilibrium can exist even when formal symmetry is absent."
             }
           ]
         },
@@ -78,114 +184,127 @@ export const creativeSection = {
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/fromtheheart.jpg",
               alt: "From the Heart by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "from the heart",
-              meta: '6" x 6" · mixed media · 2026',
-              caption: "Opening piece."
+              size: '6 in × 6 in',
+              medium: "mixed media",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for from the heart. This can become a more deliberate explanation of why it opens the body of work and what formal or emotional terms it establishes."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/dawgs.jpg",
               alt: "Dawgs by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "dawgs",
-              meta: '6" x 6" · mixed media paper, gauche, acrylic painter pen · 2026',
-              caption: "Shape study."
+              size: '6 in × 6 in',
+              medium: "mixed media paper, gauche, acrylic painter pen",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for dawgs. Good space for writing about shape, flattening, reduction, graphic attitude, or why the work matters beyond just being a formal exercise."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/bubbly.jpg",
               alt: "Bubbly by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "bubbly",
-              meta: '11" x 8.5" · B & H pencils, colored pencils, various objects · 2026',
-              caption: "Texture study."
+              size: '11 in × 8.5 in',
+              medium: "B & H pencils, colored pencils, various objects",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for bubbly. This can later expand into texture, accumulation, mark-making, tactility, or the way surface behaves under close attention."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/sqrd.png",
               alt: "sqr² by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "sqr²",
-              meta: '6" x 6" · digital illustration (Procreate) · 2026',
-              caption: "Color study."
+              size: '12 in × 6 in',
+              medium: "digital illustration (Procreate)",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for sqr². Useful place for a fuller note on chromatic logic, reduction, repetition, or how the piece performs as a color-centered study."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/fruit-loops.JPG",
               alt: "Fruit Loops by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "fruit loops",
-              meta: '15.5" x 15.5" · digital illustration (Procreate) · 2026',
-              caption: "Value study."
+              size: '15.5 in × 15.5 in',
+              medium: "digital illustration (Procreate)",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for fruit loops. Can hold a more developed explanation of circularity, repetition, value relationships, or the piece’s role inside the larger set."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/where-everything-returns.jpg",
               alt: "Where Everything Returns by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "where everything returns",
-              meta: '16" x 12" · digital photograph · 2026',
-              caption: "Radial symmetry."
+              size: '16 in × 12 in',
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for where everything returns. This can later describe radial order, recurrence, visual pull, or why symmetry here feels active rather than static."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/where-nothing-settles.jpg",
               alt: "Where Nothing Settles by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "where nothing settles",
-              meta: '12" x 16" · digital photograph · 2026',
-              caption: "Asymmetry."
+              size: '12 in × 16 in',
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for where nothing settles. Good place for writing about asymmetry, unresolved motion, imbalance, or how the composition resists closure."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/ask-for-assitance.jpg",
               alt: "Ask for Assistance by Cameron Greenleaf",
+              artist: ".oCam",
               pieceTitle: "ask for assistance",
-              meta: '16" x 12" · digital photograph · 2026',
-              caption: "Symmetry under strain."
+              size: '16 in × 12 in',
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for ask for assistance. This can become a longer note on strain, signage, command language, symmetry under pressure, or the social tone of the image."
             }
           ]
-        },
+        },        
         {
           id: "emphasis",
           label: "emphasis",
-          cover: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/emphasis/cover.jpg",
+          cover: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/loosies/cover.jpg",
           slides: [
             {
-              src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/emphasis/signal-exceeds-structure.jpg",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/emphasis/despite-the-glow.jpg",
+              alt: "despite the glow by Cameron Greenleaf",
+              pieceTitle: "despite the glow",
+              size: "12 in x 16 in",
+              medium: "film photograph",
+              year: "2025",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 02."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/emphasis/PIKED.jpg",
               alt: "signal exceeds structure by Cameron Greenleaf",
               pieceTitle: "signal exceeds structure",
-              meta: '16" x 12" · digital photograph · 2026',
-              caption: "Emphasis through color, contrast, and central placement."
+              size: "16 in x 12 in",
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 01."
             },
             {
-              src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/emphasis/gheist.jpg",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/emphasis/gheist.jpg",
               alt: "gheist by Cameron Greenleaf",
               pieceTitle: "gheist",
-              meta: '16" x 12" · digital photograph · 2026',
-              caption: "Emphasis through contrast, diagonal placement, and shadow."
-            },
-            {
-              src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/emphasis/flowrpowr.jpg",
-              alt: "flowrpowr by Cameron Greenleaf",
-              pieceTitle: "flowrpowr",
-              meta: '16" x 12" · digital photograph (collage) · 2026',
-              caption: "Emphasis through saturation and centered focus."
-            }
-          ]
-        },
-        {
-          id: "conditions-of-symmetry",
-          label: "conditions of symmetry",
-          cover: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/conditions-of-symmetry/cover.jpg",
-          slides: [
-            {
-              src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/conditions-of-symmetry/line-as-decision.jpg",
-              alt: "line as decision by Cameron Greenleaf",
-              pieceTitle: "line as decision",
-              meta: '12" x 16" · digital photograph · 2026',
-              caption: "A single line establishes direction and organizes the frame."
-            },
-            {
-              src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/conditions-of-symmetry/twice.jpg",
-              alt: "twice by Cameron Greenleaf",
-              pieceTitle: "twice",
-              meta: '16" x 12" · digital photograph · 2026',
-              caption: "Balance through duplication across a central axis."
-            },
-            {
-              src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/conditions-of-symmetry/center-doesnt-hold.jpg",
-              alt: "center doesn’t hold by Cameron Greenleaf",
-              pieceTitle: "center doesn’t hold",
-              meta: '16" x 12" · digital photograph · 2026',
-              caption: "A radial structure disrupted by irregular elements."
+              size: "16 in x 12 in",
+              medium: "digital photograph",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 02."
             }
           ]
         },
@@ -198,24 +317,31 @@ export const creativeSection = {
               src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/loosies/placeholder-01.jpg",
               alt: "Loose work placeholder 1",
               pieceTitle: "loose work 01",
-              meta: "placeholder meta",
-              caption: "Standalone work placeholder."
+              size: "placeholder size",
+              medium: "placeholder medium",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 01."
             },
             {
               src: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/loosies/placeholder-02.jpg",
               alt: "Loose work placeholder 2",
               pieceTitle: "loose work 02",
-              meta: "placeholder meta",
-              caption: "Standalone work placeholder."
+              size: "placeholder size",
+              medium: "placeholder medium",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 02."
             }
           ]
         }
       ]
     },
     {
-      type: "text",
+      type: "slide-description",
       title: "direction",
-      copy: "Bodies of work can live as switchable series rather than flat uploads — each with their own internal sequencing, pacing, and image logic."
+      slideshowModuleIndex: 0,
+      placeholder: "Select a work to view the fuller description."
     }
   ]
 };
