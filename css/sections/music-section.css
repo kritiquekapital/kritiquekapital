@@ -1,0 +1,237 @@
+.panel-music {
+  width: min(1180px, 88vw);
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.panel-music .music-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.panel-music .panel-header {
+  margin: 0;
+  padding: 0;
+}
+
+.panel-music .panel-title,
+.panel-music .panel-kicker,
+.panel-music .module-title,
+.panel-music .module-copy,
+.panel-music .music-feature-title,
+.panel-music .music-feature-dek,
+.panel-music .music-feature-eyebrow {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.panel-music .music-card,
+.panel-music .music-block,
+.panel-music .music-panel-content .module {
+  background: rgba(14, 18, 26, 0.97);
+  border: 1px solid rgba(143, 214, 255, 0.12);
+  border-radius: 22px;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+.panel-music .music-card-main {
+  overflow: hidden;
+}
+
+.panel-music .music-card-main > .panel-header {
+  padding: 1rem 1.05rem 0;
+}
+
+.panel-music .music-card-body {
+  padding: 1rem 1.05rem 1.05rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.music-feature-intro {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.music-feature-eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(143, 214, 255, 0.82);
+}
+
+.music-feature-title {
+  margin: 0;
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #f5fbff;
+}
+
+.music-feature-dek {
+  margin: 0;
+  color: rgba(245, 247, 251, 0.7);
+  line-height: 1.62;
+}
+
+.music-feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+  grid-template-areas:
+    "video lyrics"
+    "analysis lyrics";
+  gap: 1rem;
+  align-items: start;
+}
+
+.music-feature-video {
+  grid-area: video;
+  min-width: 0;
+}
+
+.music-feature-lyrics {
+  grid-area: lyrics;
+  min-width: 0;
+}
+
+.music-feature-analysis {
+  grid-area: analysis;
+  min-width: 0;
+}
+
+.music-block {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.music-block-header {
+  padding: 1rem 1.05rem 0.75rem;
+  border-bottom: 1px solid rgba(143, 214, 255, 0.08);
+}
+
+.music-block-header .module-title {
+  margin: 0;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  color: #f5fbff;
+}
+
+.music-video-frame {
+  position: relative;
+  width: 100%;
+  min-height: clamp(280px, 34vw, 470px);
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.014) 58%, rgba(0, 0, 0, 0.16) 100%),
+    rgba(7, 9, 14, 0.96);
+}
+
+.music-video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #090b10;
+}
+
+.music-scroll-region {
+  min-height: 0;
+  padding: 1rem 1.05rem 1.08rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(143, 214, 255, 0.28) rgba(255, 255, 255, 0.04);
+}
+
+.music-scroll-region::-webkit-scrollbar {
+  width: 10px;
+}
+
+.music-scroll-region::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.music-scroll-region::-webkit-scrollbar-thumb {
+  background: rgba(143, 214, 255, 0.24);
+  border-radius: 999px;
+}
+
+.music-lyrics-scroll {
+  flex: 1 1 auto;
+  max-height: clamp(280px, 34vw, 470px);
+}
+
+.music-analysis-scroll {
+  max-height: clamp(220px, 28vh, 340px);
+}
+
+.music-lyrics-scroll .module-copy,
+.music-analysis-scroll .module-copy {
+  margin: 0;
+  color: rgba(245, 247, 251, 0.8);
+  line-height: 1.6;
+}
+
+.music-lyrics-scroll .module-copy + .module-copy,
+.music-analysis-scroll .module-copy + .module-copy {
+  margin-top: 0.7rem;
+}
+
+.panel-music .music-panel-content {
+  gap: 1rem;
+}
+
+.panel-music .music-panel-content .module {
+  overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+  .panel-music {
+    width: min(960px, 90vw);
+  }
+
+  .music-feature-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "video"
+      "lyrics"
+      "analysis";
+  }
+
+  .music-lyrics-scroll,
+  .music-analysis-scroll {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 760px) {
+  .panel-music {
+    width: min(94vw, 640px);
+  }
+
+  .panel-music .music-card-main > .panel-header,
+  .panel-music .music-card-body,
+  .music-block-header,
+  .music-scroll-region {
+    padding-left: 0.92rem;
+    padding-right: 0.92rem;
+  }
+
+  .music-video-frame {
+    min-height: 220px;
+  }
+
+  .music-lyrics-scroll,
+  .music-analysis-scroll {
+    max-height: 260px;
+  }
+}
