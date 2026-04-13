@@ -54,14 +54,21 @@ button {
 .site-shell {
   flex: 1;
   min-height: 0;
+  padding-bottom: 0;
 }
 
 .space-view {
   position: relative;
   width: 100%;
-  height: calc(100vh - 58px);
+  height: 100vh;
   overflow: hidden;
   isolation: isolate;
+  cursor: grab;
+  touch-action: none;
+}
+
+.space-view.is-dragging {
+  cursor: grabbing;
 }
 
 .space-camera {
@@ -112,6 +119,7 @@ button {
 .slice-group {
   cursor: pointer;
   pointer-events: auto;
+  touch-action: manipulation;
   transition:
     transform var(--ease),
     opacity var(--ease),
@@ -206,16 +214,12 @@ svg g:focus-visible {
   color: var(--text);
   text-shadow: 0 1px 8px rgba(0,0,0,0.22);
   white-space: nowrap;
-  opacity: 0;
+  opacity: 1;
   transition:
     transform var(--ease),
     opacity var(--ease),
     color var(--ease),
     text-shadow var(--ease);
-}
-
-.slice-label.is-hovered {
-  opacity: 1;
 }
 
 .slice-label[data-slot="1"] {
@@ -285,6 +289,7 @@ svg g:focus-visible {
   justify-content: center;
   text-align: center;
   cursor: pointer;
+  touch-action: manipulation;
   box-shadow:
     inset 0 10px 18px rgba(0,0,0,0.18),
     inset 0 -4px 8px rgba(255,255,255,0.015);
@@ -308,13 +313,9 @@ svg g:focus-visible {
   outline: none;
 }
 
-.center-core,
-.center-sub {
-  position: relative;
-  z-index: 1;
-}
-
 .center-core {
+  position: relative;
+  z-index: 2;
   display: block;
   font-family: "Archivo", sans-serif;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
@@ -322,6 +323,52 @@ svg g:focus-visible {
   letter-spacing: 0.04em;
   text-shadow: 0 2px 12px rgba(0,0,0,0.32);
   transform: translateY(-235%);
+}
+
+.center-greetings {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.center-greeting {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  color: rgba(245,247,251,0.9);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.28);
+
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.88);
+  animation: centerGreetingCycle 14s ease-in-out infinite;
+  animation-delay: var(--greeting-delay);
+}
+
+@keyframes centerGreetingCycle {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  28% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+  42% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
 }
 
 .center-sub {
@@ -350,6 +397,7 @@ svg g:focus-visible {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  touch-action: auto;
   transition:
     opacity var(--ease),
     transform var(--ease),
@@ -552,6 +600,35 @@ svg g:focus-visible {
   color: #eaf7ff;
 }
 
+.embed-shell {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.016) 55%, rgba(0,0,0,0.18) 100%),
+    rgba(6, 8, 12, 0.96);
+  border-top: 1px solid rgba(143,214,255,0.08);
+}
+
+.embed-shell iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: 0;
+  background: #090b10;
+}
+
+.module > .embed-shell:first-child {
+  border-radius: 20px;
+  border-top: 0;
+}
+
+.module-copy + .module-copy {
+  margin-top: 1rem;
+}
+
 .media-placeholder,
 .embed-placeholder,
 .slideshow-placeholder {
@@ -566,38 +643,97 @@ svg g:focus-visible {
 }
 
 .home-button {
-  position: absolute;
-  left: 50%;
-  bottom: 1.15rem;
-  transform: translateX(-50%);
-  z-index: 10;
-  padding: 0.8rem 1.15rem;
+  position: static;
+  transform: none;
+  z-index: auto;
+  min-width: 108px;
+  padding: 0.72rem 1.1rem;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.09);
   color: var(--text);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: lowercase;
+  touch-action: manipulation;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition:
     background var(--ease),
-    border-color var(--ease);
+    border-color var(--ease),
+    transform var(--ease),
+    box-shadow var(--ease);
 }
 
 .home-button:hover,
 .home-button:focus-visible {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.24);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.16);
   outline: none;
 }
 
 .site-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+
   height: 58px;
   display: grid;
-  place-items: center;
-  color: var(--text-dim);
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+
+  color: rgba(245,247,251,0.82);
   font-size: 0.82rem;
   letter-spacing: 0.06em;
-  text-transform: lowercase;
+  text-transform: none;
+
+  background: rgba(12, 14, 20, 0.08);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.03) inset;
+
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.site-footer-left,
+.site-footer-center,
+.site-footer-right {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.site-footer-left {
+  justify-content: flex-start;
+}
+
+.site-footer-center {
+  justify-content: center;
+}
+
+.site-footer-right {
+  justify-content: flex-end;
+}
+
+.site-footer-warning {
+  color: rgba(245,247,251,0.68);
+  white-space: nowrap;
+}
+
+.site-footer-brand {
+  color: rgba(245,247,251,0.92);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.site-footer-separator {
+  color: rgba(245,247,251,0.3);
 }
 
 @media (max-width: 1100px) {
@@ -685,5 +821,32 @@ svg g:focus-visible {
 
   .section-panel[data-slot="4"].is-active {
     transform: translate(-72%, 4%) scale(1);
+  }
+
+  .site-shell {
+    padding-bottom: 88px;
+  }
+
+  .site-footer {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: auto;
+    min-height: 64px;
+    padding: 0.8rem 0.9rem;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    text-align: center;
+  }
+
+  .site-footer-left,
+  .site-footer-center,
+  .site-footer-right {
+    justify-content: center;
+  }
+
+  .site-footer-warning,
+  .site-footer-brand {
+    white-space: normal;
   }
 }
