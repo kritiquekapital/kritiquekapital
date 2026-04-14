@@ -450,12 +450,27 @@ svg g:focus-visible {
   transform: translate(-134%, -92%) scale(0.98);
 }
 
-.section-panel[data-slot="1"].is-active { transform: translate(-50%, -118%) scale(1); }
-.section-panel[data-slot="2"].is-active { transform: translate(34%, -92%) scale(1); }
-.section-panel[data-slot="3"].is-active { transform: translate(34%, 8%) scale(1); }
-.section-panel[data-slot="4"].is-active { transform: translate(-126%, -10%) scale(1); }
-.section-panel[data-slot="5"].is-active { transform: translate(-134%, 8%) scale(1); }
-.section-panel[data-slot="6"].is-active { transform: translate(-134%, -92%) scale(1); }
+.section-panel[data-slot="2"] {
+  transform: translate(28%, -84%) scale(0.98);
+}
+.section-panel[data-slot="2"].is-active {
+  transform: translate(28%, -84%) scale(1);
+}
+
+.section-panel[data-slot="3"] {
+  transform: translate(28%, 2%) scale(0.98);
+}
+.section-panel[data-slot="3"].is-active {
+  transform: translate(28%, 2%) scale(1);
+}
+
+.section-panel[data-slot="5"] {
+  transform: translate(-126%, -10%) scale(0.98);
+}
+
+.section-panel[data-slot="5"].is-active {
+  transform: translate(-126%, -10%) scale(1);
+}
 
 .panel-header {
   margin-bottom: 0.9rem;
