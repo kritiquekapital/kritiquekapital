@@ -1,0 +1,40 @@
+html.is-mobile-device,
+body.is-mobile-device {
+  overscroll-behavior: none;
+}
+
+.is-mobile-device .space-view,
+.is-mobile-device .space-view * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.is-mobile-device .section-panel,
+.is-mobile-device .section-panel * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none;
+}
+
+.is-mobile-device .panel-action-link,
+.is-mobile-device .slideshow-arrow,
+.is-mobile-device .slideshow-series-tab,
+.is-mobile-device .home-button,
+.is-mobile-device .center,
+.is-mobile-device .slice-group {
+  touch-action: manipulation;
+}
+
+@media (max-width: 760px) {
+  .space-view {
+    cursor: grab;
+  }
+
+  .space-view.is-dragging {
+    cursor: grabbing;
+  }
+
+  .site-footer {
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  }
+}
