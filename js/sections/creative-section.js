@@ -270,7 +270,54 @@ export const creativeSection = {
               fullDescription: "Placeholder extended work text for ask for assistance. This can become a longer note on strain, signage, command language, symmetry under pressure, or the social tone of the image."
             }
           ]
-        },        
+        }, 
+        {
+          id: "dreams-in-the-interface",
+          label: "dreams in the interface",
+          cover: "https://pub-REPLACE_WITH_YOUR_R2_DOMAIN/creative/loosies/cover.jpg",
+          slides: [
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/DONTOVERTHNKSHT.png",
+              alt: "DON*TOVERTH*NKSH*T by Cameron Greenleaf",
+              pieceTitle: "DON*TOVERTH*NKSH*T",
+              size: "10 in x 13 1/3 in",
+              medium: "digital mixed media collage",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 02."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/OVERTHNKNGSHT.png",
+              alt: "OVERTH*NK*NGSH*T by Cameron Greenleaf",
+              pieceTitle: "OVERTH*NK*NGSH*T",
+              size: "13 1/3 in x 13 1/3 in",
+              medium: "digital mixed media collage",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 01."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/456.png",
+              alt: "4.5,6. by Cameron Greenleaf",
+              pieceTitle: "4.5,6.",
+              size: "10 in x 13 1/3 in",
+              medium: "digital mixed media collage",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 01."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/frozen-devotion.png",
+              alt: "frozen devotion by Cameron Greenleaf",
+              pieceTitle: "frozen devotion",
+              size: "10 in x 13 1/3 in",
+              medium: "digital mixed media collage",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 01."
+            }
+          ]
+        },
         {
           id: "emphasis",
           label: "emphasis",
