@@ -230,21 +230,23 @@ export function renderSlideshowModule(module, keyPrefix, moduleIndex) {
               <div class="slideshow-info">
                 <p class="slideshow-series-label"></p>
 
-                <div class="slideshow-meta-grid">
-                  <div class="slideshow-meta-left">
+                <div class="slideshow-meta-stack">
+                  <div class="slideshow-meta-row slideshow-meta-row-title">
                     <p class="slideshow-piece-title"></p>
-                    <p class="slideshow-piece-size"></p>
-                    <p class="slideshow-piece-medium"></p>
+                    <p class="slideshow-piece-artist"></p>
                   </div>
 
-                  <div class="slideshow-meta-right">
-                    <p class="slideshow-piece-artist"></p>
+                  <div class="slideshow-meta-row slideshow-meta-row-secondary">
+                    <p class="slideshow-piece-size"></p>
                     <p class="slideshow-piece-year"></p>
+                  </div>
+
+                  <div class="slideshow-meta-row slideshow-meta-row-secondary">
+                    <p class="slideshow-piece-medium"></p>
                     <p class="slideshow-piece-location"></p>
                   </div>
                 </div>
 
-                <p class="slideshow-piece-description"></p>
                 <div class="slideshow-facts"></div>
               </div>
             </div>
