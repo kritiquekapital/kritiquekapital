@@ -307,6 +307,16 @@ export const creativeSection = {
               fullDescription: "Placeholder extended work text for loose work 01."
             },
             {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/456.through.png",
+              alt: "4.5,6.through by Cameron Greenleaf",
+              pieceTitle: "4.5,6.through",
+              size: "13 1/3 in x 13 1/3 in",
+              medium: "digital mixed media collage",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Placeholder extended work text for loose work 01."
+            },
+            {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/frozen-devotion.png",
               alt: "frozen devotion by Cameron Greenleaf",
               pieceTitle: "frozen devotion",
