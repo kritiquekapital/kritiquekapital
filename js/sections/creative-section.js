@@ -284,7 +284,8 @@ export const creativeSection = {
               medium: "digital mixed media collage",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for loose work 02."
+              fullDescription: "What makes this piece distinct is not simply its symbolism or depth, but the agency behind its construction. The image does not just collect strange or meaningful fragments; it actively chooses, places, interrupts, and forces them into relation. In that sense, the shaping hand matters as much as the symbols themselves. That is the real point: depth alone does not make the work unique. The hand had to act on the material. It had to cut through inertia, impose form, and make decisions inside overload."
+                               "This is what makes the piece a form of digital-age surrealism. In the digital age, everyone already lives inside contradiction, cultural debris, accidental symbolism, and ambient psychic excess. Surrealism is almost the default condition. What separates this work is not that it contains that chaos, but that it is authored against it. The collage becomes a made field rather than a passive reflection of the feed. Its force comes from agency: from a hand willing to shape, select, and risk composition rather than just hover near meaning."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/OVERTHNKNGSHT.png",
