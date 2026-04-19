@@ -305,7 +305,8 @@ export const creativeSection = {
               medium: "digital mixed media collage",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for loose work 01."
+              fullDescription: "This image works more like a burrow than a scene. It pulls together fragments of film, propaganda, fantasy, humor, decay, and private symbolism into one dense visual field where nothing fully explains itself, but everything still feels chosen. Meaning emerges through the way certain fragments cling to one another—through attraction, interruption, and private gravity—until the image begins to operate like a lived atmosphere rather than a readable scene."
+                               "What gives the work its force is the coexistence of affection and disturbance. The imagery is crowded, strange, and unstable, but not random. Certain forms feel beloved, others absurd, others ominous, and many sit in more than one register at once. That tension gives the piece its atmosphere. It is less concerned with resolving contradiction than with preserving it, allowing humor, tenderness, obsession, and unease to remain alive together in the same space."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/456-through.png",
