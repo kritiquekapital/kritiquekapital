@@ -278,7 +278,7 @@ export const creativeSection = {
           slides: [
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/DONTOVERTHNKSHT.png",
-              alt: "DON*TOVERTH*NKSH*T by Cameron Greenleaf",
+              alt: "DONTOVERTH*NKSH*T by Cameron Greenleaf",
               pieceTitle: "DON*TOVERTH*NKSH*T",
               size: "10 in x 13 1/3 in",
               medium: "digital mixed media collage",
