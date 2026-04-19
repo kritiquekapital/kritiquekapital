@@ -199,7 +199,7 @@ export const musicSection = {
             "[Verse 2]",
             "Like you always do",
             "You know all I want is you",
-            "Please don't get too close to me,"
+            "Please don't get too close to me",
             "Not what I wanna do",
             "Not what I wanna see",
             "You show me things that I don't need",
