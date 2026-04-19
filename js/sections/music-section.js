@@ -10,7 +10,7 @@ export const musicSection = {
           label: "this charming man",
           eyebrow: "Everyone But Him",
           title: "The Smiths — This Charming Man",
-          dek: "A second reading revealing one person at two distances form the same vanishing point.",
+          dek: "On one person at two distances form the same vanishing point.",
           video: {
             title: "music video",
             src: "https://geo.dailymotion.com/player.html?video=xsk4x",
@@ -73,7 +73,7 @@ export const musicSection = {
           label: "oh mama",
           eyebrow: "Get On In It",
           title: "Milky Chance — Oh Mama",
-          dek: "A second reading built around release, idealization, and what has to be shed for love to survive.",
+          dek: "On release, idealization, and what has to be shed for love to survive.",
           video: {
             title: "music video",
             src: "https://geo.dailymotion.com/player.html?video=x9zraaa",
@@ -126,7 +126,7 @@ export const musicSection = {
           },
           analysisSeries: [
             {
-              label: "reading I",
+              label: "reading II",
               title: "Get On In It",
               paragraphs: [
                 "\"I think this song basically is about the moment when you start realizing that letting go would have been much better and easier. To get on in the relationship instead of holding on to something which is obviously not going anywhere anymore.\" — Clemens Rehbein",
@@ -136,6 +136,75 @@ export const musicSection = {
                 "And underneath all of it, the address–mama. Not sentimental, not incidental. The thesis. She is who taught him what love actually is, before he knew what it was supposed to look like. Before the idea of it arrived and began crowding out the experience. The one love that required no fantasy to sustain it, that simply was. He reaches toward her not for comfort but for the template–the proof that the thing he's chasing already existed, and that he learned it before he learned to idealize it.",
                 "The antidote isn't less love. It's the kind mama already gave him.",
                 "Clemens handed the reading in three words. Get on in. The song was never about leaving. It was about what you have to release to stay."
+              ]
+            }
+          ]
+        },
+        {
+          id: "ur-in-my-head-again",
+          label: "ur in my head again",
+          eyebrow: "Possessed, Not Set Free",
+          title: "Funeral — ur in my head again",
+          dek: "On intoxication, borrowed strength, and the self it overtakes.",
+          video: {
+            title: "music video",
+            src: "https://www.youtube.com/embed/gEmg7GAe2mE",
+            aspectRatio: "16 / 9"
+          },
+          lyrics: {
+            title: "lyrics",
+            paragraphs: [
+            "[Verse 1]",
+            "Slowly we are falling through the cracks",
+            "It just feels like something we regret",
+            "Don't know what to do and how to act",
+            "Down on my knees, that's how it feels",
+            "Lately we've been covered by the past",
+            "But don't you think that we are made to last?",
+            "Rather than just stumbling in the dark",
+            "In the dark, in the dark",
+            "[Chorus]",
+            "Oh when we get old mama, we'll think it was no drama",
+            "Cos then we will know, it was better letting it go",
+            "Why couldn't it be just a little more easy to see, darling?",
+            "That would've been all, would've been all we needed to know",
+            "[Verse 2]",
+            "Sun is up the hillside, us being blue-eyed",
+            "Sea is on the low tide, trouble on the inside",
+            "So far we've been trying to see the light",
+            "So hard, missing it was truely bright",
+            "Surely right, feelings tight",
+            "Talking up the call on my mind, saying",
+            "Oh, ma, why is everything so messed up?",
+            "Anyway we made it so far",
+            "What are we chasing, true love?",
+            "How does it feel like",
+            "Remedy, so it can only be",
+            "As strong as the force of your fantasy",
+            "Forever more it's gonna be a mystery",
+            "[Chorus]",
+            "Oh when we get old mama, we'll think it was no drama",
+            "Cos then we will know, it was better letting it go",
+            "Why couldn't it be just a little more easy to see, darling?",
+            "That would've been all, would've been all we needed to know",
+            "[Instrumental]",
+            "Mama Drama",
+            "[Chorus]",
+            "Oh when we get old mama, we'll think it was no drama",
+            "Cos then we will know, it was better letting it go",
+            "Why couldn't it be just a little more easy to see, darling?",
+            "That would've been all, would've been all we needed to know",
+            ]
+          },
+          analysisSeries: [
+            {
+              label: "reading III",
+              title: "Possessed, Not Set Free",
+              paragraphs: [
+                "What the song reaches toward is a form of intoxicated strength that feels like power precisely because it overtakes the self entirely. The “you” is whatever arrives sharper, louder, less hesitant, a force that seems to cut through weakness by sheer intensity alone. It is loved not despite its damage but because that damage briefly feels like certainty, command, relief. What the speaker wants is not pain itself. It is the sensation of being amplified. The tragedy is that this power never belongs to him. It speaks in his ear, tells him what to do, and never lets him take hold of an identity outside its grip.",
+                "That is why the chorus sounds so warped. “Love when you attack me,” “love when you harass me” are not simply masochistic lines. They describe dependence on a force that feels like strength only because it overrides whatever in the self might resist it. “My toxic amor” is the thesis in miniature: not love of suffering, but love of the thing that makes suffering feel like power.",
+                "And the song knows the exchange is fatal. “You never let me take a hold of my identity” is the clearest statement in it. Whatever this force gives him, it gives by replacement. It does not reveal the self. It occupies it.",
+                "The final line, “that’s just me,” is where dependence hardens into identity. The voice that seemed separate, invasive, commanding, almost romantic in its hold, is admitted at last as part of the self. Not the self set free, but the self remade in the image of what dominates it. The strength the song chases never makes him more himself. It only teaches him to take what overpowers him as who he is.",
               ]
             }
           ]
