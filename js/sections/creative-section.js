@@ -294,7 +294,7 @@ export const creativeSection = {
               medium: "digital mixed media collage",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for loose work 01."
+              fullDescription: "What makes this piece distinct is not simply its symbolism or depth, but the agency behind its construction. The image does not just collect strange or meaningful fragments; it actively chooses, places, interrupts, and forces them into relation. In that sense, the shaping hand matters as much as the symbols themselves. That is the real point: depth alone does not make the work unique. The hand had to act on the material. It had to cut through inertia, impose form, and make decisions inside overload. This is what makes the piece a form of digital-age surrealism. In the digital age, everyone already lives inside contradiction, cultural debris, accidental symbolism, and ambient psychic excess. Surrealism is almost the default condition. What separates this work is not that it contains that chaos, but that it is authored against it. The collage becomes a made field rather than a passive reflection of the feed. Its force comes from agency: from a hand willing to shape, select, and risk composition rather than just hover near meaning."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/456.png",
@@ -304,17 +304,17 @@ export const creativeSection = {
               medium: "digital mixed media collage",
               year: "2026",
               location: "USA",
-              fullDescription: "This image works more like a burrow than a scene. It pulls together fragments of film, propaganda, fantasy, humor, decay, and private symbolism into one dense visual field where nothing fully explains itself, but everything still feels chosen. Meaning emerges through the way certain fragments cling to one another—through attraction, interruption, and private gravity—until the image begins to operate like a lived atmosphere rather than a readable scene. What gives the work its force is the coexistence of affection and disturbance. The imagery is crowded, strange, and unstable, but not random. Certain forms feel beloved, others absurd, others ominous, and many sit in more than one register at once. That tension gives the piece its atmosphere. It is less concerned with resolving contradiction than with preserving it, allowing humor, tenderness, obsession, and unease to remain alive together in the same space."
+              fullDescription: "This image works more like a burrow than a scene. It pulls together fragments of film, propaganda, fantasy, humor, decay, and private symbolism into one dense visual field where nothing fully explains itself, but everything still feels chosen. Meaning emerges through the way certain fragments cling to one another–through attraction, interruption, and private gravity–until the image begins to operate like a lived atmosphere rather than a readable scene. What gives the work its force is the coexistence of affection and disturbance. The imagery is crowded, strange, and unstable, but not random. Certain forms feel beloved, others absurd, others ominous, and many sit in more than one register at once. That tension gives the piece its atmosphere. It is less concerned with resolving contradiction than with preserving it, allowing humor, tenderness, obsession, and unease to remain alive together in the same space."
             },
             {
-              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/456-through.png",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/4.5,6-through.png",
               alt: "4.5,6.through by Cameron Greenleaf",
               pieceTitle: "4.5,6.through",
               size: "13 1/3 in x 13 1/3 in",
               medium: "digital mixed media collage",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for loose work 01."
+              fullDescription: "This image works more like a burrow than a scene. It pulls together fragments of film, propaganda, fantasy, humor, decay, and private symbolism into one dense visual field where nothing fully explains itself, but everything still feels chosen. Meaning emerges through the way certain fragments cling to one another–through attraction, interruption, and private gravity–until the image begins to operate like a lived atmosphere rather than a readable scene. What gives the work its force is the coexistence of affection and disturbance. The imagery is crowded, strange, and unstable, but not random. Certain forms feel beloved, others absurd, others ominous, and many sit in more than one register at once. That tension gives the piece its atmosphere. It is less concerned with resolving contradiction than with preserving it, allowing humor, tenderness, obsession, and unease to remain alive together in the same space."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/dreams-in-the-interface/frozen-devotion.png",
