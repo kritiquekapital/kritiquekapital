@@ -66,8 +66,8 @@ export const resumeSection = {
           subCopy: "Financial & Managerial Accounting, Principles of Management, Digital Marketing, Business Law, Micro & Macroeconomics, Statistics, Integrated Media Design, Visual Design Theory, Digital Photography, Speech & Communication, Composition I & II, American Literature II, World Cinema, Philosophy, Global Conflicts & Human Behaviors, History of the Soviet Union & Russia: Post 1917, Sociology, Personal Psychology, Biology, Pre-Calculus, Intermediate Algebra, Introduction to Hazardous Materials, and Paralegal Studies."
         },
         {
-          title: "salem state university",
-          copy: "Starting fall term.",
+          title: "Undecided",
+          copy: "Choosing between Merrimack, UMass Boston, and Salem State University. Starting fall term.",
           subTitle: "coursework",
           subCopy: "Incoming coursework and program details to be added."
         }
