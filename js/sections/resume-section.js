@@ -1,4 +1,4 @@
-dexport const resumeSection = {
+export const resumeSection = {
   title: "resume",
   kicker: "operations, analysis, creative systems, and execution under pressure",
   headerActions: [
