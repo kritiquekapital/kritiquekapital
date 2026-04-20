@@ -1,4 +1,4 @@
-export const resumeSection = {
+dexport const resumeSection = {
   title: "resume",
   kicker: "operations, analysis, creative systems, and execution under pressure",
   headerActions: [
@@ -67,7 +67,7 @@ export const resumeSection = {
         },
         {
           title: "Undecided",
-          copy: "Choosing between Merrimack, UMass Boston, and Salem State University. Starting fall term.",
+          copy: "Choosing between Merrimack, UMass Boston, and Salem State University. Starting fall term 2026.",
           subTitle: "coursework",
           subCopy: "Incoming coursework and program details to be added."
         }
