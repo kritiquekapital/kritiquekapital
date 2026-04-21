@@ -89,7 +89,7 @@ export const resumeSection = {
         "SERV Safe Certified",
         "TIPS On-Premises Alcohol Server",
         "Allergen Training",
-        "5x Dean’s List - NSCC",
+        "4x Dean’s List - NSCC",
         "Dr. George A. Traicoff Scholarship",
         "John and Abigail Adams Scholarship",
         "Mary Barbuzzi BCNA Scholarship"
