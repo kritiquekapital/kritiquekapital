@@ -348,6 +348,40 @@
     max-height: 74vh;
   }
 
+  .panel-resume .resume-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-resume .resume-center-stack,
+  .panel-resume .resume-right-stack {
+    display: contents;
+  }
+
+  .panel-resume .resume-card-main {
+    order: 1;
+  }
+
+  .panel-resume .resume-card-education {
+    order: 2;
+  }
+
+  .panel-resume .resume-card-work {
+    order: 3;
+  }
+
+  .panel-resume .resume-card-lang {
+    order: 4;
+  }
+
+  .panel-resume .resume-card-certs-awards {
+    order: 5;
+  }
+
+  .panel-resume .resume-card-interest {
+    order: 6;
+  }
+
   .panel-resume .panel-header.has-actions {
     grid-template-columns: 1fr;
   }
