@@ -34,22 +34,32 @@
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   height: min(calc(100vh - 132px), 860px);
+  min-width: 0;
 }
 
 /* ── Tabs ─────────────────────────────────────────────────────────────────── */
 
 .writing-tabs-shell {
-  padding: 1rem 1.1rem 0;
+  min-width: 0;
+  padding: 1rem 0 0;
   border-bottom: 1px solid rgba(143, 214, 255, 0.08);
+  overflow: hidden;
 }
 
 .writing-tabs {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.4rem;
+  min-width: 0;
   overflow-x: auto;
-  padding-bottom: 0;
+  overflow-y: hidden;
+  padding: 0 1.1rem 0.05rem;
+  margin: 0;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  scroll-padding-inline: 1.1rem;
 }
 
 .writing-tabs::-webkit-scrollbar {
@@ -91,6 +101,7 @@
 /* ── Stage ────────────────────────────────────────────────────────────────── */
 
 .writing-stage-shell {
+  min-width: 0;
   min-height: 0;
   display: grid;
 }
@@ -98,12 +109,14 @@
 .writing-stage {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 284px;
+  min-width: 0;
   min-height: 0;
 }
 
 /* ── Body card ────────────────────────────────────────────────────────────── */
 
 .writing-body-card {
+  min-width: 0;
   min-height: 0;
   overflow: hidden;
   border-right: 1px solid rgba(143, 214, 255, 0.07);
@@ -159,7 +172,7 @@
 .writing-body-text {
   display: grid;
   gap: 1.18rem;
-  max-width: 68ch;
+  max-width: none;
 }
 
 .writing-paragraph {
@@ -172,8 +185,10 @@
 /* ── Meta card ────────────────────────────────────────────────────────────── */
 
 .writing-meta-card {
+  min-width: 0;
   min-height: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: rgba(143, 214, 255, 0.18) rgba(255, 255, 255, 0.02);
   background: rgba(255, 255, 255, 0.018);
@@ -193,6 +208,7 @@
 }
 
 .writing-meta-inner {
+  min-width: 0;
   padding: 1.6rem 1.4rem 1.8rem;
   display: grid;
   gap: 1.1rem;
@@ -219,6 +235,7 @@
 .writing-meta-fields {
   display: grid;
   gap: 0.85rem;
+  min-width: 0;
 }
 
 .writing-meta-field {
@@ -226,6 +243,7 @@
   gap: 0.18rem;
   padding-bottom: 0.85rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  min-width: 0;
 }
 
 .writing-meta-field:last-child {
@@ -246,6 +264,8 @@
   font-size: 0.9rem;
   line-height: 1.42;
   color: rgba(245, 247, 251, 0.82);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .writing-meta-tags {
@@ -300,7 +320,8 @@
 
 @media (max-width: 1000px) {
   .panel-writing {
-    width: min(92vw, 800px);
+    width: min(94vw, 800px);
+    max-width: 94vw;
   }
 
   .writing-feature-module {
@@ -309,7 +330,7 @@
 
   .writing-stage {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-rows: minmax(0, 1fr) minmax(0, auto);
   }
 
   .writing-body-card {
@@ -318,7 +339,7 @@
   }
 
   .writing-meta-card {
-    max-height: 240px;
+    max-height: min(260px, 34vh);
   }
 
   .writing-meta-fields {
@@ -339,7 +360,8 @@
 
 @media (max-width: 760px) {
   .panel-writing {
-    width: min(94vw, 620px);
+    width: min(96vw, 620px);
+    max-width: 96vw;
   }
 
   .writing-feature-module {
@@ -348,6 +370,8 @@
 
   .writing-tabs {
     gap: 0.2rem;
+    padding-inline: 0.95rem;
+    scroll-padding-inline: 0.95rem;
   }
 
   .writing-tab {
@@ -373,6 +397,6 @@
   }
 
   .writing-meta-card {
-    max-height: 200px;
+    max-height: min(220px, 30vh);
   }
 }
