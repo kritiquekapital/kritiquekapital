@@ -26,11 +26,10 @@ body.is-mobile-device {
 
 @media (max-width: 760px) {
   .space-view {
-    cursor: default;
-    touch-action: pan-y;
+    cursor: grab;
   }
 
   .space-view.is-dragging {
-    cursor: default;
+    cursor: grabbing;
   }
 }
