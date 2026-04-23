@@ -118,42 +118,18 @@ function centerRadialView() {
   setBaseCamera(null);
 }
 
-function isMobileViewport() {
-  return window.matchMedia("(max-width: 760px)").matches;
-}
-
-function isSectionOpen() {
-  return Boolean(getActive);
-}
-
-function canPanSpaceView() {
-  return !(isMobileViewport() && isSectionOpen());
-}
-
-function syncSpaceViewTouchMode() {
-  if (!spaceView) return;
-
-  if (isMobileViewport() && isSectionOpen()) {
-    // Let native panel scrolling / horizontal tab swiping work normally.
-    spaceView.style.touchAction = "auto";
-  } else {
-    // Keep free drag-to-move on home / desktop.
-    spaceView.style.touchAction = "none";
-  }
-}
-
 // ── Pan state ─────────────────────────────────────────────────────────────────
 
-let isMiddlePanning         = false;
-let middlePanPointerId      = null;
-let lastPanPoint            = { x: 0, y: 0 };
+let isMiddlePanning        = false;
+let middlePanPointerId     = null;
+let lastPanPoint           = { x: 0, y: 0 };
 
-let isPrimaryPanning            = false;
-let primaryPanPointerId         = null;
+let isPrimaryPanning           = false;
+let primaryPanPointerId        = null;
 let primaryPanExceededThreshold = false;
-let primaryPanStartPoint        = { x: 0, y: 0 };
-let primaryPanLastPoint         = { x: 0, y: 0 };
-let suppressClickUntil          = 0;
+let primaryPanStartPoint       = { x: 0, y: 0 };
+let primaryPanLastPoint        = { x: 0, y: 0 };
+let suppressClickUntil         = 0;
 
 const PAN_DRAG_THRESHOLD = 7;
 
@@ -167,6 +143,10 @@ function releasePointerCaptureSafe(pointerId) {
 
 function setPointerCaptureSafe(pointerId) {
   try { spaceView?.setPointerCapture(pointerId); } catch (_) {}
+}
+
+function isMobileViewport() {
+  return window.matchMedia("(max-width: 760px)").matches;
 }
 
 function isTouchLikePointer(event) {
@@ -247,7 +227,6 @@ function endMiddlePan(event) {
 
 // Primary-button / touch pan
 function startPrimaryPan(event) {
-  if (!canPanSpaceView()) return;
   if (!isPrimaryPointer(event)) return;
   if (isInteractiveTarget(event.target)) return;
   if (isLikelyTextSelectionTarget(event.target) && !isTouchLikePointer(event)) return;
@@ -327,7 +306,6 @@ function openSection(section, clickedSlice) {
   if (!slot) return;
 
   setActiveSection(section);
-  syncSpaceViewTouchMode();
   clearSelectedState();
 
   clickedSlice.classList.add("is-selected");
@@ -342,11 +320,10 @@ function openSection(section, clickedSlice) {
 }
 
 function resetView() {
-  const current = getActive;
+  const current = getActive; // live binding read
   if (current) track("section_close", { section: current });
 
   setActiveSection(null);
-  syncSpaceViewTouchMode();
   clearSelectedState();
   radial.classList.remove("is-active");
   setPanTransitionEnabled(true);
@@ -358,11 +335,8 @@ function handleSliceActivate(slice) {
   const section = slice.dataset.section;
   if (!section) return;
 
-  if (getActive === section) {
-    resetView();
-    return;
-  }
-
+  // read live binding each time
+  if (getActive === section) { resetView(); return; }
   openSection(section, slice);
 }
 
@@ -416,54 +390,23 @@ function bindHoverEvents() {
     const label   = getLabel(section);
     if (!label) return;
 
-    slice.addEventListener("mouseenter", () => {
-      if (!getActive) label.classList.add("is-hovered");
-    });
-
-    slice.addEventListener("mouseleave", () => {
-      if (!getActive) label.classList.remove("is-hovered");
-    });
-
-    slice.addEventListener("focus", () => {
-      if (!getActive) label.classList.add("is-hovered");
-    });
-
-    slice.addEventListener("blur", () => {
-      if (!getActive) label.classList.remove("is-hovered");
-    });
+    slice.addEventListener("mouseenter", () => { if (!getActive) label.classList.add("is-hovered"); });
+    slice.addEventListener("mouseleave", () => { if (!getActive) label.classList.remove("is-hovered"); });
+    slice.addEventListener("focus",      () => { if (!getActive) label.classList.add("is-hovered"); });
+    slice.addEventListener("blur",       () => { if (!getActive) label.classList.remove("is-hovered"); });
   });
 }
 
 function bindPanEvents() {
   if (!spaceView) return;
 
-  spaceView.addEventListener("pointerdown", event => {
-    startMiddlePan(event);
-    startPrimaryPan(event);
-  });
+  spaceView.addEventListener("pointerdown",  event => { startMiddlePan(event); startPrimaryPan(event); });
+  spaceView.addEventListener("pointermove",  event => { moveMiddlePan(event);  movePrimaryPan(event);  });
+  spaceView.addEventListener("pointerup",    event => { endMiddlePan(event);   endPrimaryPan(event);   });
+  spaceView.addEventListener("pointercancel",event => { endMiddlePan(event);   endPrimaryPan(event);   });
 
-  spaceView.addEventListener("pointermove", event => {
-    moveMiddlePan(event);
-    movePrimaryPan(event);
-  });
-
-  spaceView.addEventListener("pointerup", event => {
-    endMiddlePan(event);
-    endPrimaryPan(event);
-  });
-
-  spaceView.addEventListener("pointercancel", event => {
-    endMiddlePan(event);
-    endPrimaryPan(event);
-  });
-
-  spaceView.addEventListener("auxclick", event => {
-    if (event.button === 1) event.preventDefault();
-  });
-
-  spaceView.addEventListener("mousedown", event => {
-    if (event.button === 1) event.preventDefault();
-  });
+  spaceView.addEventListener("auxclick",   event => { if (event.button === 1) event.preventDefault(); });
+  spaceView.addEventListener("mousedown",  event => { if (event.button === 1) event.preventDefault(); });
 
   document.addEventListener("click", event => {
     if (!shouldSuppressClick()) return;
@@ -474,7 +417,7 @@ function bindPanEvents() {
 
 function bindEvents() {
   slices.forEach(slice => {
-    slice.addEventListener("click", () => handleSliceActivate(slice));
+    slice.addEventListener("click",   () => handleSliceActivate(slice));
     slice.addEventListener("keydown", event => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
@@ -483,26 +426,15 @@ function bindEvents() {
     });
   });
 
-  centerHub?.addEventListener("click", () => {
-    if (!shouldSuppressClick()) resetView();
-  });
-
-  homeButton?.addEventListener("click", () => {
-    if (!shouldSuppressClick()) resetView();
-  });
+  centerHub?.addEventListener("click", () => { if (!shouldSuppressClick()) resetView(); });
+  homeButton?.addEventListener("click", () => { if (!shouldSuppressClick()) resetView(); });
 
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") resetView();
   });
 
   window.addEventListener("resize", () => {
-    syncSpaceViewTouchMode();
-
-    if (!getActive) {
-      centerRadialView();
-      return;
-    }
-
+    if (!getActive) { centerRadialView(); return; }
     setBaseCamera(getSlice(getActive)?.dataset.slot ?? null);
   });
 
@@ -518,5 +450,4 @@ initSlideshows();
 updateSlideDescriptionModules();
 bindHoverEvents();
 bindEvents();
-syncSpaceViewTouchMode();
 centerRadialView();
