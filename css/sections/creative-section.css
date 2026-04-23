@@ -541,7 +541,9 @@
   }
 
   .panel-creative {
-    width: min(94vw, 760px);
+    width: 100%;
+    max-width: none;
+    max-height: calc(100vh - 88px);
   }
 
   .panel-creative .creative-stage-card .module-inner,
