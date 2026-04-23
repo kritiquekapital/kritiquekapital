@@ -32,9 +32,4 @@ body.is-mobile-device {
   .space-view.is-dragging {
     cursor: grabbing;
   }
-
-  .site-footer {
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-  }
 }
