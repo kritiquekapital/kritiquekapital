@@ -13,7 +13,7 @@ export const writingSection = {
           dek: "A comparative reading of The Smiths and T. S. Eliot in which Prufrock appears as a self still conscious of its own disappearance, while \"This Charming Man\" reveals what that erasure looks like once completed.",
           author: ".oCam",
           form: "essay",
-          subject: "Hairpin Circus (1972)",
+          subject: "\"This Charming Man\" and \"The Love Song of J. Alfred Prufrock\"",
           year: "2026",
           tags: ["literature", "music", "comparative reading", "modernism", "the smiths", "t. s. eliot"],
           note: "A comparative essay on repetition, divided selfhood, and self-erasure across pop song and modernist poetry.",
