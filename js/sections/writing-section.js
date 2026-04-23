@@ -61,7 +61,7 @@ export const writingSection = {
           author: ".oCam",
           form: "essay",
           subject: "The Great Reforms, the 1905 Revolution, the 1917 Revolutions, and the rise of Bolshevik rule",
-          year: "2026",
+          year: "2025",
           tags: ["history", "russian empire", "russian revolution", "bolsheviks", "serfdom", "close reading"],
           note: "A historical analysis tracing the long arc from tsarist serfdom and partial reform to revolution, civil war, and early Soviet consolidation.",
           body: [
@@ -83,7 +83,7 @@ export const writingSection = {
           author: ".oCam",
           form: "essay",
           subject: "Stalinism, collectivization, the Great Purge, and the political logic of Soviet terror",
-          year: "2026",
+          year: "2025",
           tags: ["history", "soviet union", "stalin", "collectivization", "purges", "ukraine"],
           note: "Part II of a series on the Russian revolutionary tradition, tracing how Stalinist modernization turned socialist rhetoric into coercion, famine, and erasure.",
             body: [
@@ -105,7 +105,7 @@ export const writingSection = {
           author: ".oCam",
           form: "essay",
           subject: "Khrushchev, Brezhnev, de-Stalinization, stagnation, and the slow erosion of Soviet legitimacy",
-          year: "2026",
+          year: "2025",
           tags: ["history", "soviet union", "khrushchev", "brezhnev", "de-stalinization", "stagnation"],
           note: "Part III of a series on Soviet political development, tracing the movement from post-Stalin reform rhetoric to bureaucratic stagnation and ideological decay.",
           body: [
@@ -135,7 +135,7 @@ export const writingSection = {
           author: ".oCam",
           form: "essay",
           subject: "Gorbachev, late Soviet reform, and the collapse of the Soviet Union",
-          year: "2026",
+          year: "2025",
           tags: ["history", "soviet union", "gorbachev", "glasnost", "perestroika", "collapse"],
           note: "Part IV of a series on Soviet political development, tracing how reform in the late USSR functioned less as renewal than as the final unraveling of a system already hollowed out by stagnation.",
           body: [
