@@ -69,9 +69,7 @@ export const resumeSection = {
           title: "Undecided",
           copy: "Choosing between Merrimack, UMass Boston, and Salem State University. Starting fall term 2026.",
           subTitle: "coursework",
-          subCopy: "Salem State (Accepted) | Business Administration"
-                   "UMass Boston (Accepted) | Supply Chain Management"
-                   "Merrimack (Awaiting) | Business & Finance"
+          subCopy: "Salem State (Accepted) | Business Administration, UMass Boston (Accepted) | Supply Chain Management, Merrimack (Awaiting) | Business & Finance"
         }
       ]
     },
