@@ -8,6 +8,212 @@ export const creativeSection = {
       description: "my explorations of creative authorship",
       series: [
         {
+          id: "visual-principles-made-visceral",
+          label: "visual principles made visceral",
+          cover: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-01.png",
+        slides: [
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-01.png",
+              alt: "Visual Principles Made Visceral – title slide by .oCam",
+              artist: ".oCam",
+              pieceTitle: "visual principles made visceral",
+              size: "variable dimensions",
+              medium: "poster series",
+              year: "2026",
+              location: "USA",
+              fullDescription: "My posters combine the loud flat color and graphic energy of pop art with the educational clarity of Bauhaus design–Warhol would never make something this didactic, and Bauhaus would never be this loud. Each poster was designed with the intention you'd feel the concept before you read it."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/line-FINAL.png",
+              alt: "Line poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "line",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Line is demonstrated not as drawn mark but as interval. Each vertical band of color is a line with width, and the accumulation of those intervals is the image itself. The word recedes into the surface – present but absorbed, legible only once you've already felt the concept."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/shape-FINAL.png",
+              alt: "Shape poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "shape",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Shape is demonstrated through nesting – rectangle inside rectangle, each one a boundary that defines the next. The structure does not describe shape from outside; it performs containment as a condition. Flat color eliminates depth, forcing every reading to stay on the surface where shape alone does the work."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/form-FINAL.png",
+              alt: "Form poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "form",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "The letterforms of FORM are themselves the demonstration – figures built from positive and negative that oscillate between type and architecture. Two colors, no gradients. The rectangles don't illustrate the concept; they are it. Nothing decorative, everything structural."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/space-FINAL.png",
+              alt: "Space poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "space",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "The only quiet poster in a loud series. The letters dissolve instead of assert – fading into the white field they claim to name. Space is not shown by filling it, but by letting it win. The only honest way to represent a concept that exists through absence."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/value-FINAL.png",
+              alt: "Value poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "value",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Value is demonstrated as a continuous spectrum held in discrete bands – white to black in steps, each column a rung on the scale. A single letterform persists across the transition, rendered in the tone immediately adjacent to its background: visible only through the narrowest contrast, barely held."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/texture-FINAL.png",
+              alt: "Texture poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "texture",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Texture is demonstrated through halftone – a field of uniform dots that reads as surface, as grain, as something you could almost touch. The word is spelled in the same dots, darker and denser, making the label and the thing it names the same material. On screen, optical texture is the only texture available."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/color-FINAL.png",
+              alt: "Color poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "color",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Color is demonstrated as atmosphere – concentric rings radiating from a yellow core outward into dark, each band a temperature shift. The composition has no edges it respects; color overflows structure. The hand-drawn label sits inside the warmth, insisting on presence inside something that doesn't need to be named."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/emphasis-FINAL.png",
+              alt: "Emphasis poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "emphasis",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Emphasis is demonstrated through a cascade of shrinking rectangles – each one smaller, each one less. The widest rectangle commands. The final mark barely registers. Scale and containment do the work; nothing is said that isn't already structural."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/balance-FINAL.png",
+              alt: "Balance poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "balance",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Balance is demonstrated through diagonal – two opposing bands cutting across a teal field, tiles anchoring the corners, the word split across the axis. The most honest of the group, though maybe too overt: balance shown symmetrically rather than felt through asymmetric tension."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/contrast-FINAL.png",
+              alt: "Contrast poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "contrast",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Contrast is demonstrated through a single typographic move – a massive navy C bleeds off the poster while lowercase coral type completes the word inside it. Scale, weight, color, and case are all opposed in one composition. The concept needs no explanation once the C lands."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/pattern-FINAL.png",
+              alt: "Pattern poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "pattern",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Pattern is demonstrated as total coverage – a brick grid of saturated rectangles that leaves no ground visible. The word dissolves into what it names, each letter occupying a cell in the system. The image doesn't depict repetition; it is repetition. No hierarchy, no exit from the field."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/rhythm-FINAL.png",
+              alt: "Rhythm poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "rhythm",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Rhythm is demonstrated through vertical columns of repeating letterforms, each column a different hue, the word cycling through itself top to bottom without resolution. The eye is forced to scan rather than land. Beat is created through color change and repetition, not through sound – a visual metronome."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/variety-FINAL.png",
+              alt: "Variety poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "variety",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Variety is demonstrated as collision – elements from across the series reappear in the same frame, each one distinct in color, scale, mark, and structure. No single system governs the composition. The typeface is not fully integrated, which keeps the poster honest: variety without control is the actual subject."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/unity-FINAL.png",
+              alt: "Unity poster by .oCam",
+              artist: ".oCam",
+              pieceTitle: "unity",
+              size: "18 in × 24 in",
+              medium: "digital poster",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Unity is demonstrated through a grid of the same letterforms rendered in shifting typefaces, weights, and colors – each cell a different version of the same character. The word UNITY is assembled from its own variation. Difference is the method; cohesion is the result. The grid holds what the individual marks cannot."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-02.png",
+              alt: "Visual Principles Made Visceral – elements overview by .oCam",
+              artist: ".oCam",
+              pieceTitle: "elements overview",
+              size: "variable dimensions",
+              medium: "poster series",
+              year: "2026",
+              location: "USA",
+              fullDescription: "The seven elements of visual design: line, shape, form, space, value, texture, color. Each treated not as a category to illustrate but as a condition to produce. Loud flat color, Bauhaus rigor, pop energy."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-03.png",
+              alt: "Visual Principles Made Visceral – principles overview by .oCam",
+              artist: ".oCam",
+              pieceTitle: "principles overview",
+              size: "variable dimensions",
+              medium: "poster series",
+              year: "2026",
+              location: "USA",
+              fullDescription: "The seven principles of visual design: emphasis, balance, contrast, pattern, rhythm, variety, unity. Each one a relationship rather than a thing – the series argues that principles can only be felt, never merely stated."
+            },
+            {
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-04.png",
+              alt: "Visual Principles Made Visceral – unifying elements by .oCam",
+              artist: ".oCam",
+              pieceTitle: "unifying elements",
+              size: "variable dimensions",
+              medium: "poster series",
+              year: "2026",
+              location: "USA",
+              fullDescription: "Typography as structure. Flat color owns the surface. Legibility as a game. Three constraints, fourteen posters, zero decoration."
+            }
+          ]
+        },
+        
+        {
           id: "failure-to-hold",
           label: "failure to hold",
           cover: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/failure-to-hold/fruit-loops-gif.GIF",
