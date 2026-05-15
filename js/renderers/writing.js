@@ -105,21 +105,18 @@ function renderSlide(slide, index) {
   const baseClass = `writing-pres-slide ${isActive ? "is-active" : ""}`;
 
   if (slide.type === "video") {
-    // Pause video iframes when navigating away by removing src on hide
     return `
       <div
         class="${baseClass} writing-pres-slide--video"
         data-slide-index="${index}"
-        data-video-id="${escapeHTML(slide.videoId)}"
       >
         <iframe
           class="writing-pres-iframe"
-          src="${isActive ? `https://www.youtube.com/embed/${escapeHTML(slide.videoId)}?rel=0` : ""}"
+          src=""
           data-src="https://www.youtube.com/embed/${escapeHTML(slide.videoId)}?rel=0"
           title="${escapeHTML(slide.alt ?? `video ${index + 1}`)}"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
-          loading="lazy"
           frameborder="0"
         ></iframe>
       </div>
@@ -253,9 +250,7 @@ function bindPresentationArrows(scope = document) {
 
     const resumeVideo = el => {
       const iframe = el.querySelector(".writing-pres-iframe");
-      if (iframe && !iframe.src) {
-        iframe.src = iframe.dataset.src;
-      }
+      if (iframe) iframe.src = iframe.dataset.src;
     };
 
     const go = index => {
@@ -278,6 +273,9 @@ function bindPresentationArrows(scope = document) {
     });
 
     stageEl.dataset.presBound = "true";
+
+    // load the first slide if it's a video
+    resumeVideo(slideEls[0]);
   });
 }
 
