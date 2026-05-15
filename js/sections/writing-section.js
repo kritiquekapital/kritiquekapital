@@ -2,9 +2,6 @@ export const writingSection = {
   title: "writing",
   kicker: "criticism, analysis, and close reading on cinema, music, and visual culture",
   modules: [
-    {
-      type: "writing-feature",
-      entries: [
         {
           type: "writing-presentation",
           eyebrow: "media criticism",
@@ -30,6 +27,9 @@ export const writingSection = {
             { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-11.png", alt: "Violence Was Always the Point" },
           ]
         },
+        {
+      type: "writing-feature",
+      entries: [
         {
           id: "everyone-but-him-essay",
           label: "everyone but him",
