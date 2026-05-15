@@ -178,7 +178,7 @@ export const creativeSection = {
               fullDescription: "Unity is demonstrated through a grid of the same letterforms rendered in shifting typefaces, weights, and colors – each cell a different version of the same character. The word UNITY is assembled from its own variation. Difference is the method; cohesion is the result. The grid holds what the individual marks cannot."
             },
             {
-              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-02.png",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-02.png?v=2",
               alt: "Visual Principles Made Visceral – elements overview by .oCam",
               artist: ".oCam",
               pieceTitle: "elements overview",
@@ -189,7 +189,7 @@ export const creativeSection = {
               fullDescription: "The seven elements of visual design: line, shape, form, space, value, texture, color. Each treated not as a category to illustrate but as a condition to produce. Loud flat color, Bauhaus rigor, pop energy."
             },
             {
-              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-03.png",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-03.png?v=2",
               alt: "Visual Principles Made Visceral – principles overview by .oCam",
               artist: ".oCam",
               pieceTitle: "principles overview",
