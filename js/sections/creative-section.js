@@ -24,7 +24,7 @@ export const creativeSection = {
               fullDescription: "My posters combine the loud flat color and graphic energy of pop art with the educational clarity of Bauhaus design–Warhol would never make something this didactic, and Bauhaus would never be this loud. Each poster was designed with the intention you'd feel the concept before you read it."
             },
             {
-              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/line-FINAL.png",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/line-FINAL.png?v=2",
               alt: "Line poster by .oCam",
               artist: ".oCam",
               pieceTitle: "line",
