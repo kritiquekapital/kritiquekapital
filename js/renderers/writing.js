@@ -100,22 +100,50 @@ function renderWritingMeta(entry = {}) {
 
 // ── Presentation entry ────────────────────────────────────────────────────────
 
+function renderSlide(slide, index) {
+  const isActive = index === 0;
+  const baseClass = `writing-pres-slide ${isActive ? "is-active" : ""}`;
+
+  if (slide.type === "video") {
+    // Pause video iframes when navigating away by removing src on hide
+    return `
+      <div
+        class="${baseClass} writing-pres-slide--video"
+        data-slide-index="${index}"
+        data-video-id="${escapeHTML(slide.videoId)}"
+      >
+        <iframe
+          class="writing-pres-iframe"
+          src="${isActive ? `https://www.youtube.com/embed/${escapeHTML(slide.videoId)}?rel=0` : ""}"
+          data-src="https://www.youtube.com/embed/${escapeHTML(slide.videoId)}?rel=0"
+          title="${escapeHTML(slide.alt ?? `video ${index + 1}`)}"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+          frameborder="0"
+        ></iframe>
+      </div>
+    `;
+  }
+
+  return `
+    <img
+      class="${baseClass}"
+      src="${escapeHTML(slide.src)}"
+      alt="${escapeHTML(slide.alt ?? `slide ${index + 1}`)}"
+      loading="${isActive ? "eager" : "lazy"}"
+      data-slide-index="${index}"
+    />
+  `;
+}
+
 function renderPresentationBody(entry = {}) {
   const slides = Array.isArray(entry.slides) ? entry.slides : [];
 
   return `
     <div class="writing-pres-viewer">
       <div class="writing-pres-track">
-        ${slides
-          .map((slide, index) => `
-            <img
-              class="writing-pres-slide ${index === 0 ? "is-active" : ""}"
-              src="${escapeHTML(slide.src)}"
-              alt="${escapeHTML(slide.alt ?? `slide ${index + 1}`)}"
-              loading="${index === 0 ? "eager" : "lazy"}"
-              data-slide-index="${index}"
-            />`)
-          .join("")}
+        ${slides.map((slide, index) => renderSlide(slide, index)).join("")}
       </div>
 
       <button class="writing-pres-arrow writing-pres-arrow-prev" type="button" aria-label="previous slide" disabled>
@@ -209,22 +237,36 @@ function bindPresentationArrows(scope = document) {
   scope.querySelectorAll(".writing-stage--presentation").forEach(stageEl => {
     if (stageEl.dataset.presBound === "true") return;
 
-    const slides  = [...stageEl.querySelectorAll(".writing-pres-slide")];
-    const prevBtn = stageEl.querySelector(".writing-pres-arrow-prev");
-    const nextBtn = stageEl.querySelector(".writing-pres-arrow-next");
-    const counter = stageEl.querySelector(".writing-pres-counter-current");
+    const slideEls = [...stageEl.querySelectorAll(".writing-pres-slide")];
+    const prevBtn  = stageEl.querySelector(".writing-pres-arrow-prev");
+    const nextBtn  = stageEl.querySelector(".writing-pres-arrow-next");
+    const counter  = stageEl.querySelector(".writing-pres-counter-current");
 
-    if (!slides.length || !prevBtn || !nextBtn) return;
+    if (!slideEls.length || !prevBtn || !nextBtn) return;
 
     let current = 0;
 
+    const pauseVideo = el => {
+      const iframe = el.querySelector(".writing-pres-iframe");
+      if (iframe) iframe.src = "";
+    };
+
+    const resumeVideo = el => {
+      const iframe = el.querySelector(".writing-pres-iframe");
+      if (iframe && !iframe.src) {
+        iframe.src = iframe.dataset.src;
+      }
+    };
+
     const go = index => {
-      slides[current].classList.remove("is-active");
-      current = Math.max(0, Math.min(index, slides.length - 1));
-      slides[current].classList.add("is-active");
+      pauseVideo(slideEls[current]);
+      slideEls[current].classList.remove("is-active");
+      current = Math.max(0, Math.min(index, slideEls.length - 1));
+      slideEls[current].classList.add("is-active");
+      resumeVideo(slideEls[current]);
       if (counter) counter.textContent = current + 1;
       prevBtn.disabled = current === 0;
-      nextBtn.disabled = current === slides.length - 1;
+      nextBtn.disabled = current === slideEls.length - 1;
     };
 
     prevBtn.addEventListener("click", () => go(current - 1));
