@@ -6,6 +6,31 @@ export const writingSection = {
       type: "writing-feature",
       entries: [
         {
+          type: "writing-presentation",
+          eyebrow: "media criticism",
+          title: "The Myth of the Hero",
+          dek: "How Invincible uses violence not for shock, but to excavate the ideological foundations hidden beneath superhero mythology.",
+          author: ".oCam",
+          form: "presentation",
+          subject: "Invincible (2021)",
+          year: "2026",
+          tags: ["media criticism", "animation", "ideology", "superhero", "violence", "invincible"],
+          note: "A slide-based critical reading built on Foster's framework for literary violence.",
+          slides: [
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-01.png", alt: "Title — The Myth of the Hero" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-02.png", alt: "Background — Omni-Man, Mark, Viltrumites" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-03.png", alt: "Foster's Framework — violence is never meaningless" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-04.png", alt: "The Traditional Myth vs. what Invincible delivers" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-05.png", alt: "Violence as Revelation" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-06.png", alt: "Earth's Greatest Hero — the massacre as revelation" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-07.png", alt: "Violence as Dehumanization" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-08.png", alt: "Maybe This Time You'll Learn — civilians as collateral" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-09.png", alt: "Violence as Inheritance" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-10.png", alt: "Think Mark — ideological violence as the real climax" },
+            { src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/writing/myth-of-the-hero/myth-11.png", alt: "Violence Was Always the Point" },
+          ]
+        },
+        {
           id: "everyone-but-him-essay",
           label: "everyone but him",
           eyebrow: "comparative crticism",
