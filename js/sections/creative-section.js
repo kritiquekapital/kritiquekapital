@@ -359,7 +359,7 @@ export const creativeSection = {
               fullDescription: "The horizon divides the frame into two equal fields, establishing a strict bilateral symmetry. Like line as decision, a single structural division organizes the entire image and defines how it is perceived."
             },
             {
-              src: "https://scontent-iad6-1.xx.fbcdn.net/v/t1.6435-9/89779891_10156800633212321_6732505976877875200_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=0327a3&_nc_ohc=UrpbNmqMVK8Q7kNvwH8NsLH&_nc_oc=AdqmI4sJDVSIyLsgcqooGGMtgbQwqMVYI8J2mK4leT0Z5tgyCp6KFiHVbF2p89yx0zC4rQwLurzWmPPCPEP3jNIR&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&_nc_gid=2Bsjgpw4SK-jXAxrsyPkXQ&_nc_ss=7a389&oh=00_Af1F2Wmqh-vaFAPIY_08YZZqG3_d9VsbteM43pnp6PdDLQ&oe=69FCAD83",
+              src: "https://pbs.twimg.com/media/D42X-uNXkAAGMJx?format=jpg&name=large",
               alt: "Pentagon by Monir Shahroudy Farmanfarmaian",
               artist: "Monir Shahroudy Farmanfarmaian",
               pieceTitle: "pentagon",
