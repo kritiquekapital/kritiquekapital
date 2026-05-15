@@ -154,8 +154,6 @@ function bindWritingTabs(scope = document) {
   });
 }
 
-// ── Export ────────────────────────────────────────────────────────────────────
-
 export function renderWritingFeatureModule(module) {
   const entries = Array.isArray(module.entries) && module.entries.length
     ? module.entries
@@ -170,6 +168,130 @@ export function renderWritingFeatureModule(module) {
     >
       <div class="writing-tabs-shell"></div>
       <div class="writing-stage-shell"></div>
+    </section>
+  `;
+}
+
+// ── Presentation module ───────────────────────────────────────────────────────
+
+function bindPresentationViewers(scope = document) {
+  scope.querySelectorAll(".writing-pres-module").forEach(moduleEl => {
+    if (moduleEl.dataset.presBound === "true") return;
+
+    const slides  = [...moduleEl.querySelectorAll(".writing-pres-slide")];
+    const prevBtn = moduleEl.querySelector(".writing-pres-arrow-prev");
+    const nextBtn = moduleEl.querySelector(".writing-pres-arrow-next");
+    const counter = moduleEl.querySelector(".writing-pres-counter-current");
+
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    let current = 0;
+
+    const go = index => {
+      slides[current].classList.remove("is-active");
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides[current].classList.add("is-active");
+      if (counter) counter.textContent = current + 1;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === slides.length - 1;
+    };
+
+    prevBtn.addEventListener("click", () => go(current - 1));
+    nextBtn.addEventListener("click", () => go(current + 1));
+
+    moduleEl.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft")  { e.preventDefault(); go(current - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); go(current + 1); }
+    });
+
+    moduleEl.dataset.presBound = "true";
+  });
+}
+
+export function renderWritingPresentationModule(module) {
+  const slides = Array.isArray(module.slides) ? module.slides : [];
+  const tags   = Array.isArray(module.tags)   ? module.tags   : [];
+
+  const fields = [
+    { label: "author",  value: module.author  ?? null },
+    { label: "form",    value: module.form    ?? null },
+    { label: "subject", value: module.subject ?? null },
+    { label: "year",    value: module.year    ?? null },
+  ].filter(f => f.value);
+
+  queueMicrotask(() => bindPresentationViewers(document));
+
+  return `
+    <section class="module writing-pres-module" tabindex="-1">
+      <div class="writing-pres-stage">
+
+        <div class="writing-pres-viewer">
+          <div class="writing-pres-track">
+            ${slides
+              .map(
+                (slide, index) => `
+                <img
+                  class="writing-pres-slide ${index === 0 ? "is-active" : ""}"
+                  src="${escapeHTML(slide.src)}"
+                  alt="${escapeHTML(slide.alt ?? `slide ${index + 1}`)}"
+                  loading="${index === 0 ? "eager" : "lazy"}"
+                  data-slide-index="${index}"
+                />`
+              )
+              .join("")}
+          </div>
+
+          <button class="writing-pres-arrow writing-pres-arrow-prev" type="button" aria-label="previous slide" disabled>
+            <span>‹</span>
+          </button>
+          <button class="writing-pres-arrow writing-pres-arrow-next" type="button" aria-label="next slide" ${slides.length <= 1 ? "disabled" : ""}>
+            <span>›</span>
+          </button>
+
+          <div class="writing-pres-counter" aria-live="polite">
+            <span class="writing-pres-counter-current">1</span>
+            <span>/</span>
+            <span>${slides.length}</span>
+          </div>
+        </div>
+
+        <aside class="writing-meta-card writing-pres-meta">
+          <div class="writing-meta-inner">
+            ${module.eyebrow
+              ? `<p class="writing-meta-eyebrow">${escapeHTML(module.eyebrow)}</p>`
+              : ""}
+            <h3 class="writing-meta-title">${escapeHTML(module.title ?? "")}</h3>
+            ${module.dek
+              ? `<p class="writing-pres-dek">${escapeHTML(module.dek)}</p>`
+              : ""}
+
+            ${fields.length
+              ? `<div class="writing-meta-fields">
+                   ${fields
+                     .map(f => `
+                       <div class="writing-meta-field">
+                         <p class="writing-meta-label">${escapeHTML(f.label)}</p>
+                         <p class="writing-meta-value">${escapeHTML(f.value)}</p>
+                       </div>`)
+                     .join("")}
+                 </div>`
+              : ""}
+
+            ${tags.length
+              ? `<div class="writing-meta-tags">
+                   ${tags.map(tag => `<span class="writing-meta-tag">${escapeHTML(tag)}</span>`).join("")}
+                 </div>`
+              : ""}
+
+            ${module.note
+              ? `<div class="writing-meta-note">
+                   <p class="writing-meta-note-text">${escapeHTML(module.note)}</p>
+                 </div>`
+              : ""}
+          </div>
+        </aside>
+
+      </div>
     </section>
   `;
 }
