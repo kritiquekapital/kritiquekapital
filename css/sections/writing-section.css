@@ -118,6 +118,45 @@
   border-bottom-color: rgba(143, 214, 255, 0.72);
 }
 
+.writing-subtabs {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.15rem 1.1rem 0.7rem 2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.writing-subtabs::-webkit-scrollbar {
+  display: none;
+}
+
+.writing-subtab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(245, 247, 251, 0.38);
+  font: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.12rem 0.28rem;
+  transition:
+    color var(--ease),
+    transform var(--ease);
+}
+
+.writing-subtab:hover,
+.writing-subtab:focus-visible {
+  outline: none;
+  color: rgba(245, 247, 251, 0.72);
+  transform: translateY(-1px);
+}
+
+.writing-subtab.is-active {
+  color: rgba(143, 214, 255, 0.92);
+}
+
 /* ── Stage ────────────────────────────────────────────────────────────────── */
 
 .writing-stage-shell {
