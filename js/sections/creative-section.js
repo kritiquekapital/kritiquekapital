@@ -35,7 +35,7 @@ export const creativeSection = {
               fullDescription: "Line is demonstrated not as drawn mark but as interval. Each vertical band of color is a line with width, and the accumulation of those intervals is the image itself. The word recedes into the surface – present but absorbed, legible only once you've already felt the concept."
             },
             {
-              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/shape-FINAL.png",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/shape-FINAL.png?v=2",
               alt: "Shape poster by .oCam",
               artist: ".oCam",
               pieceTitle: "shape",
