@@ -47,7 +47,7 @@ function renderWritingSubTabs(entry = {}, activeSubIndex = 0) {
                 ${escapeHTML(subEntry.label ?? `${index + 1}.`)}
               </span>
 
-              ${subEntry.fullLabel
+              ${JSON.stringify(subEntry)
                 ? `
                   <span class="writing-subtab-title">
                     ${escapeHTML(subEntry.fullLabel)}
