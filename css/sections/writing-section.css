@@ -126,7 +126,7 @@
   padding: 0.18rem 1.1rem 0.7rem 1.55rem;
 
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
 
   scrollbar-width: none;
 }
