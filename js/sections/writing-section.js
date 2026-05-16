@@ -80,9 +80,10 @@ export const writingSection = {
           ]
         },
 
-entries: [
+
   {
     label: "History of Russia and the Soviet Union",        
+      entries: [        
         {
           id: "seeds-of-uprising-essay",
           label: "i. seeds of rebellion, sown over centuries",
@@ -189,7 +190,5 @@ entries: [
       }
     ]
   }    
-  
-  
-  ]
+]
 };
