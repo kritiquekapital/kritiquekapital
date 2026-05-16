@@ -26,6 +26,31 @@ function renderWritingTabs(entries = [], activeIndex = 0) {
   `;
 }
 
+function renderWritingSubTabs(entry = {}, activeSubIndex = 0) {
+  const subEntries = Array.isArray(entry.entries) ? entry.entries : [];
+
+  if (subEntries.length <= 1) return "";
+
+  return `
+    <div class="writing-subtabs" role="tablist" aria-label="writing series entries">
+      ${subEntries
+        .map(
+          (subEntry, index) => `
+            <button
+              class="writing-subtab ${index === activeSubIndex ? "is-active" : ""}"
+              type="button"
+              role="tab"
+              aria-selected="${index === activeSubIndex ? "true" : "false"}"
+              data-writing-subindex="${index}"
+            >
+              ${escapeHTML(subEntry.label ?? `part ${index + 1}`)}
+            </button>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
 // ── Text entry ────────────────────────────────────────────────────────────────
 
 function renderWritingBody(entry = {}) {
