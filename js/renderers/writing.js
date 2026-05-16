@@ -329,26 +329,6 @@ function bindWritingTabs(scope = document) {
     const stageShell = moduleEl.querySelector(".writing-stage-shell");
     if (!tabsShell || !stageShell) return;
 
-function renderWritingSubTabs(entry = {}, activeSubIndex = 0) {
-  const subEntries = Array.isArray(entry.entries) ? entry.entries : [];
-
-  if (subEntries.length <= 1) return "";
-
-  return `
-    <div class="writing-subtabs" role="tablist">
-      ${subEntries.map((subEntry, index) => `
-        <button
-          class="writing-subtab ${index === activeSubIndex ? "is-active" : ""}"
-          type="button"
-          data-writing-subindex="${index}"
-        >
-          ${escapeHTML(subEntry.label ?? `part ${index + 1}`)}
-        </button>
-      `).join("")}
-    </div>
-  `;
-}
-
 const renderEntry = (index, subIndex = 0) => {
   const parentEntry = entries[index];
   if (!parentEntry) return;
