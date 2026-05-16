@@ -214,6 +214,8 @@
 }
 
 .writing-subtabs:hover .writing-subtab.is-active:not(:hover) .writing-subtab-title {
+  transition-delay: 0.14s;
+
   max-width: 0;
 
   opacity: 0;
