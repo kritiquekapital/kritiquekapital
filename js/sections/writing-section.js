@@ -83,12 +83,13 @@ export const writingSection = {
 
   {
     label: "History of Russia and the Soviet Union",        
-      entries: [        
+    type: "writing-series",  
+    entries: [        
         {
           id: "seeds-of-uprising-essay",
-          label: "i. seeds of rebellion, sown over centuries",
+          label: "i.",
           eyebrow: "russian history",
-          title: "Семена восстания, посеянные веками",
+          title: "Семена восстания, посеянные веками (seeds of rebellion, sown over centuries)",
           dek: "On how serfdom, reform, war, and revolutionary escalation made the collapse of Romanov rule and the rise of Bolshevik power historically possible.",
           author: ".oCam",
           form: "essay",
@@ -108,9 +109,9 @@ export const writingSection = {
         },
         {
           id: "grown-in-blood-erased-from-earth-essay",
-          label: "ii. grown in blood, erased from the land",
+          label: "ii.",
           eyebrow: "soviet history",
-          title: "Выросшие в крови, стертые с земли",
+          title: "Выросшие в крови, стертые с земли (grown in blood, erased from the land)",
           dek: "On collectivization, famine, purge, and propaganda under Stalin as instruments of domination rather than socialist fulfillment.",
           author: ".oCam",
           form: "essay",
@@ -130,9 +131,9 @@ export const writingSection = {
           },
           {
             id: "crying-at-technocracy-essay",
-            label: "iii. crying at techno(cracy)",
+            label: "iii.",
             eyebrow: "soviet history",
-            title: "Плачу на техно(кратии)",
+            title: "Плачу на техно(кратии) (crying at techno(cracy))",
             dek: "On Khrushchev’s failed thaw and Brezhnev’s stagnation as the slow collapse of a state that could preserve power but no longer renew belief.",
             author: ".oCam",
             form: "essay",
@@ -160,7 +161,7 @@ export const writingSection = {
           },
           {
             id: "on-clearance-essay",
-            label: "iv. on clearance",
+            label: "iv.",
             eyebrow: "soviet history",
             title: "On Clearance: One Superpower, Some Assembly Required",
             dek: "On how glasnost, perestroika, and demokratizatsiya exposed the Soviet Union’s moral, economic, and political exhaustion rather than renewing it.",
@@ -184,11 +185,11 @@ export const writingSection = {
               `As Andrei Arvidus writes in the Davis Center's reflection on Gorbachev’s legacy, his moral vision “collided with a political culture that rewarded compliance, not conviction” (“Mikhail Gorbachev: Magnificent Achievements, Monumental Failures,” Davis Center for Russian and Eurasian Studies, Harvard University, 2022). So when those alternatives finally emerged—whether nationalist, capitalist, or opportunist—they didn’t need to offer solutions. They just had to be not-Communist. The result wasn’t democratization; it was a scramble for power. And in that vacuum, the ones best positioned to seize control weren’t the people, but the profiteers: well-connected apparatchiks and emerging oligarchs poised to privatize the wreckage. Russia, in that moment, wasn’t the exception—it was a prototype. What collapsed in 1991 wasn’t just a regime, but a structure now eerily familiar: power shifting not through vision, but through whoever speaks the loudest in the void—and has the capital to make it echo.`,
               `By the time the August 1991 coup was staged against Gorbachev, the outcome barely mattered. His authority had eroded so completely—politically, economically, symbolically—that removing him felt less like a revolution and more like a boardroom ousting. He returned to office days later, but it was ceremonial. The real power had already moved elsewhere: into the hands of nationalist leaders, rising oligarchs, and opportunists ready to carve up the remains. The Soviet Union would dissolve within months, not with a bang, but with a press conference. The remaining republics were left to chart their own futures—some with hope, others with unease—all still deeply entangled in the wreckage of a superpower whose reach had collapsed but whose consequences endured.`,
               `In the end, the collapse of the Soviet Union wasn’t televised as tragedy or triumph. It was rendered into spectacle—bite-sized, branded, and broadcast. The devolution was televised—as liquidation: the face of communism in the West, rebranded as the smiling mascot for the very system he once stood against—available for delivery.`
-            ]
-          }
-        ]
-      }
-    ]
-  }    
-]
+              ]
+            }
+          ]
+        }
+      ]
+    }    
+  ]
 };
