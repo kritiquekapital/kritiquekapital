@@ -118,32 +118,31 @@
   border-bottom-color: rgba(143, 214, 255, 0.72);
 }
 
-.writing-subtabs {
-  display: flex;
-  gap: 0.35rem;
-  padding: 0.15rem 1.1rem 0.7rem 2rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.writing-subtabs::-webkit-scrollbar {
-  display: none;
-}
-
 .writing-subtab {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+
   border: 0;
   background: transparent;
+
   color: rgba(245, 247, 251, 0.38);
+
   font: inherit;
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+
   cursor: pointer;
+
   padding: 0.12rem 0.28rem;
+
   transition:
     color var(--ease),
     transform var(--ease);
+
+  white-space: nowrap;
 }
 
 .writing-subtab:hover,
@@ -155,6 +154,35 @@
 
 .writing-subtab.is-active {
   color: rgba(143, 214, 255, 0.92);
+}
+
+.writing-subtab-roman {
+  flex: 0 0 auto;
+}
+
+.writing-subtab-title {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+
+  transition:
+    max-width 0.34s ease,
+    opacity 0.2s ease;
+}
+
+.writing-subtab:hover .writing-subtab-title,
+.writing-subtab:focus-visible .writing-subtab-title,
+.writing-subtab.is-active .writing-subtab-title {
+  max-width: 28rem;
+  opacity: 1;
+}
+
+.writing-subtabs:hover 
+.writing-subtab.is-active:not(:hover)
+.writing-subtab-title {
+  max-width: 0;
+  opacity: 0;
 }
 
 /* ── Stage ────────────────────────────────────────────────────────────────── */
