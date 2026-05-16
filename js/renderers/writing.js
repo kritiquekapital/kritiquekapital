@@ -43,7 +43,17 @@ function renderWritingSubTabs(entry = {}, activeSubIndex = 0) {
               aria-selected="${index === activeSubIndex ? "true" : "false"}"
               data-writing-subindex="${index}"
             >
-              ${escapeHTML(subEntry.label ?? `part ${index + 1}`)}
+              <span class="writing-subtab-roman">
+                ${escapeHTML(subEntry.label ?? `${index + 1}.`)}
+              </span>
+
+              ${subEntry.fullLabel
+                ? `
+                  <span class="writing-subtab-title">
+                    ${escapeHTML(subEntry.fullLabel)}
+                  </span>
+                `
+                : ""}
             </button>
           `
         )
