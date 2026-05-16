@@ -88,8 +88,9 @@ export const writingSection = {
         {
           id: "seeds-of-uprising-essay",
           label: "i.",
+          fullabel: "seeds of rebellion, sown over centuries",
           eyebrow: "russian history",
-          title: "Семена восстания, посеянные веками (seeds of rebellion, sown over centuries)",
+          title: "Семена восстания, посеянные веками",
           dek: "On how serfdom, reform, war, and revolutionary escalation made the collapse of Romanov rule and the rise of Bolshevik power historically possible.",
           author: ".oCam",
           form: "essay",
@@ -110,8 +111,9 @@ export const writingSection = {
         {
           id: "grown-in-blood-erased-from-earth-essay",
           label: "ii.",
+          fullabel: "grown in blood, erased from the land",
           eyebrow: "soviet history",
-          title: "Выросшие в крови, стертые с земли (grown in blood, erased from the land)",
+          title: "Выросшие в крови, стертые с земли",
           dek: "On collectivization, famine, purge, and propaganda under Stalin as instruments of domination rather than socialist fulfillment.",
           author: ".oCam",
           form: "essay",
@@ -132,8 +134,9 @@ export const writingSection = {
           {
             id: "crying-at-technocracy-essay",
             label: "iii.",
+            fullabel: "crying at techno(cracy)",
             eyebrow: "soviet history",
-            title: "Плачу на техно(кратии) (crying at techno(cracy))",
+            title: "Плачу на техно(кратии)",
             dek: "On Khrushchev’s failed thaw and Brezhnev’s stagnation as the slow collapse of a state that could preserve power but no longer renew belief.",
             author: ".oCam",
             form: "essay",
@@ -162,6 +165,7 @@ export const writingSection = {
           {
             id: "on-clearance-essay",
             label: "iv.",
+            fullabel: "On Clearance: One Superpower, Some Assembly Required",
             eyebrow: "soviet history",
             title: "On Clearance: One Superpower, Some Assembly Required",
             dek: "On how glasnost, perestroika, and demokratizatsiya exposed the Soviet Union’s moral, economic, and political exhaustion rather than renewing it.",
