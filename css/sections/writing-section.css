@@ -118,19 +118,37 @@
   border-bottom-color: rgba(143, 214, 255, 0.72);
 }
 
-.writing-subtabs {
+.writing-subtab {
+  appearance: none;
+
+  position: relative;
+
   display: flex;
   align-items: center;
-  gap: 0.45rem;
 
-  padding: 0.18rem 1.1rem 0.7rem 1.55rem;
+  flex: 0 0 auto;
 
-  width: max-content;
+  border: 0;
+  background: transparent;
 
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow: visible;
 
-  scrollbar-width: none;
+  color: rgba(245, 247, 251, 0.38);
+
+  font: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  padding: 0.12rem 0.3rem;
+
+  white-space: nowrap;
+
+  transition:
+    color var(--ease),
+    transform var(--ease);
 }
 
 .writing-subtabs::-webkit-scrollbar {
@@ -185,22 +203,26 @@
 }
 
 .writing-subtab-title {
-  display: inline-block;
+  position: absolute;
 
-  max-width: 0;
+  left: calc(100% + 0.38rem);
+  top: 50%;
+
+  transform: translateY(-50%);
 
   opacity: 0;
 
-  overflow: hidden;
+  pointer-events: none;
 
   white-space: nowrap;
 
-  margin-left: 0;
-
   transition:
-    max-width 0.38s ease,
     opacity 0.2s ease,
-    margin-left 0.28s ease;
+    transform 0.28s ease;
+
+  background: rgba(14, 18, 26, 0.94);
+
+  padding-right: 0.4rem;
 }
 
 .writing-subtab:hover .writing-subtab-title,
