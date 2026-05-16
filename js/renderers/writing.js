@@ -319,24 +319,76 @@ function bindWritingTabs(scope = document) {
     const stageShell = moduleEl.querySelector(".writing-stage-shell");
     if (!tabsShell || !stageShell) return;
 
-    const renderEntry = index => {
-      const entry = entries[index];
-      if (!entry) return;
+function renderWritingSubTabs(entry = {}, activeSubIndex = 0) {
+  const subEntries = Array.isArray(entry.entries) ? entry.entries : [];
 
-      tabsShell.innerHTML  = renderWritingTabs(entries, index);
-      stageShell.innerHTML = renderWritingStage(entry);
-      bindPresentationArrows(stageShell);
-      attachTabListeners();
-    };
+  if (subEntries.length <= 1) return "";
 
-    const attachTabListeners = () => {
-      tabsShell.querySelectorAll(".writing-tab").forEach(tab => {
-        tab.addEventListener("click", event => {
-          event.preventDefault();
-          renderEntry(Number(tab.dataset.writingIndex));
-        });
-      });
-    };
+  return `
+    <div class="writing-subtabs" role="tablist">
+      ${subEntries.map((subEntry, index) => `
+        <button
+          class="writing-subtab ${index === activeSubIndex ? "is-active" : ""}"
+          type="button"
+          data-writing-subindex="${index}"
+        >
+          ${escapeHTML(subEntry.label ?? `part ${index + 1}`)}
+        </button>
+      `).join("")}
+    </div>
+  `;
+}
+
+const renderEntry = (index, subIndex = 0) => {
+  const parentEntry = entries[index];
+  if (!parentEntry) return;
+
+  const activeEntry = parentEntry.entries
+    ? parentEntry.entries[subIndex]
+    : parentEntry;
+
+  tabsShell.innerHTML = `
+    ${renderWritingTabs(entries, index)}
+    ${parentEntry.entries
+      ? renderWritingSubTabs(parentEntry, subIndex)
+      : ""}
+  `;
+
+  stageShell.innerHTML = renderWritingStage(activeEntry);
+
+  bindPresentationArrows(stageShell);
+  attachTabListeners();
+};
+
+const attachTabListeners = () => {
+  tabsShell.querySelectorAll(".writing-tab").forEach(tab => {
+    tab.addEventListener("click", event => {
+      event.preventDefault();
+
+      renderEntry(
+        Number(tab.dataset.writingIndex),
+        0
+      );
+    });
+  });
+
+  tabsShell.querySelectorAll(".writing-subtab").forEach(tab => {
+    tab.addEventListener("click", event => {
+      event.preventDefault();
+
+      const parentIndex =
+        Number(
+          tabsShell.querySelector(".writing-tab.is-active")
+            ?.dataset.writingIndex ?? 0
+        );
+
+      renderEntry(
+        parentIndex,
+        Number(tab.dataset.writingSubindex)
+      );
+    });
+  });
+};
 
     renderEntry(0);
     moduleEl.dataset.writingTabsBound = "true";
