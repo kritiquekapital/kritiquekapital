@@ -146,6 +146,8 @@
   border: 0;
   background: transparent;
 
+  overflow: 0;
+
   color: rgba(245, 247, 251, 0.38);
 
   font: inherit;
