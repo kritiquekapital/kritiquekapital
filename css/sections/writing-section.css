@@ -146,7 +146,7 @@
   border: 0;
   background: transparent;
 
-  overflow: 0;
+  overflow: visible;
 
   color: rgba(245, 247, 251, 0.38);
 
