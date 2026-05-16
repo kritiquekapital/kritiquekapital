@@ -138,8 +138,9 @@
 .writing-subtab {
   appearance: none;
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  min-width: max-content;
 
   flex: 0 0 auto;
 
