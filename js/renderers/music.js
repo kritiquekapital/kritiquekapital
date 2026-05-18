@@ -1,5 +1,5 @@
-import { escapeHTML } from "../utils.js";
-import { track }      from "../analytics.js";
+import { escapeHTML }             from "../utils.js";
+import { track, bindScrollDepth } from "../analytics.js";
 
 function renderScrollableTextCard(title = "", paragraphs = [], extraClass = "") {
   return `
@@ -215,6 +215,16 @@ function bindAnalysisTabs(scope = document) {
     card.dataset.analysisBound = "true";
   });
 }
+
+const analysisScroll = stage.querySelector(".music-analysis-scroll");
+if (analysisScroll) bindScrollDepth(analysisScroll, "music_scroll_depth", {
+  context: "analysis", title: entries[index]?.title ?? index
+});
+
+const lyricsScroll = stage.querySelector(".music-lyrics-card .music-text-scroll");
+if (lyricsScroll) bindScrollDepth(lyricsScroll, "music_scroll_depth", {
+  context: "lyrics", title: entries[index]?.title ?? index
+});
 
 function bindSongTabs(scope = document) {
   scope.querySelectorAll(".music-feature-module").forEach(moduleEl => {
