@@ -48,3 +48,15 @@ export function identifySession() {
     if (window.umami && typeof window.umami.identify === "function") {
       window.umami.identify({
         platform:   navigator.platform,
+        dpr:        window.devicePixelRatio,
+        touch:      navigator.maxTouchPoints > 0,
+        cores:      navigator.hardwareConcurrency ?? null,
+        ram:        navigator.deviceMemory ?? null,
+        connection: navigator.connection?.effectiveType ?? null,
+        ua:         navigator.userAgent
+      });
+    }
+  } catch (err) {
+    console.warn("Umami identify failed:", err);
+  }
+}
