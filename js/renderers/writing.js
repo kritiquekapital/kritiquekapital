@@ -1,4 +1,5 @@
 import { escapeHTML } from "../utils.js";
+import { track }      from "../analytics.js";
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 
@@ -297,6 +298,7 @@ function bindPresentationArrows(scope = document) {
       if (counter) counter.textContent = current + 1;
       prevBtn.disabled = current === 0;
       nextBtn.disabled = current === slideEls.length - 1;
+      track("writing_pres_slide_change", { slideIndex: current }); 
     };
 
     prevBtn.addEventListener("click", () => go(current - 1));
@@ -356,6 +358,7 @@ const attachTabListeners = () => {
       event.preventDefault();
 
       renderEntry(
+        track("writing_tab_switch", { index: Number(tab.dataset.writingIndex) });
         Number(tab.dataset.writingIndex),
         0
       );
