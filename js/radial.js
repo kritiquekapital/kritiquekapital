@@ -364,13 +364,10 @@ function buildPanel(section, data) {
 
   applyPanelSectionClass(panel, section);
 
-  if (section === "resume") {
-    buildResumePanel(panel, data, section);
-    bindHeaderActionTracking(panel, section);
       if (section === "resume") {
         buildResumePanel(panel, data, section);
         bindHeaderActionTracking(panel, section);
-        bindScrollDepth(panel, "resume_scroll_depth", { section: "resume" });
+        bindResumeSectionTracking(panel);
         return;
       }
     return;
@@ -403,6 +400,33 @@ function bindHeaderActionTracking(panel, section) {
         href:  link.getAttribute("href") ?? ""
       });
     });
+  });
+}
+
+function bindResumeSectionTracking(panel) {
+  const cards = [
+    { selector: ".resume-card-main",         name: "overview"      },
+    { selector: ".resume-card-work",         name: "experience"    },
+    { selector: ".resume-card-education",    name: "education"     },
+    { selector: ".resume-card-lang",         name: "languages"     },
+    { selector: ".resume-card-certs-awards", name: "certs & awards"},
+    { selector: ".resume-card-interest",     name: "interests"     },
+  ];
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        track("resume_section_view", { section: entry.target.dataset.resumeSection });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  cards.forEach(({ selector, name }) => {
+    const el = panel.querySelector(selector);
+    if (!el) return;
+    el.dataset.resumeSection = name;
+    observer.observe(el);
   });
 }
 
