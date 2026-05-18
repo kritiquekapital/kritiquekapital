@@ -356,12 +356,9 @@ const attachTabListeners = () => {
   tabsShell.querySelectorAll(".writing-tab").forEach(tab => {
     tab.addEventListener("click", event => {
       event.preventDefault();
-
-      renderEntry(
-        track("writing_tab_switch", { index: Number(tab.dataset.writingIndex) });
-        Number(tab.dataset.writingIndex),
-        0
-      );
+      const idx = Number(tab.dataset.writingIndex);
+      renderEntry(idx, 0);
+      track("writing_tab_switch", { index: idx });
     });
   });
 
