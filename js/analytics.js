@@ -37,26 +37,14 @@ export function trackView() {
       window.umami.track();
     }
   } catch (err) {
+    console.warn("Umami pageview failed:", err);
+  }
+}
 
-    export function identifySession() {
+export function identifySession() {
   if (!analyticsAllowed()) return;
 
   try {
     if (window.umami && typeof window.umami.identify === "function") {
       window.umami.identify({
         platform:   navigator.platform,
-        dpr:        window.devicePixelRatio,
-        touch:      navigator.maxTouchPoints > 0,
-        cores:      navigator.hardwareConcurrency ?? null,
-        ram:        navigator.deviceMemory ?? null,
-        connection: navigator.connection?.effectiveType ?? null,
-        ua:         navigator.userAgent
-      });
-    }
-  } catch (err) {
-    console.warn("Umami identify failed:", err);
-  }
-}
-    console.warn("Umami pageview failed:", err);
-  }
-}
