@@ -1,4 +1,4 @@
-import { track, identifySession } from "./analytics.js";
+import { track, identifySession }        from "./analytics.js";
 import { setActiveSection, activeSection as getActive } from "./state.js";
 import { escapeHTML }                    from "./utils.js";
 import { renderModule }                  from "./renderers/module.js";
