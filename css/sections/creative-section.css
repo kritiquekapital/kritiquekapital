@@ -449,6 +449,18 @@
   gap: 0.3rem;
 }
 
+.panel-creative .slideshow-meta-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 1.25rem;
+  align-items: baseline;
+}
+
+.panel-creative .slideshow-meta-row > p:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
 @media (max-width: 1300px) {
   .panel-creative {
     width: min(1480px, 94vw);
