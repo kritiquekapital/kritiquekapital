@@ -350,12 +350,12 @@ const renderEntry = (index, subIndex = 0) => {
 
   bindPresentationArrows(stageShell);
   attachTabListeners();
-};
 
-const scrollEl = stageShell.querySelector(".writing-body-scroll");
-if (scrollEl) bindScrollDepth(scrollEl, "writing_scroll_depth", {
-  entry: entries[index]?.title ?? index
-});
+  const scrollEl = stageShell.querySelector(".writing-body-scroll");
+  if (scrollEl) bindScrollDepth(scrollEl, "writing_scroll_depth", {
+    entry: activeEntry.title ?? parentEntry.title ?? index
+  });
+};
     
 const attachTabListeners = () => {
   tabsShell.querySelectorAll(".writing-tab").forEach(tab => {
