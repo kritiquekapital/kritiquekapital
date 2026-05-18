@@ -396,7 +396,7 @@ export const creativeSection = {
               medium: "mixed media",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for from the heart. This can become a more deliberate explanation of why it opens the body of work and what formal or emotional terms it establishes."
+              fullDescription: "the fall demonstrates line as movement before it becomes image. The branching blue forms stretch upward and outward, creating a structure that feels organic but unstable, as if growth and collapse are happening at the same time. Line does not simply outline form here; it becomes force, direction, and residue. The smaller internal marks interrupt the larger shapes, turning the surface into a record of motion, pressure, and repeated contact."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/dawgs.jpg",
@@ -407,7 +407,7 @@ export const creativeSection = {
               medium: "mixed media paper, gauche, acrylic painter pen",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for dawgs. Good space for writing about shape, flattening, reduction, graphic attitude, or why the work matters beyond just being a formal exercise."
+              fullDescription: "Dawgs demonstrates shape through repetition, collision, and compression. The yellow and blue forms do not settle into a passive pattern; they press against one another, creating tension between figure and ground. Shape functions less as object than as a system of occupation, where each form asserts itself through proximity, overlap, and contrast."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/bubbly.jpg",
@@ -418,7 +418,7 @@ export const creativeSection = {
               medium: "B & H pencils, colored pencils, various objects",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for bubbly. This can later expand into texture, accumulation, mark-making, tactility, or the way surface behaves under close attention."
+              fullDescription: "Bubbly demonstrates texture as accumulated surface. Each circular form contains its own visual behavior, shifting between softness, pattern, pressure, and touch. Texture does not operate as decoration, but as evidence of process, where marks, objects, and material impressions become records of contact. The image remains playful, but that play is built through friction between surfaces that feel drawn, pressed, repeated, and handled."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/sqrd.png",
@@ -429,7 +429,7 @@ export const creativeSection = {
               medium: "digital illustration (Procreate)",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for sqr². Useful place for a fuller note on chromatic logic, reduction, repetition, or how the piece performs as a color-centered study."
+              fullDescription: "sqr² demonstrates color as structural disruption. The repeated square form remains stable, but the shift from grayscale to green alters how the image is perceived, turning color into an active force rather than a secondary surface. The green does not simply brighten the composition; it interrupts the logic of the black-and-white system and creates a new visual pressure. Color becomes the element that destabilizes sameness, making repetition feel divided against itself."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/fruit-loops.JPG",
@@ -440,7 +440,7 @@ export const creativeSection = {
               medium: "digital illustration (Procreate)",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for fruit loops. Can hold a more developed explanation of circularity, repetition, value relationships, or the piece’s role inside the larger set."
+              fullDescription: "Fruit Loops demonstrates value through intensity, saturation, and visual weight. The bright colors create immediate energy, but the darker contours and shifting densities control how the eye moves through the composition. Value does not appear only as light and dark, but as pressure within color itself, where certain forms advance, sink, or vibrate against one another. The piece turns value into motion, using contrast to keep the surface active and unsettled."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/where-everything-returns.jpg",
@@ -451,7 +451,7 @@ export const creativeSection = {
               medium: "digital photograph",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for where everything returns. This can later describe radial order, recurrence, visual pull, or why symmetry here feels active rather than static."
+              fullDescription: "Where Everything Returns demonstrates radial symmetry as a pull toward center. The surrounding forms orbit the middle of the image, creating a sense of return, repetition, and inward gravity. Symmetry here does not feel mechanical; it emerges through natural accumulation, where petals, edges, and surrounding details organize themselves around a shared point. The image becomes a quiet system of return, where balance is produced through circular movement rather than rigid control."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/where-nothing-settles.jpg",
@@ -462,7 +462,7 @@ export const creativeSection = {
               medium: "digital photograph",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for where nothing settles. Good place for writing about asymmetry, unresolved motion, imbalance, or how the composition resists closure."
+              fullDescription: "Where Nothing Settles demonstrates asymmetry as a condition of tension. The image refuses a single center, allowing texture, mark, and surface to pull attention in multiple directions at once. Nothing appears misplaced, but nothing fully stabilizes either. Asymmetry becomes a way of holding imbalance without correcting it, making the photograph feel natural, unsettled, and structurally alive."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/ask-for-assitance.jpg",
@@ -473,7 +473,7 @@ export const creativeSection = {
               medium: "digital photograph",
               year: "2026",
               location: "USA",
-              fullDescription: "Placeholder extended work text for ask for assistance. This can become a longer note on strain, signage, command language, symmetry under pressure, or the social tone of the image."
+              fullDescription: "Ask for Assistance demonstrates symmetry as a fragile structure. The centered composition creates order, but that order is complicated by the artificial setting and the strange presence of the skeletal figure. Symmetry does not produce calm here; instead, it makes the instability more visible. The image uses balance as a setup for unease, showing how structure can hold a scene together while also making its strangeness harder to ignore."
             }
           ]
         }, 
