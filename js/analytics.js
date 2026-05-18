@@ -68,3 +68,31 @@ export function identifySession() {
 
   attempt();
 }
+
+export function bindScrollDepth(el, eventName, data = {}) {
+  if (!analyticsAllowed() || !el) return;
+
+  const milestones = [25, 50, 75, 100];
+  const fired = new Set();
+
+  el.addEventListener("scroll", () => {
+    const scrollable = el.scrollHeight - el.clientHeight;
+    if (scrollable <= 0) return;
+    const pct = Math.round((el.scrollTop / scrollable) * 100);
+    for (const m of milestones) {
+      if (!fired.has(m) && pct >= m) {
+        fired.add(m);
+        track(eventName, { ...data, depth: m });
+      }
+    }
+  }, { passive: true });
+}
+
+export function trackPageLoad() {
+  if (!analyticsAllowed()) return;
+  try {
+    track("page_load", { referrer: document.referrer || "direct" });
+  } catch (err) {
+    console.warn("Umami page_load failed:", err);
+  }
+}
