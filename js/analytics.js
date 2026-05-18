@@ -54,7 +54,9 @@ export function identifySession() {
           cores:      navigator.hardwareConcurrency ?? null,
           ram:        navigator.deviceMemory ?? null,
           connection: navigator.connection?.effectiveType ?? null,
-          ua:         navigator.userAgent
+          ua:         navigator.userAgent,
+          screen:     `${window.screen.width}x${window.screen.height}`,
+          viewport:   `${window.innerWidth}x${window.innerHeight}`
         });
       } else {
         setTimeout(attempt, 500);
