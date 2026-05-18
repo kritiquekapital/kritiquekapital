@@ -1,5 +1,5 @@
-import { escapeHTML } from "../utils.js";
-import { track }      from "../analytics.js";
+import { escapeHTML }             from "../utils.js";
+import { track, bindScrollDepth } from "../analytics.js";
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 
@@ -352,6 +352,11 @@ const renderEntry = (index, subIndex = 0) => {
   attachTabListeners();
 };
 
+const scrollEl = stageShell.querySelector(".writing-body-scroll");
+if (scrollEl) bindScrollDepth(scrollEl, "writing_scroll_depth", {
+  entry: entries[index]?.title ?? index
+});
+    
 const attachTabListeners = () => {
   tabsShell.querySelectorAll(".writing-tab").forEach(tab => {
     tab.addEventListener("click", event => {
