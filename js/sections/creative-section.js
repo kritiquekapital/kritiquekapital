@@ -394,7 +394,7 @@ export const creativeSection = {
               pieceTitle: "from the heart",
               size: '11 in × 14 in',
               medium: "mixed media",
-              year: "2026",
+              year: "2024",
               location: "USA",
               fullDescription: "An exploration on the theory behind design."
             },
