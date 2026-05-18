@@ -249,6 +249,16 @@ function bindSongTabs(scope = document) {
       stage.innerHTML = renderActiveSong(entry);
       bindAnalysisTabs(stage);
       attachSongTabListeners();
+
+      const analysisScroll = stage.querySelector(".music-analysis-scroll");
+      if (analysisScroll) bindScrollDepth(analysisScroll, "music_scroll_depth", {
+        context: "analysis", title: entries[index]?.title ?? index
+      });
+
+      const lyricsScroll = stage.querySelector(".music-lyrics-card .music-text-scroll");
+      if (lyricsScroll) bindScrollDepth(lyricsScroll, "music_scroll_depth", {
+        context: "lyrics", title: entries[index]?.title ?? index
+      });
     };
 
     const attachSongTabListeners = () => {
