@@ -1,4 +1,5 @@
 import { escapeHTML } from "../utils.js";
+import { track }      from "../analytics.js";
 
 function renderScrollableTextCard(title = "", paragraphs = [], extraClass = "") {
   return `
@@ -184,18 +185,13 @@ function bindAnalysisTabs(scope = document) {
       series = [];
     }
 
-    const tabs = [...card.querySelectorAll(".music-analysis-tab")];
-    const titleEl = card.querySelector(".music-analysis-title");
+    const tabs     = [...card.querySelectorAll(".music-analysis-tab")];
+    const titleEl  = card.querySelector(".music-analysis-title");
     const scrollEl = card.querySelector(".music-analysis-scroll");
 
     tabs.forEach(tab => {
-    tab.addEventListener("click", event => {
-      event.preventDefault();
-      const nextIndex = Number(tab.dataset.songIndex);
-      renderSong(nextIndex);
-      track("music_song_switch", { index: nextIndex, title: entries[nextIndex]?.title ?? nextIndex });
-    });
-
+      tab.addEventListener("click", event => {
+        event.preventDefault();
         const nextIndex = Number(tab.dataset.analysisIndex);
         const next = series[nextIndex];
         if (!next || !titleEl || !scrollEl) return;
@@ -251,6 +247,7 @@ function bindSongTabs(scope = document) {
           event.preventDefault();
           const nextIndex = Number(tab.dataset.songIndex);
           renderSong(nextIndex);
+          track("music_song_switch", { index: nextIndex, title: entries[nextIndex]?.title ?? nextIndex });
         });
       });
     };
