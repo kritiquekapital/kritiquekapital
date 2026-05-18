@@ -367,6 +367,12 @@ function buildPanel(section, data) {
   if (section === "resume") {
     buildResumePanel(panel, data, section);
     bindHeaderActionTracking(panel, section);
+      if (section === "resume") {
+        buildResumePanel(panel, data, section);
+        bindHeaderActionTracking(panel, section);
+        bindScrollDepth(panel, "resume_scroll_depth", { section: "resume" });
+        return;
+      }
     return;
   }
 
@@ -467,6 +473,7 @@ function bindEvents() {
 // ── Bootstrap ─────────────────────────────────────────────────────────────────
 
 identifySession();
+trackPageLoad();
 buildAllPanels();
 initFilmCollectionBrowsers();
 initPosterStudies();
