@@ -189,8 +189,12 @@ function bindAnalysisTabs(scope = document) {
     const scrollEl = card.querySelector(".music-analysis-scroll");
 
     tabs.forEach(tab => {
-      tab.addEventListener("click", event => {
-        event.preventDefault();
+    tab.addEventListener("click", event => {
+      event.preventDefault();
+      const nextIndex = Number(tab.dataset.songIndex);
+      renderSong(nextIndex);
+      track("music_song_switch", { index: nextIndex, title: entries[nextIndex]?.title ?? nextIndex });
+    });
 
         const nextIndex = Number(tab.dataset.analysisIndex);
         const next = series[nextIndex];
