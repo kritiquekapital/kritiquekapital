@@ -364,12 +364,10 @@ function buildPanel(section, data) {
 
   applyPanelSectionClass(panel, section);
 
-      if (section === "resume") {
-        buildResumePanel(panel, data, section);
-        bindHeaderActionTracking(panel, section);
-        bindResumeSectionTracking(panel);
-        return;
-      }
+  if (section === "resume") {
+    buildResumePanel(panel, data, section);
+    bindHeaderActionTracking(panel, section);
+    bindResumeSectionTracking(panel);
     return;
   }
 
