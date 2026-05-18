@@ -178,7 +178,7 @@ export const creativeSection = {
               fullDescription: "Unity is demonstrated through a grid of the same letterforms rendered in shifting typefaces, weights, and colors – each cell a different version of the same character. The word UNITY is assembled from its own variation. Difference is the method; cohesion is the result. The grid holds what the individual marks cannot."
             },
             {
-              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-02.png?v=2",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-principles-made-visceral/vpmv-02.png?v=3",
               alt: "Visual Principles Made Visceral – elements overview by .oCam",
               artist: ".oCam",
               pieceTitle: "elements overview",
