@@ -43,6 +43,8 @@ const sectionContent = {
   writing:   writingSection
 };
 
+let sectionOpenTime = null;
+
 // ── Camera state ──────────────────────────────────────────────────────────────
 
 const baseCamera = { x: 0, y: 0 };
@@ -317,11 +319,17 @@ function openSection(section, clickedSlice) {
 
   track("slice_click",   { section });
   track("section_open",  { section });
+  sectionOpenTime = Date.now();
 }
 
 function resetView() {
-  const current = getActive; // live binding read
-  if (current) track("section_close", { section: current });
+  const current = getActive;
+  if (current) {
+    const seconds = sectionOpenTime ? Math.round((Date.now() - sectionOpenTime) / 1000) : null;
+    track("section_close", { section: current });
+    if (seconds !== null) track("section_dwell", { section: current, seconds });
+    sectionOpenTime = null;
+  }
 
   setActiveSection(null);
   clearSelectedState();
@@ -358,6 +366,7 @@ function buildPanel(section, data) {
 
   if (section === "resume") {
     buildResumePanel(panel, data, section);
+    bindHeaderActionTracking(panel, section);
     return;
   }
 
@@ -375,6 +384,20 @@ function buildPanel(section, data) {
         .join("")}
     </div>
   `;
+
+  bindHeaderActionTracking(panel, section);
+}
+
+function bindHeaderActionTracking(panel, section) {
+  panel.querySelectorAll(".panel-action-link").forEach(link => {
+    link.addEventListener("click", () => {
+      track("header_action_click", {
+        section,
+        label: link.getAttribute("aria-label") ?? "",
+        href:  link.getAttribute("href") ?? ""
+      });
+    });
+  });
 }
 
 function buildAllPanels() {
