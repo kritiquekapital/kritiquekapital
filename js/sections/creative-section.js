@@ -392,18 +392,18 @@ export const creativeSection = {
               alt: "From the Heart by Cameron Greenleaf",
               artist: ".oCam",
               pieceTitle: "from the heart",
-              size: '6 in × 6 in',
+              size: '11 in × 14 in',
               medium: "mixed media",
               year: "2026",
               location: "USA",
-              fullDescription: "the fall demonstrates line as movement before it becomes image. The branching blue forms stretch upward and outward, creating a structure that feels organic but unstable, as if growth and collapse are happening at the same time. Line does not simply outline form here; it becomes force, direction, and residue. The smaller internal marks interrupt the larger shapes, turning the surface into a record of motion, pressure, and repeated contact."
+              fullDescription: "An exploration on the theory behind design."
             },
             {
               src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/fromtheheart.jpg",
               alt: "the fall by Cameron Greenleaf",
               artist: ".oCam",
               pieceTitle: "the fall",
-              size: '8 1/2 in × 11 in',
+              size: '11 in x 8 1/2 in',
               medium: "mixed media",
               year: "2026",
               location: "USA",
