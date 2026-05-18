@@ -44,19 +44,25 @@ export function trackView() {
 export function identifySession() {
   if (!analyticsAllowed()) return;
 
-  try {
-    if (window.umami && typeof window.umami.identify === "function") {
-      window.umami.identify({
-        platform:   navigator.platform,
-        dpr:        window.devicePixelRatio,
-        touch:      navigator.maxTouchPoints > 0,
-        cores:      navigator.hardwareConcurrency ?? null,
-        ram:        navigator.deviceMemory ?? null,
-        connection: navigator.connection?.effectiveType ?? null,
-        ua:         navigator.userAgent
-      });
+  const attempt = () => {
+    try {
+      if (window.umami && typeof window.umami.identify === "function") {
+        window.umami.identify({
+          platform:   navigator.platform,
+          dpr:        window.devicePixelRatio,
+          touch:      navigator.maxTouchPoints > 0,
+          cores:      navigator.hardwareConcurrency ?? null,
+          ram:        navigator.deviceMemory ?? null,
+          connection: navigator.connection?.effectiveType ?? null,
+          ua:         navigator.userAgent
+        });
+      } else {
+        setTimeout(attempt, 500);
+      }
+    } catch (err) {
+      console.warn("Umami identify failed:", err);
     }
-  } catch (err) {
-    console.warn("Umami identify failed:", err);
-  }
+  };
+
+  attempt();
 }
