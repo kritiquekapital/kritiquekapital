@@ -67,9 +67,9 @@ export const resumeSection = {
         },
         {
           title: "North Shore C.C.",
-          copy: "Associate of Science | GPA 3.61 | Cum Laude",
+          copy: "Associate of Science | GPA 3.62 | Cum Laude",
           subTitle: "coursework",
-          subCopy: "Financial & Managerial Accounting, Principles of Management, Digital Marketing, Business Law, Micro & Macroeconomics, Statistics, Integrated Media Design, Visual Design Theory, Digital Photography, Speech & Communication, Composition I & II, American Literature II, World Cinema, Philosophy, Global Conflicts & Human Behaviors, History of the Soviet Union & Russia: Post 1917, Sociology, Personal Psychology, Biology, Pre-Calculus, Intermediate Algebra, Introduction to Hazardous Materials, and Paralegal Studies."
+          subCopy: "Financial & Managerial Accounting, Principles of Management, Digital Marketing, Business Law, Micro & Macroeconomics, Statistics, Integrated Media Design, Visual Design Theory, Digital Photography, Speech & Communication, Composition I & II, American Literature II, World Cinema, Philosophy, Global Conflicts & Human Behaviors, History of the Soviet Union & Russia: Post 1917, Sociology, Social Psychology, Biology, Pre-Calculus, Intermediate Algebra, Introduction to Hazardous Materials, and Paralegal Studies."
         }
       ]
     },
