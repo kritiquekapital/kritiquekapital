@@ -333,6 +333,6 @@
 
   .panel-music .music-analysis-card,
   .panel-music .music-lyrics-card {
-    height: 280px;
+    height: min(64dvh, 640px);
   }
 }
