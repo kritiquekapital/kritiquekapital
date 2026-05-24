@@ -1022,7 +1022,7 @@ video.slideshow-media {
 @media (max-width: 760px) {
   .panel-film {
     width: min(94vw, 640px);
-    max-height: min(76dvh, calc(100dvh - 96px - env(safe-area-inset-bottom, 0px)));
+    max-height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
