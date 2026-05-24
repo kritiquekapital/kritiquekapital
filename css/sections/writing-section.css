@@ -41,6 +41,29 @@
   display: block;
 }
 
+@media (max-width: 760px) {
+  .panel-writing {
+    width: min(96vw, 620px);
+    max-width: 96vw;
+    max-height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+  }
+
+  .writing-feature-module {
+    height: calc(100dvh - 128px - env(safe-area-inset-bottom, 0px));
+    max-height: 680px;
+  }
+
+  .writing-pres-module {
+    height: calc(100dvh - 128px - env(safe-area-inset-bottom, 0px));
+    max-height: 680px;
+  }
+}
+
 /* ── Module shell ─────────────────────────────────────────────────────────── */
 
 .writing-feature-module {
