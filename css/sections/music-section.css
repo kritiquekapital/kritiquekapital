@@ -319,8 +319,6 @@
 
 @media (max-width: 760px) {
   .panel-music {
-    width: min(94vw, 640px);
-    max-height: 78vh;
     overflow-y: auto;
     overflow-x: hidden;
   }
