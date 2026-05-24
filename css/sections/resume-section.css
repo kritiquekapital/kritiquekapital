@@ -345,7 +345,6 @@
 @media (max-width: 760px) {
   .panel-resume {
     width: min(92vw, 560px);
-    max-height: 74vh;
   }
 
   .panel-resume .resume-layout {
