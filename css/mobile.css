@@ -33,3 +33,18 @@ body.is-mobile-device {
     cursor: grabbing;
   }
 }
+
+@media (max-width: 760px) {
+  .space-view {
+    height: 100dvh;
+  }
+
+  .panel-resume,
+  .panel-creative,
+  .panel-music,
+  .panel-film {
+    max-height: min(76dvh, calc(100dvh - 96px - env(safe-area-inset-bottom, 0px)));
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
