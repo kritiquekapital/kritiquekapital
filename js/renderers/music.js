@@ -17,6 +17,11 @@ function renderScrollableTextCard(title = "", paragraphs = [], extraClass = "") 
 }
 
 function renderVideoCard(video = {}) {
+  const baseSrc = video.src ?? "";
+  const src = baseSrc
+    ? `${baseSrc}${baseSrc.includes("?") ? "&" : "?"}autoplay=0&playsinline=1&rel=0` /*inlinefix*/
+    : "";
+
   return `
     <section class="module music-video-card">
       <div class="music-video-frame-shell">
@@ -25,7 +30,8 @@ function renderVideoCard(video = {}) {
           style="--music-video-aspect: ${escapeHTML(video.aspectRatio ?? "16 / 9")};"
         >
           <iframe
-            src="${escapeHTML(video.src ?? "")}"
+            src="${escapeHTML(src)}"
+            allow="encrypted-media; picture-in-picture; fullscreen"
             allowfullscreen
             loading="lazy"
             title="${escapeHTML(video.title ?? "video")}"
