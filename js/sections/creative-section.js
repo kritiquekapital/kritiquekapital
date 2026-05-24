@@ -399,7 +399,7 @@ export const creativeSection = {
               fullDescription: "An exploration on the theory behind design."
             },
             {
-              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/fromtheheart.jpg",
+              src: "https://pub-4df4e35c254c4f02b20a98409b10c2df.r2.dev/creative/visual-design-theory/the-fall.jpg",
               alt: "the fall by Cameron Greenleaf",
               artist: ".oCam",
               pieceTitle: "the fall",
