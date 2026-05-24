@@ -91,12 +91,19 @@ function setBaseCamera(slot) {
   const panelRect = panel.getBoundingClientRect();
   const viewRect  = spaceView.getBoundingClientRect();
 
+  // The fixed footer overlaps the bottom of .space-view. Centering panels on
+  // the geometric viewport center (viewRect.height / 2) leaves them visually
+  // low because the footer eats space at the bottom — bias the target up by
+  // half the footer height so panels sit centered in the area above it.
+  const footer = document.querySelector(".site-footer");
+  const footerHeight = footer ? footer.getBoundingClientRect().height : 0;
+
   // center of panel relative to viewport
   const panelCenterX = panelRect.left + panelRect.width / 2;
   const panelCenterY = panelRect.top  + panelRect.height / 2;
 
   const viewCenterX = viewRect.left + viewRect.width / 2;
-  const viewCenterY = viewRect.top  + viewRect.height / 2;
+  const viewCenterY = viewRect.top  + (viewRect.height - footerHeight) / 2;
 
   // how far off center → invert for camera
   baseCamera.x += (viewCenterX - panelCenterX);
@@ -189,6 +196,11 @@ function isLikelyTextSelectionTarget(target) {
   );
 }
 
+function isInsideActivePanel(target) {
+  if (!(target instanceof Element)) return false;
+  return Boolean(target.closest(".section-panel.is-active"));
+}
+
 function hasActiveTextSelection() {
   const sel = window.getSelection?.();
   return Boolean(sel && !sel.isCollapsed && String(sel).trim().length > 0);
@@ -232,6 +244,11 @@ function startPrimaryPan(event) {
   if (!isPrimaryPointer(event)) return;
   if (isInteractiveTarget(event.target)) return;
   if (isLikelyTextSelectionTarget(event.target) && !isTouchLikePointer(event)) return;
+
+  // Don't start a pan when the touch begins inside an active section panel.
+  // Otherwise the space-view's pointer capture steals touchmove events from
+  // the panel's native overflow scrolling and drags the panel off-screen.
+  if (isInsideActivePanel(event.target)) return;
 
   isPrimaryPanning            = true;
   primaryPanPointerId         = event.pointerId;
@@ -367,7 +384,12 @@ function buildPanel(section, data) {
   if (section === "resume") {
     buildResumePanel(panel, data, section);
     bindHeaderActionTracking(panel, section);
-    bindResumeSectionTracking(panel);
+      if (section === "resume") {
+        buildResumePanel(panel, data, section);
+        bindHeaderActionTracking(panel, section);
+        bindScrollDepth(panel, "resume_scroll_depth", { section: "resume" });
+        return;
+      }
     return;
   }
 
@@ -398,33 +420,6 @@ function bindHeaderActionTracking(panel, section) {
         href:  link.getAttribute("href") ?? ""
       });
     });
-  });
-}
-
-function bindResumeSectionTracking(panel) {
-  const cards = [
-    { selector: ".resume-card-main",         name: "overview"      },
-    { selector: ".resume-card-work",         name: "experience"    },
-    { selector: ".resume-card-education",    name: "education"     },
-    { selector: ".resume-card-lang",         name: "languages"     },
-    { selector: ".resume-card-certs-awards", name: "certs & awards"},
-    { selector: ".resume-card-interest",     name: "interests"     },
-  ];
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        track("resume_section_view", { section: entry.target.dataset.resumeSection });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  cards.forEach(({ selector, name }) => {
-    const el = panel.querySelector(selector);
-    if (!el) return;
-    el.dataset.resumeSection = name;
-    observer.observe(el);
   });
 }
 
