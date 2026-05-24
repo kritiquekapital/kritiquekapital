@@ -345,6 +345,12 @@
 @media (max-width: 760px) {
   .panel-resume {
     width: min(92vw, 560px);
+    max-height: calc(100dvh - 64px - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
   }
 
   .panel-resume .resume-layout {
