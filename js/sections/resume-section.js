@@ -68,11 +68,11 @@ export const resumeSection = {
           title: "Undecided",
           copy: "Weighing offers | Starting fall term 2026.",
           subTitle: "coursework",
-          subCopy: "Salem State (Accepted) | Business Administration, UMass Boston (Accepted) | Supply Chain Management, Merrimack (Accepted) | Business Analytics"
+          subCopy: "UMass Boston (Accepted) | Supply Chain Management, Merrimack (Accepted) | Business Analytics"
         },
         {
           title: "North Shore C.C.",
-          copy: "Associate of Science | GPA 3.62 | Cum Laude",
+          copy: "Associate of Arts | GPA 3.62 | Cum Laude",
           subTitle: "coursework",
           subCopy: "Financial & Managerial Accounting, Principles of Management, Digital Marketing, Business Law, Micro & Macroeconomics, Statistics, Integrated Media Design, Visual Design Theory, Digital Photography, Speech & Communication, Composition I & II, American Literature II, World Cinema, Philosophy, Global Conflicts & Human Behaviors, History of the Soviet Union & Russia: Post 1917, Sociology, Social Psychology, Biology, Pre-Calculus, Intermediate Algebra, Introduction to Hazardous Materials, and Paralegal Studies."
         }
