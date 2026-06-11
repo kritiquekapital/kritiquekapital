@@ -5,18 +5,23 @@ export const resumeSection = {
     { label: "linkedin", icon: "in", href: "https://www.linkedin.com/in/camerongreenleaf/" },
     { label: "camerong1226@gmail.com", icon: "@", href: "mailto:camerong1226@gmail.com" },
     { label: "kritiquekapital@outlook.com", icon: "@", href: "mailto:kritiquekapital@outlook.com" },
-    { label: "download pdf", icon: "pdf", href: "https://drive.google.com/uc?export=download&id=1RqxWymYksJuB644Bj6Cja8O0qgy7rmo5" }
+    { label: "download pdf", icon: "pdf", href: "https://drive.google.com/uc?export=download&id=1P3R3PsoJaZbWFqbkCe9XaqXcbJffhZbL"
   ],
   modules: [
     {
       type: "resume-intro",
       profile: {
         title: "profile",
-        copy: "5+ years in high-volume hospitality running teams and operations. Parallel background in independent investing, design, and systems thinking. I approach problems analytically and build things creatively—and I don't lose one for the other."
+        copy: "Operations background, investor's analytical frame, and a design sensibility that doesn't turn off. Currently building toward supply chain at UMass Boston – specifically the intersection of data, systems, and how things move."
       },
       skills: {
         title: "skills",
-        copy: "Microsoft Office Suite (Excel — advanced), market & portfolio analysis, research & systems analysis, risk management & compliance, high-volume operations & team leadership, inventory & resource management, customer experience strategy, integrated media strategy, visual communication & digital design, Adobe Creative Suite, technical & analytical writing, and behavioral insight & applied psychology."
+        items: {
+          "Business & Operations: Inventory & Resource Management | High–Volume Operations & Team Leadership | Risk Management & Compliance | Research & Systems Analysis | Consumer & Organizational Behavior"
+          "Data & Technical: Microsoft Office Suite | Excel – Advanced | Data Visualization | Web Analytics (Umami, Google) | GitHub | HTML, CSS & JavaScript | SQL – In Progress"
+          "Finance & Analysis: Market & Portfolio Analysis | Financial Research | Benchmarking | Portfolio Risk Controls"
+          "Design & Communication: Visual Communication & Digital Design | Adobe Creative Suite (Photoshop, Illustrator) | Photography | Technical & Analytical Writing"
+          "Languages: Russian, Spanish & Portuguese – Conversational"
       }
     },
     {
@@ -89,7 +94,7 @@ export const resumeSection = {
         "SERV Safe Certified",
         "TIPS On-Premises Alcohol Server",
         "Allergen Training",
-        "4x Dean’s List - NSCC",
+        "5x Dean’s List - NSCC",
         "Dr. George A. Traicoff Scholarship",
         "John and Abigail Adams Scholarship",
         "Mary Barbuzzi BCNA Scholarship"
