@@ -5,7 +5,7 @@ export const resumeSection = {
     { label: "linkedin", icon: "in", href: "https://www.linkedin.com/in/camerongreenleaf/" },
     { label: "camerong1226@gmail.com", icon: "@", href: "mailto:camerong1226@gmail.com" },
     { label: "kritiquekapital@outlook.com", icon: "@", href: "mailto:kritiquekapital@outlook.com" },
-    { label: "download pdf", icon: "pdf", href: "https://drive.google.com/uc?export=download&id=1P3R3PsoJaZbWFqbkCe9XaqXcbJffhZbL"
+    { label: "download pdf", icon: "pdf", href: "https://drive.google.com/uc?export=download&id=1P3R3PsoJaZbWFqbkCe9XaqXcbJffhZbL" }
   ],
   modules: [
     {
@@ -16,12 +16,13 @@ export const resumeSection = {
       },
       skills: {
         title: "skills",
-        items: {
-          "Business & Operations: Inventory & Resource Management | High–Volume Operations & Team Leadership | Risk Management & Compliance | Research & Systems Analysis | Consumer & Organizational Behavior"
-          "Data & Technical: Microsoft Office Suite | Excel – Advanced | Data Visualization | Web Analytics (Umami, Google) | GitHub | HTML, CSS & JavaScript | SQL – In Progress"
-          "Finance & Analysis: Market & Portfolio Analysis | Financial Research | Benchmarking | Portfolio Risk Controls"
-          "Design & Communication: Visual Communication & Digital Design | Adobe Creative Suite (Photoshop, Illustrator) | Photography | Technical & Analytical Writing"
+        items: [
+          "Business & Operations: Inventory & Resource Management | High-Volume Operations & Team Leadership | Risk Management & Compliance | Research & Systems Analysis | Consumer & Organizational Behavior",
+          "Data & Technical: Microsoft Office Suite | Excel – Advanced | Data Visualization | Web Analytics (Umami, Google) | GitHub | HTML, CSS & JavaScript | SQL – In Progress",
+          "Finance & Analysis: Market & Portfolio Analysis | Financial Research | Benchmarking | Portfolio Risk Controls",
+          "Design & Communication: Visual Communication & Digital Design | Adobe Creative Suite (Photoshop, Illustrator) | Photography | Technical & Analytical Writing",
           "Languages: Russian, Spanish & Portuguese – Conversational"
+        ]
       }
     },
     {
@@ -91,7 +92,7 @@ export const resumeSection = {
       type: "list-card",
       title: "certifications & awards",
       items: [
-        "SERV Safe Certified",
+        "ServSafe Certified",
         "TIPS On-Premises Alcohol Server",
         "Allergen Training",
         "5x Dean’s List - NSCC",
