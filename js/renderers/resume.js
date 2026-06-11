@@ -16,7 +16,7 @@ export function renderResumeIntroModule(module) {
         <article class="resume-intro-card">
           <div class="stack-card-inner">
             <h4 class="stack-card-title">${escapeHTML(module.skills.title)}</h4>
-            <p class="module-copy">${escapeHTML(module.skills.copy)}</p>
+            <p class="module-copy">${escapeHTML(module.skills.items)}</p>
           </div>
         </article>
       </div>
