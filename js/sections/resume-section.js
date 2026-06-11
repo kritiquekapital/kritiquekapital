@@ -15,6 +15,7 @@ export const resumeSection = {
         copy: "Operations background, investor's analytical frame, and a design sensibility that doesn't turn off. Currently building toward supply chain at UMass Boston – specifically the intersection of data, systems, and how things move."
       },
       skills: {
+        type: "list-card",
         title: "skills",
         items: [
           "Business & Operations: Inventory & Resource Management | High-Volume Operations & Team Leadership | Risk Management & Compliance | Research & Systems Analysis | Consumer & Organizational Behavior",
