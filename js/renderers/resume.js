@@ -19,8 +19,19 @@ export function renderResumeIntroModule(module) {
             <h4 class="stack-card-title">${escapeHTML(module.skills.title)}</h4>
             <div class="resume-pill-list resume-skills-list">
               ${module.skills.items
-                .map(item => `<div class="resume-pill-item"><span>${escapeHTML(item)}</span></div>`)
-                .join("")}
+                .map(item => {
+                  const [label, ...rest] = item.split(":");
+                  const body = rest.join(":").trim();
+                  return `
+                  <div class="resume-pill-item">
+                    <span>
+                      <strong>${escapeHTML(label)}:</strong>
+                        ${escapeHTML(body)}
+                      </span>
+                    </div>
+                  `;
+                })
+              .join("")}
             </div>
           </div>
         </article>
