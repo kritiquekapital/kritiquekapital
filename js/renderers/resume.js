@@ -13,10 +13,15 @@ export function renderResumeIntroModule(module) {
             <p class="module-copy">${escapeHTML(module.profile.copy)}</p>
           </div>
         </article>
+
         <article class="resume-intro-card">
           <div class="stack-card-inner">
             <h4 class="stack-card-title">${escapeHTML(module.skills.title)}</h4>
-            <p class="module-copy">${escapeHTML(module.skills.items)}</p>
+            <div class="resume-pill-list resume-skills-list">
+              ${module.skills.items
+                .map(item => `<div class="resume-pill-item"><span>${escapeHTML(item)}</span></div>`)
+                .join("")}
+            </div>
           </div>
         </article>
       </div>
