@@ -370,21 +370,25 @@
   .panel-resume .resume-card-education {
     order: 2;
   }
+  
+  .panel-resume .resume-card-education {
+    order: 3;
+  } 
 
   .panel-resume .resume-card-work {
-    order: 3;
-  }
-
-  .panel-resume .resume-card-lang {
     order: 4;
   }
 
-  .panel-resume .resume-card-certs-awards {
+  .panel-resume .resume-card-lang {
     order: 5;
   }
 
-  .panel-resume .resume-card-interest {
+  .panel-resume .resume-card-certs-awards {
     order: 6;
+  }
+
+  .panel-resume .resume-card-interest {
+    order: 7;
   }
 
   .panel-resume .panel-header.has-actions {
