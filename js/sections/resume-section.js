@@ -13,7 +13,9 @@ export const resumeSection = {
       profile: {
         title: "profile",
         copy: "Operations background, investor's analytical frame, and a design sensibility that doesn't turn off. Currently building toward supply chain at UMass Boston – specifically the intersection of data, systems, and how things move."
-      },
+      }
+    },
+    {
       skills: {
         type: "resume-skills",
         title: "skills",
