@@ -13,7 +13,7 @@
 
 .panel-resume .resume-layout {
   display: grid;
-  grid-template-columns: minmax(290px, 1.0fr) minmax(360px, 1.02fr) minmax(240px, 0.72fr);
+  grid-template-columns: minmax(290px, 0.96fr) minmax(420px, 1.32fr) minmax(210px, 0.7fr);
   gap: 1rem;
   align-items: stretch;
 }
@@ -220,8 +220,10 @@
   padding: 0 1.05rem 1.05rem;
 }
 
-.panel-resume .resume-intro-card .stack-card-inner {
-  padding: 0.95rem 1rem;
+.panel-resume .resume-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
 }
 
 .panel-resume .stack-module-list {
@@ -287,15 +289,13 @@
   color: rgba(245,247,251,0.8);
 }
 
-/* ── Breakpoints ─────────────────────────────────────────────────────────── */
-
 @media (max-width: 1320px) {
   .panel-resume {
     width: min(1280px, 90vw);
   }
 
   .panel-resume .resume-layout {
-    grid-template-columns: minmax(260px, 0.96fr) minmax(330px, 1.04fr) minmax(210px, 0.72fr);
+    grid-template-columns: minmax(250px, 0.9fr) minmax(360px, 1.2fr) minmax(190px, 0.66fr);
   }
 }
 
@@ -356,7 +356,6 @@
   .panel-resume .resume-layout {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
   }
 
   .panel-resume .resume-center-stack,
@@ -364,13 +363,29 @@
     display: contents;
   }
 
-  .panel-resume .resume-card-main         { order: 1; }
-  .panel-resume .resume-card-work         { order: 2; }
-  .panel-resume .resume-card-skills       { order: 3; }
-  .panel-resume .resume-card-education    { order: 4; }
-  .panel-resume .resume-card-lang         { order: 5; }
-  .panel-resume .resume-card-certs-awards { order: 6; }
-  .panel-resume .resume-card-interest     { order: 7; }
+  .panel-resume .resume-card-main {
+    order: 1;
+  }
+
+  .panel-resume .resume-card-education {
+    order: 2;
+  }
+
+  .panel-resume .resume-card-work {
+    order: 3;
+  }
+
+  .panel-resume .resume-card-lang {
+    order: 4;
+  }
+
+  .panel-resume .resume-card-certs-awards {
+    order: 5;
+  }
+
+  .panel-resume .resume-card-interest {
+    order: 6;
+  }
 
   .panel-resume .panel-header.has-actions {
     grid-template-columns: 1fr;
