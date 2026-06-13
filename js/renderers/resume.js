@@ -6,37 +6,36 @@ import { renderHeaderActions } from "./text.js";
 export function renderResumeIntroModule(module) {
   return `
     <div class="resume-main-copy">
-      <div class="resume-intro-grid">
-        <article class="resume-intro-card">
-          <div class="stack-card-inner">
-            <h4 class="stack-card-title">${escapeHTML(module.profile.title)}</h4>
-            <p class="module-copy">${escapeHTML(module.profile.copy)}</p>
-          </div>
-        </article>
-
-        <article class="resume-intro-card">
-          <div class="stack-card-inner">
-            <h4 class="stack-card-title">${escapeHTML(module.skills.title)}</h4>
-            <div class="resume-pill-list resume-skills-list">
-              ${module.skills.items
-                .map(item => {
-                  const [label, ...rest] = item.split(":");
-                  const body = rest.join(":").trim();
-                  return `
-                  <div class="resume-pill-item">
-                    <span>
-                      <strong>${escapeHTML(label)}:</strong>
-                        ${escapeHTML(body)}
-                      </span>
-                    </div>
-                  `;
-                })
-              .join("")}
-            </div>
-          </div>
-        </article>
-      </div>
+      <article class="resume-intro-card">
+        <div class="stack-card-inner">
+          <h4 class="stack-card-title">${escapeHTML(module.profile.title)}</h4>
+          <p class="module-copy">${escapeHTML(module.profile.copy)}</p>
+        </div>
+      </article>
     </div>
+  `;
+}
+
+export function renderResumeSkillsCard(module) {
+  return `
+    <section class="resume-card resume-card-skills">
+      <div class="module-inner">
+        <h3 class="module-title">${escapeHTML(module.title)}</h3>
+        <div class="resume-pill-list resume-skills-list">
+          ${module.items
+            .map(item => {
+              const [label, ...rest] = item.split(":");
+              const body = rest.join(":").trim();
+              return `
+                <div class="resume-pill-item">
+                  <span><strong>${escapeHTML(label)}:</strong> ${escapeHTML(body)}</span>
+                </div>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+    </section>
   `;
 }
 
@@ -113,8 +112,15 @@ export function renderResumeListCard(module, className) {
 // ── Panel builder ─────────────────────────────────────────────────────────────
 
 export function buildResumePanel(panel, data, section) {
-  const [introModule, workModule, educationModule, languagesModule, certsAwardsModule, interestsModule] =
-    data.modules;
+  const [
+    introModule,
+    workModule,
+    skillsModule,
+    educationModule,
+    languagesModule,
+    certsAwardsModule,
+    interestsModule
+  ] = data.modules;
 
   panel.innerHTML = `
     <div class="resume-layout">
@@ -132,13 +138,15 @@ export function buildResumePanel(panel, data, section) {
           ${renderResumeIntroModule(introModule)}
         </section>
 
+        ${renderResumeSkillsCard(skillsModule)}
+
         ${renderResumeEducationCard(educationModule)}
       </div>
 
       <div class="resume-right-stack">
-        ${renderResumeListCard(languagesModule,    "resume-card-lang")}
-        ${renderResumeListCard(certsAwardsModule,  "resume-card-certs-awards")}
-        ${renderResumeListCard(interestsModule,    "resume-card-interest")}
+        ${renderResumeListCard(languagesModule,   "resume-card-lang")}
+        ${renderResumeListCard(certsAwardsModule, "resume-card-certs-awards")}
+        ${renderResumeListCard(interestsModule,   "resume-card-interest")}
       </div>
     </div>
   `;
