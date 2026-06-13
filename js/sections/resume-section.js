@@ -16,16 +16,6 @@ export const resumeSection = {
       }
     },
     {
-      type: "resume-skills",
-        title: "skills",
-        items: [
-          "Business & Operations: Inventory & Resource Management | High-Volume Operations & Team Leadership | Risk Management & Compliance | Research & Systems Analysis | Consumer & Organizational Behavior",
-          "Data & Technical: Microsoft Office Suite & Excel – Advanced | Data Visualization | Web Analytics (Umami, Google) | GitHub | HTML, CSS & JavaScript | SQL – In Progress",
-          "Finance & Analysis: Market & Portfolio Analysis | Financial Research | Benchmarking | Portfolio Risk Controls",
-          "Design & Communication: Visual Communication & Digital Design | Adobe Creative Suite (Photoshop, Illustrator) | Photography | Technical & Analytical Writing",
-      ]
-    },
-    {
       type: "experience",
       title: "experience",
       items: [
@@ -59,6 +49,16 @@ export const resumeSection = {
             "Organized and ran monthly in-service training to keep staff current with Ellis standards."
           ]
         }
+      ]
+    },
+    {
+      type: "resume-skills",
+        title: "skills",
+        items: [
+          "Business & Operations: Inventory & Resource Management | High-Volume Operations & Team Leadership | Risk Management & Compliance | Research & Systems Analysis | Consumer & Organizational Behavior",
+          "Data & Technical: Microsoft Office Suite & Excel – Advanced | Data Visualization | Web Analytics (Umami, Google) | GitHub | HTML, CSS & JavaScript | SQL – In Progress",
+          "Finance & Analysis: Market & Portfolio Analysis | Financial Research | Benchmarking | Portfolio Risk Controls",
+          "Design & Communication: Visual Communication & Digital Design | Adobe Creative Suite (Photoshop, Illustrator) | Photography | Technical & Analytical Writing",
       ]
     },
     {
