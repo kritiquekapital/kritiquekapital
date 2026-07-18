@@ -12,7 +12,7 @@ import {
 } from "./renderers/slideshow.js";
 import { initFilmCollectionBrowsers }    from "./renderers/film-browser.js";
 
-import { marketingSection } from "./sections/marketing-section.js";
+import { systemsSection } from "./sections/systems-section.js";
 import { creativeSection }  from "./sections/creative-section.js";
 import { musicSection }     from "./sections/music-section.js";
 import { resumeSection }    from "./sections/resume-section.js";
@@ -35,7 +35,7 @@ const panels = [...document.querySelectorAll(".section-panel")];
 // ── Section content map ───────────────────────────────────────────────────────
 
 const sectionContent = {
-  marketing: marketingSection,
+  systems: systemsSection,
   creative:  creativeSection,
   music:     musicSection,
   resume:    resumeSection,
