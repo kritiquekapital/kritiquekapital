@@ -165,7 +165,7 @@ svg g:focus-visible {
   outline: none;
 }
 
-.slice-marketing,
+.slice-systems,
 .slice-creative,
 .slice-resume,
 .slice-writing,
@@ -191,7 +191,7 @@ svg g:focus-visible {
     drop-shadow(0 0 28px rgba(143,214,255,0.12));
 }
 
-.radial.is-active .slice-marketing.is-selected { transform: translate(0px, -8px); }
+.radial.is-active .slice-systems.is-selected { transform: translate(0px, -8px); }
 .radial.is-active .slice-creative.is-selected { transform: translate(6px, -4px); }
 .radial.is-active .slice-resume.is-selected { transform: translate(6px, 4px); }
 .radial.is-active .slice-writing.is-selected { transform: translate(0px, 8px); }
