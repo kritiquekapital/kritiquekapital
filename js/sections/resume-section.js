@@ -66,10 +66,10 @@ export const resumeSection = {
       title: "education",
       items: [
         {
-          title: "Undecided",
-          copy: "Weighing offers | Starting fall term 2026.",
+          title: "UMass Boston",
+          copy: "Supply Chain Management B.S. | Finance Minor.",
           subTitle: "coursework",
-          subCopy: "UMass Boston (Accepted) | Supply Chain Management, Merrimack (Accepted) | Business Analytics"
+          subCopy: "Financial Management, Computer and Information Systems, Professional Communication & Critical Analysis, Globalization & Labor, Architecture, Design & Society"
         },
         {
           title: "North Shore C.C.",
