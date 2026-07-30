@@ -43,7 +43,7 @@
 }
 
 .film-collection-tabs-wrap {
-  padding: 0 0 1rem;
+  padding: 0 1.05rem 1rem;
 }
 
 .film-collection-tabs {
@@ -87,7 +87,7 @@
 }
 
 .film-collection-stage {
-  padding: 0;
+  padding: 0 1.05rem 1.05rem;
   overflow: visible;
 }
 
