@@ -794,42 +794,6 @@ svg g:focus-visible {
     letter-spacing: 0.06em;
   }
 
-  .slice-label[data-slot="1"] {
-    top: 19%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .slice-label[data-slot="2"] {
-    top: 35%;
-    left: 73%;
-    transform: translate(-50%, -50%);
-  }
-
-  .slice-label[data-slot="3"] {
-    top: 65%;
-    left: 73%;
-    transform: translate(-50%, -50%);
-  }
-
-  .slice-label[data-slot="4"] {
-    top: 81%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .slice-label[data-slot="5"] {
-    top: 65%;
-    left: 27%;
-    transform: translate(-50%, -50%);
-  }
-
-  .slice-label[data-slot="6"] {
-    top: 35%;
-    left: 27%;
-    transform: translate(-50%, -50%);
-  }
-
   .section-panel[data-slot="4"] {
     transform: translate(-72%, 4%) scale(0.98);
   }
