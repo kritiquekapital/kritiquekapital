@@ -37,7 +37,7 @@ export const filmSection = {
                   thesis:
                     "A cinema shaped by duty, loss, and the strain between purpose and historical obsolescence.",
                   copy:
-                    "Taken from the closing moments of Kurosawa’s masterpiece, this rising shot settles on the graves of the fallen samurai, their swords serving as markers and their ribbons as flags. As the peasants return to the land, the surviving warriors remain fixed before the remnants of their dead. The image crystallizes the cost of duty, the clash between old codes and changing realities, and the problem of purpose once a historical role has already passed."
+                    "Taken from the closing moments of Kurosawa’s masterpiece, as the remaining peasants return to their lands and livelihoods, the surviving samurai stand in silence facing the burial markers. A rising shot settles on this frame, showcasing the graves of the fallen samurai–swords serving as gravestones, ribbons as flags. The Japanese warriors now causeless, with only the remnants of their losses left to serve as reminders. This iconic shot captures the central themes of nearly all films from this great nation; the cost of duty, the clashing of tradition and modernity, and purpose. Kurosawa places the samurai–both living and dead–as relics of a past Japan, left with no identity, mirroring post-WWII anxieties."
                 },
                 {
                   src: `${THREE_NATIONS_BASE}/city-of-god.png`,
@@ -47,7 +47,7 @@ export const filmSection = {
                   thesis:
                     "A cinema of social violence, survival, and the repeated abandonment of youth.",
                   copy:
-                    "Golden light, vivid color, and the restless energy of the favela collide here with one of the film’s most brutal situations. Li’l Zé places a gun in a child’s hand and forces an impossible choice, turning innocence, coercion, spectacle, and death into the same frame. The image is beautiful and horrifying at once. That contradiction is exactly the point: the still condenses socio-economic struggle, political neglect, and the way a nation repeatedly fails its youth."
+                    "This single frame wholly encapsulates the Brazilian peoples socio-economic struggles and political criticisms–and it’s cinema’s more contemporary revival. The first sequence to follow flashbacks of Li’l Dice’s tumultuous early life, now known as Li’l Zé and a kingpin of the favelas. The coloring–absolutely beautiful, sunkissed, its golden hour in the colorful slums of Rio de Janeiro. The subject–haunting, desanitizing, and tense. Zé forces a gun into the hands of a small child and tells him, “pick one”. The boy closes his eyes, waving between both children on the barrel end of his gun, closes his eyes, and repeats the cycle. Filled with contradictions: innocence and violence, youth and death, choice and coercion. The boy is not just the sight of a “malandro”–but of how a nation fails its youth, again and again."
                 },
                 {
                   src: `${THREE_NATIONS_BASE}/shadows-of-forgotten-ancestors.png`,
