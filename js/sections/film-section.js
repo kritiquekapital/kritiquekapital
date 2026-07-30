@@ -10,8 +10,60 @@ export const filmSection = {
       type: "film-collection-browser",
       title: "bodies of work",
       description:
-        "Switch between film projects, scene studies, and national cinema work instead of stacking everything into one endless page.",
+        "film projects, scene studies, and national cinema work.",
       collections: [
+      {
+          id: "world-cinema",
+          label: "3 Nations",
+          eyebrow: "comparative work",
+          title: "three nations. three stills. three cinemas.",
+          dek:
+            "A comparative framing exercise that uses three curated grabs to show how different national cinemas project different pressures, values, and historical tendencies.",
+          layout: [
+            ["triptych", "triptych"]
+          ],
+          modules: [
+            {
+              id: "triptych",
+              type: "film-triptych",
+              title: "National identity through film",
+              description: "",
+              items: [
+                {
+                  src: `${THREE_NATIONS_BASE}/seven-samurai.png`,
+                  alt: "Seven Samurai still by Akira Kurosawa",
+                  title: "Seven Samurai",
+                  meta: "Akira Kurosawa · Japan · 1954",
+                  thesis:
+                    "A cinema shaped by duty, loss, and the strain between purpose and historical obsolescence.",
+                  copy:
+                    "Taken from the closing moments of Kurosawa’s masterpiece, this rising shot settles on the graves of the fallen samurai, their swords serving as markers and their ribbons as flags. As the peasants return to the land, the surviving warriors remain fixed before the remnants of their dead. The image crystallizes the cost of duty, the clash between old codes and changing realities, and the problem of purpose once a historical role has already passed."
+                },
+                {
+                  src: `${THREE_NATIONS_BASE}/city-of-god.png`,
+                  alt: "City of God still by Fernando Meirelles and Kátia Lund",
+                  title: "City of God",
+                  meta: "Fernando Meirelles & Kátia Lund · Brazil · 2002",
+                  thesis:
+                    "A cinema of social violence, survival, and the repeated abandonment of youth.",
+                  copy:
+                    "Golden light, vivid color, and the restless energy of the favela collide here with one of the film’s most brutal situations. Li’l Zé places a gun in a child’s hand and forces an impossible choice, turning innocence, coercion, spectacle, and death into the same frame. The image is beautiful and horrifying at once. That contradiction is exactly the point: the still condenses socio-economic struggle, political neglect, and the way a nation repeatedly fails its youth."
+                },
+                {
+                  src: `${THREE_NATIONS_BASE}/shadows-of-forgotten-ancestors.png`,
+                  alt: "Shadows of Forgotten Ancestors still by Sergei Parajanov",
+                  title: "Shadows of Forgotten Ancestors",
+                  meta: "Sergei Parajanov · Ukraine (Soviet era) · 1965",
+                  thesis:
+                    "A cinema of identity, land, ritual, and cultural persistence under historical pressure.",
+                  copy:
+                    "This still binds folk tradition, grief, and landscape into one image. Ivan moves through a scorched field, suspended between personal loss and a much older cycle of blood, memory, and rebirth. The land is not just setting here but inheritance, and the frame turns agrarian life, spiritual attachment, and historical rupture into one visual field. It speaks to Ukrainian cultural depth while also carrying the pressure of its Soviet entanglement."
+                }
+              ]
+            }
+          ]
+        },
+        
         {
           id: "hairpin-circus",
           label: "hairpin circus",
@@ -238,58 +290,6 @@ export const filmSection = {
                         "Placeholder description for this frame. This note can later be replaced with a reading of composure colliding with catastrophe."
                     }
                   ]
-                }
-              ]
-            }
-          ]
-        },
-
-        {
-          id: "world-cinema",
-          label: "3 Nations",
-          eyebrow: "comparative work",
-          title: "three nations. three stills. three cinemas.",
-          dek:
-            "A comparative framing exercise that uses three curated grabs to show how different national cinemas project different pressures, values, and historical tendencies.",
-          layout: [
-            ["triptych", "triptych"]
-          ],
-          modules: [
-            {
-              id: "triptych",
-              type: "film-triptych",
-              title: "National identity through film",
-              description: "",
-              items: [
-                {
-                  src: `${THREE_NATIONS_BASE}/seven-samurai.png`,
-                  alt: "Seven Samurai still by Akira Kurosawa",
-                  title: "Seven Samurai",
-                  meta: "Akira Kurosawa · Japan · 1954",
-                  thesis:
-                    "A cinema shaped by duty, loss, and the strain between purpose and historical obsolescence.",
-                  copy:
-                    "Taken from the closing moments of Kurosawa’s masterpiece, this rising shot settles on the graves of the fallen samurai, their swords serving as markers and their ribbons as flags. As the peasants return to the land, the surviving warriors remain fixed before the remnants of their dead. The image crystallizes the cost of duty, the clash between old codes and changing realities, and the problem of purpose once a historical role has already passed."
-                },
-                {
-                  src: `${THREE_NATIONS_BASE}/city-of-god.png`,
-                  alt: "City of God still by Fernando Meirelles and Kátia Lund",
-                  title: "City of God",
-                  meta: "Fernando Meirelles & Kátia Lund · Brazil · 2002",
-                  thesis:
-                    "A cinema of social violence, survival, and the repeated abandonment of youth.",
-                  copy:
-                    "Golden light, vivid color, and the restless energy of the favela collide here with one of the film’s most brutal situations. Li’l Zé places a gun in a child’s hand and forces an impossible choice, turning innocence, coercion, spectacle, and death into the same frame. The image is beautiful and horrifying at once. That contradiction is exactly the point: the still condenses socio-economic struggle, political neglect, and the way a nation repeatedly fails its youth."
-                },
-                {
-                  src: `${THREE_NATIONS_BASE}/shadows-of-forgotten-ancestors.png`,
-                  alt: "Shadows of Forgotten Ancestors still by Sergei Parajanov",
-                  title: "Shadows of Forgotten Ancestors",
-                  meta: "Sergei Parajanov · Ukraine (Soviet era) · 1965",
-                  thesis:
-                    "A cinema of identity, land, ritual, and cultural persistence under historical pressure.",
-                  copy:
-                    "This still binds folk tradition, grief, and landscape into one image. Ivan moves through a scorched field, suspended between personal loss and a much older cycle of blood, memory, and rebirth. The land is not just setting here but inheritance, and the frame turns agrarian life, spiritual attachment, and historical rupture into one visual field. It speaks to Ukrainian cultural depth while also carrying the pressure of its Soviet entanglement."
                 }
               ]
             }
