@@ -57,7 +57,7 @@ export const filmSection = {
                   thesis:
                     "A cinema of identity, land, ritual, and cultural persistence under historical pressure.",
                   copy:
-                    "This still binds folk tradition, grief, and landscape into one image. Ivan moves through a scorched field, suspended between personal loss and a much older cycle of blood, memory, and rebirth. The land is not just setting here but inheritance, and the frame turns agrarian life, spiritual attachment, and historical rupture into one visual field. It speaks to Ukrainian cultural depth while also carrying the pressure of its Soviet entanglement."
+                    "This still covers not only the rich folk traditions and history of Ukrainian culture—but it’s soviet, and post soviet eras. The Hutsuls—extremely representative of later “kulaks”—have deep cultural and spiritual ties to the carpathian landscape. The protagonist, Ivan, wanders the barren landscape, seemingly entranced in his grief over the loss of his love through bitter blood feuds. This agrarian society has a long history of cycles of death and rebirth, just as their russian counterparts—or other parts. The fields for which the lifeblood of these people are ingrained, lie scorched, embers glowing red and orange. A shared identity of not only the Ukrainian peoples—but all the russian expanses have held."
                 }
               ]
             }
