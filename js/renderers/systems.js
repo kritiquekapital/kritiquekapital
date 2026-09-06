@@ -3,6 +3,14 @@ import { track }      from "../analytics.js";
 
 // ── Card ──────────────────────────────────────────────────────────────────────
 
+function renderSystemsThumb(entry) {
+  return entry.image
+    ? `<div class="systems-card-thumb">
+         <img src="${escapeHTML(entry.image)}" alt="" loading="lazy" />
+       </div>`
+    : `<div class="systems-card-thumb systems-card-thumb--placeholder"></div>`;
+}
+
 function renderSystemsCard(entry, index) {
   const isFeatured = entry.variant === "featured";
 
@@ -15,16 +23,18 @@ function renderSystemsCard(entry, index) {
       role="button"
       aria-expanded="false"
     >
-      <div class="systems-card-inner">
-        ${entry.eyebrow
-          ? `<p class="systems-card-eyebrow">${escapeHTML(entry.eyebrow)}</p>`
-          : ""}
-        <h3 class="systems-card-title">${escapeHTML(entry.title ?? "")}</h3>
-        <p class="systems-card-hook">${escapeHTML(entry.hook ?? "")}</p>
-
-        ${isFeatured
-          ? `<span class="systems-card-cta">view project →</span>`
-          : `<span class="systems-card-cta systems-card-cta--mini">details ▾</span>`}
+      <div class="systems-card-content">
+        <div class="systems-card-text">
+          ${entry.eyebrow
+            ? `<p class="systems-card-eyebrow">${escapeHTML(entry.eyebrow)}</p>`
+            : ""}
+          <h3 class="systems-card-title">${escapeHTML(entry.title ?? "")}</h3>
+          <p class="systems-card-hook">${escapeHTML(entry.hook ?? "")}</p>
+          ${isFeatured
+            ? `<span class="systems-card-cta">view project →</span>`
+            : `<span class="systems-card-cta systems-card-cta--mini">details ▾</span>`}
+        </div>
+        ${renderSystemsThumb(entry)}
       </div>
 
       ${!isFeatured
@@ -59,6 +69,13 @@ function renderSystemsDetail(entry) {
           ? `<p class="systems-detail-eyebrow">${escapeHTML(entry.eyebrow)}</p>`
           : ""}
         <h2 class="systems-detail-title">${escapeHTML(entry.title ?? "")}</h2>
+
+        ${entry.writeupLink
+          ? `<a class="systems-detail-inline-link" href="${escapeHTML(entry.writeupLink.href ?? "#")}" target="_blank" rel="noopener">
+               ${escapeHTML(entry.writeupLink.label ?? "read more")} ↗
+             </a>`
+          : ""}
+
         <p class="systems-detail-hook">${escapeHTML(entry.hook ?? "")}</p>
 
         ${stats.length
@@ -76,6 +93,18 @@ function renderSystemsDetail(entry) {
           `
           : ""}
 
+        ${entry.codeSnippet
+          ? `
+            <div class="systems-detail-code">
+              <p class="systems-detail-section-label">${escapeHTML(entry.codeSnippet.label ?? "")}</p>
+              <pre class="systems-detail-code-block"><code>${escapeHTML(entry.codeSnippet.code ?? "")}</code></pre>
+              ${entry.codeSnippet.caption
+                ? `<p class="systems-detail-code-caption">${escapeHTML(entry.codeSnippet.caption)}</p>`
+                : ""}
+            </div>
+          `
+          : ""}
+
         ${takeaways.length
           ? `
             <div class="systems-detail-takeaways">
@@ -84,18 +113,6 @@ function renderSystemsDetail(entry) {
                 ${takeaways.map(t => `<li>${escapeHTML(t)}</li>`).join("")}
               </ul>
             </div>
-          `
-          : ""}
-
-        ${entry.download
-          ? `
-            
-              class="systems-detail-download"
-              href="${escapeHTML(entry.download.href ?? "#")}"
-              download
-            >
-              ${escapeHTML(entry.download.label ?? "download")}
-            </a>
           `
           : ""}
       </div>
@@ -127,6 +144,7 @@ function bindSystemsGrid(scope = document) {
       detailShell.innerHTML = renderSystemsDetail(entry);
       gridShell.classList.add("is-hidden");
       detailShell.classList.add("is-active");
+      detailShell.scrollTop = 0; // keeps the top visible regardless of prior grid scroll
 
       detailShell.querySelector(".systems-detail-back")
         ?.addEventListener("click", showGrid);
