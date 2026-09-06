@@ -13,6 +13,7 @@ import {
 import { renderFilmCollectionBrowserModule } from "./film-browser.js";
 import { renderMusicFeatureModule } from "./music.js";
 import { renderWritingFeatureModule } from "./writing.js";
+import { renderSystemsProjectGridModule } from "./systems.js";
 
 export function renderModule(module, section, moduleIndex, keyPrefixOverride = "") {
   const keyPrefix = keyPrefixOverride || `${section}-`;
@@ -53,6 +54,9 @@ export function renderModule(module, section, moduleIndex, keyPrefixOverride = "
 
     case "film-collection-browser":
       return renderFilmCollectionBrowserModule(module, section, moduleIndex);
+
+    case "systems-project-grid":
+      return renderSystemsProjectGridModule(module);
 
     default:
       return "";
