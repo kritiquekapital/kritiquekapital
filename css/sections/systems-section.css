@@ -1,234 +1,54 @@
-
-/* ── Grid ─────────────────────────────────────────────────────────────────── */
-
-.panel-systems .systems-project-grid-module {
-  min-width: 0;
-  position: relative;
-}
-
-.panel-systems .systems-grid-shell {
-  transition: opacity 0.2s ease;
-}
-
-.panel-systems .systems-grid-shell.is-hidden {
-  display: none;
-}
-
-.panel-systems .systems-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  padding: 0.2rem;
-}
-
-/* ── Card ─────────────────────────────────────────────────────────────────── */
-
-.panel-systems .systems-card {
-  background: rgba(14, 18, 26, 0.97);
-  border: 1px solid rgba(143, 214, 255, 0.12);
-  border-radius: 22px;
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
-  cursor: pointer;
-  outline: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.panel-systems .systems-card:hover,
-.panel-systems .systems-card:focus-visible {
-  border-color: rgba(143, 214, 255, 0.34);
-  transform: translateY(-2px);
-}
-
-.panel-systems .systems-card-inner {
-  padding: 1.1rem 1.15rem;
-  display: grid;
-  gap: 0.5rem;
-}
-
-.panel-systems .systems-card-eyebrow {
-  margin: 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(143, 214, 255, 0.82);
-}
-
-.panel-systems .systems-card-title {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.2;
-  color: #f5fbff;
-}
-
-.panel-systems .systems-card-hook {
-  margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.56;
-  color: rgba(245, 247, 251, 0.72);
-}
-
-.panel-systems .systems-card-cta {
-  margin-top: 0.3rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.05em;
-  color: rgba(143, 214, 255, 0.82);
-}
-
-/* ── Mini card expand ─────────────────────────────────────────────────────── */
-
-.panel-systems .systems-card-expand {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.32s ease;
-  border-top: 1px solid rgba(143, 214, 255, 0);
-}
-
-.panel-systems .systems-card.is-expanded .systems-card-expand {
-  max-height: 320px;
-  border-top-color: rgba(143, 214, 255, 0.08);
-}
-
-.panel-systems .systems-card-expand-list {
-  margin: 0;
-  padding: 0.9rem 1.15rem 1.05rem;
-  display: grid;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: rgba(245, 247, 251, 0.76);
-  list-style: none;
-}
-
-.panel-systems .systems-card-expand-list li::before {
-  content: "— ";
-  color: rgba(143, 214, 255, 0.6);
-}
-
-/* ── Detail stage ─────────────────────────────────────────────────────────── */
-
-.panel-systems .systems-detail-shell {
-  display: none;
-}
-
-.panel-systems .systems-detail-shell.is-active {
-  display: block;
-}
-
-.panel-systems .systems-detail {
-  background: rgba(14, 18, 26, 0.97);
-  border: 1px solid rgba(143, 214, 255, 0.12);
-  border-radius: 22px;
-  padding: 1.6rem 1.9rem 2rem;
-}
-
-.panel-systems .systems-detail-back {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: rgba(143, 214, 255, 0.82);
-  font: inherit;
-  font-size: 0.85rem;
-  cursor: pointer;
-  padding: 0;
-  margin-bottom: 1.2rem;
-}
-
-.panel-systems .systems-detail-eyebrow {
-  margin: 0 0 0.4rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(143, 214, 255, 0.82);
-}
-
-.panel-systems .systems-detail-title {
-  margin: 0 0 0.6rem;
-  font-size: clamp(1.4rem, 2vw, 1.9rem);
-  color: #f5fbff;
-}
-
-.panel-systems .systems-detail-hook {
-  margin: 0 0 1.4rem;
-  font-size: 0.98rem;
-  line-height: 1.6;
-  color: rgba(245, 247, 251, 0.76);
-  max-width: 60ch;
-}
-
-.panel-systems .systems-detail-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 0.9rem;
-  margin-bottom: 1.6rem;
-}
-
-.panel-systems .systems-detail-stat {
-  border: 1px solid rgba(143, 214, 255, 0.08);
-  border-radius: 14px;
-  padding: 0.75rem 0.85rem;
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.panel-systems .systems-detail-stat-value {
-  margin: 0;
-  font-size: 1.05rem;
-  color: #f5fbff;
-}
-
-.panel-systems .systems-detail-stat-label {
-  margin: 0.2rem 0 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: lowercase;
-  color: rgba(245, 247, 251, 0.56);
-}
-
-.panel-systems .systems-detail-section-label {
-  margin: 0 0 0.6rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
-  color: rgba(143, 214, 255, 0.82);
-}
-
-.panel-systems .systems-detail-takeaways-list {
-  margin: 0 0 1.6rem;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  line-height: 1.62;
-  color: rgba(245, 247, 251, 0.78);
-}
-
-.panel-systems .systems-detail-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(143, 214, 255, 0.3);
-  background: rgba(143, 214, 255, 0.08);
-  color: #f5fbff;
-  font-size: 0.85rem;
-  text-decoration: none;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.panel-systems .systems-detail-download:hover,
-.panel-systems .systems-detail-download:focus-visible {
-  background: rgba(143, 214, 255, 0.16);
-  border-color: rgba(143, 214, 255, 0.5);
-}
-
-@media (max-width: 760px) {
-  .panel-systems .systems-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .panel-systems .systems-detail {
-    padding: 1.3rem 1.2rem 1.6rem;
-  }
-}
+export const systemsSection = {
+  title: "systems",
+  kicker: "data, code, and tools built to understand how things work.",
+  modules: [
+    {
+      type: "systems-project-grid",
+      entries: [
+        {
+          id: "ideocam-project",
+          variant: "featured",
+          eyebrow: "self-built · sql / data analytics",
+          title: "The ideo.cam Analytics Project",
+          image: null, // TODO: drop in a thumbnail path when ready
+          hook: "ideo.cam is a site I designed, coded, and host myself — so when I wanted to actually understand how people use it, I didn't bolt on a dashboard. I built the whole analytics stack from raw event exports myself, in SQL: staged, cleaned, modeled into dimensions and facts, then analyzed and audited end to end, the way a real analytics team would structure one.",
+          writeupLink: {
+            label: "read the full technical write-up",
+            href: "#" // TODO: point at actual write-up asset
+          },
+          stats: [
+            { value: "391",  label: "visits studied · 10 weeks" },
+            { value: "2",    label: "self-caught bugs, fully diagnosed" },
+            { value: "71%",  label: "of traffic was mislabeled until one fix" },
+            { value: "10",   label: "layered SQL scripts, zero dependencies" }
+          ],
+          codeSnippet: {
+            label: "the bug that zeroed every feature metric",
+            code: "('minesweeper_open', 'Site Lifecycle') -- not a user gesture,\n('minesweeper_start', 'Minesweeper'),",
+            caption: "The comma landed inside the comment, so SQLite silently dropped the whole INSERT — nothing downstream ever caught it until a from-scratch rebuild came back empty."
+          },
+          takeaways: [
+            "Diagnosed a bug that silently zeroed out every feature-usage metric on the site.",
+            "Found and fixed a missing-value mismatch that had 71% of all traffic mislabeled as referral instead of Direct.",
+            "Built feature-based classification instead of URL-based, since the site is a single-page app where nearly every event fires on \"/\".",
+            "Documented every data-quality caveat as a rerunnable audit query, not a one-time note."
+          ]
+        },
+        {
+          id: "v1-library-pipeline",
+          variant: "mini",
+          eyebrow: "tool / music",
+          title: "V1 Library Pipeline",
+          image: null,
+          hook: "PowerShell + Python control panel for a large Serato library. ytdl integration, file format fixer, library reconciliation, and more.",
+          expandBullets: [
+            "One-click Refresh + Move: rescans Serato crates, pulls colors/genres via TagLib-Sharp, moves files to match.",
+            "Reconcile always writes a preview file first and backs up the real master before touching it.",
+            "Undo last move reverses everything from the last apply — no manual cleanup.",
+            "Built-in duplicate finder (filename or Artist+Title) and a read-only library health check."
+          ]
+        }
+      ]
+    }
+  ]
+};
