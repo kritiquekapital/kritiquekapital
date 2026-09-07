@@ -42,8 +42,8 @@ export const systemsSection = {
           title: "The ｡♪˚ Pipeline",
           hook: "PowerShell + Python tooling that keeps a large Serato library tagged, deduped, and reconciled — safely.",
           expandBullets: [
+            "Both ytdl + scdl integration.",
             "One-click Refresh + Move: rescans Serato crates, syncs colors/genres via TagLib-Sharp, moves files to match.",
-            "Reconcile writes a preview file first and backs up the real master before ever touching it.",
             "Undo last move reverses everything from the last apply, no manual cleanup.",
             "Built-in duplicate finder (filename or Artist+Title) and a read-only library health check."
           ]
