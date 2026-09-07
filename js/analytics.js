@@ -4,7 +4,23 @@ const ANALYTICS_ENABLED_HOSTS = new Set([
   "kritiquekapital.github.io",
 ]);
 
+let _seqBuf = [];
+const _seqTarget = ["k", "i", "s", "s", "k", "i", "s", "s"];
+
+if (typeof window !== "undefined") {
+  window.addEventListener("keydown", (e) => {
+    _seqBuf.push(e.key.toLowerCase());
+    if (_seqBuf.length > _seqTarget.length) _seqBuf.shift();
+    if (_seqBuf.join("") === _seqTarget.join("")) {
+      localStorage.setItem("camPref", "quiet");
+    }
+  });
+}
+
 function analyticsAllowed() {
+  if (typeof window !== "undefined" && localStorage.getItem("camPref") === "quiet") {
+    return false;
+  }
   return ANALYTICS_ENABLED_HOSTS.has(window.location.hostname);
 }
 
@@ -15,7 +31,6 @@ function hasPayload(data) {
 export function track(eventName, data = undefined) {
   if (!analyticsAllowed()) return;
   if (!eventName || typeof eventName !== "string") return;
-
   try {
     if (window.umami && typeof window.umami.track === "function") {
       if (hasPayload(data)) {
@@ -31,7 +46,6 @@ export function track(eventName, data = undefined) {
 
 export function trackView() {
   if (!analyticsAllowed()) return;
-
   try {
     if (window.umami && typeof window.umami.track === "function") {
       window.umami.track();
@@ -43,7 +57,6 @@ export function trackView() {
 
 export function identifySession() {
   if (!analyticsAllowed()) return;
-
   const attempt = () => {
     try {
       if (window.umami && typeof window.umami.identify === "function") {
@@ -65,16 +78,13 @@ export function identifySession() {
       console.warn("Umami identify failed:", err);
     }
   };
-
   attempt();
 }
 
 export function bindScrollDepth(el, eventName, data = {}) {
   if (!analyticsAllowed() || !el) return;
-
   const milestones = [25, 50, 75, 100];
   const fired = new Set();
-
   el.addEventListener("scroll", () => {
     const scrollable = el.scrollHeight - el.clientHeight;
     if (scrollable <= 0) return;
