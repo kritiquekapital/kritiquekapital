@@ -39,7 +39,7 @@ export const systemsSection = {
           id: "music-library-pipeline",
           variant: "mini",
           eyebrow: "tool / music",
-          title: "The ｡♪˚ Pipeline",
+          title: "The ♪ Pipeline ♪",
           hook: "PowerShell + Python tooling that keeps a large Serato library tagged, deduped, and reconciled — safely.",
           expandBullets: [
             "Both ytdl + scdl integration.",
