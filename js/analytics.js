@@ -5,7 +5,7 @@ const ANALYTICS_ENABLED_HOSTS = new Set([
 ]);
 
 let _seqBuf = [];
-const _seqTarget = ["k", "i", "s", "s", "k", "i", "s", "s"];
+const _seqTarget = ["k", "i", "s", "s", "k", "i", "s", "s", "1", "2", "3"];
 
 if (typeof window !== "undefined") {
   window.addEventListener("keydown", (e) => {
