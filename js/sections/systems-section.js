@@ -8,21 +8,31 @@ export const systemsSection = {
         {
           id: "ideocam-pipeline",
           variant: "featured",
-          eyebrow: "data / analytics",
+          eyebrow: "self-built · sql / data analytics",
           title: "ideo.cam Analytics SQL",
-          hook: "A full SQL pipeline built from raw event exports.",
+          image: null,
+          hook: "ideo.cam is a site I designed, coded, and host myself–so when I wanted to understand how people actually interact with it, I built a SQL analytics stack too.",
+            writeupLink: {
+              label: "read the full technical write-up",
+              href: "#"
+          },
           stats: [
-            { label: "visits",       value: "247 / 10 weeks" },
-            { value: "439",        label: "kisses clicked" },
-            { value: "292",        label: "photos clicked" },
-            { value: "30",          label: "Spotify goals scored" },
-            { value: "116",          label: "outbound links clicked" }
+            { label: "visits",  value: "247 / 10 weeks" },
+            { value: "439",     label: "kisses clicked" },
+            { value: "292",     label: "photos clicked" },
+            { value: "30",      label: "Spotify goals scored" },
+            { value: "116",     label: "outbound links clicked" }
           ],
           takeaways: [
+            "The Kiss Button is the most-used feature on the site: 71.7% of engaged visits clicked it.",
+            "The Photo Gallery isn't far behind: 56.5% of engaged visits browsed the respective camera rolls.",
+            "Mobile is the best-engaging device on the site, ahead of desktop–70.9% of mobile visits took a real action.",
+            "Instagram drives over a third of total traffic (86 of 247 visits)",
+            "Bot, dev testing and spam-referral traffic isn't deleted from the model; it's identified and labeled."
           ],
-          download: {
+            download: {
             label: "download write-up (.zip)",
-            href: "#" // TODO: point at actual zip asset
+            href: "#"
           }
         },
         {
