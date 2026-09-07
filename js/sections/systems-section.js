@@ -12,11 +12,11 @@ export const systemsSection = {
           title: "ideo.cam Analytics SQL",
           hook: "A full SQL pipeline built from raw event exports.",
           stats: [
-            { label: "visits",       value: "391 / 10 weeks" },
-            { value: "1,649",        label: "kisses clicked" },
-            { value: "3,929",        label: "photos clicked" },
-            { value: "175",          label: "Spotify goals scored" },
-            { value: "304",          label: "outbound links clicked" }
+            { label: "visits",       value: "247 / 10 weeks" },
+            { value: "439",        label: "kisses clicked" },
+            { value: "292",        label: "photos clicked" },
+            { value: "30",          label: "Spotify goals scored" },
+            { value: "116",          label: "outbound links clicked" }
           ],
           takeaways: [
           ],
