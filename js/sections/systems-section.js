@@ -40,8 +40,9 @@ export const systemsSection = {
           variant: "mini",
           eyebrow: "tool / music",
           title: "The ♪ Pipeline ♪",
-          hook: "PowerShell + Python tooling that keeps a large Serato library tagged, deduped, and reconciled — safely.",
+          hook: "PowerShell + Python tooling I built for large DJ library maintence and usage.",
           expandBullets: [
+            "I'd recommend tagging in serato or a program like mp3tag and then running the export and sort programs in the pipeline.",
             "Both ytdl + scdl integration.",
             "One-click Refresh + Move: rescans Serato crates, syncs colors/genres via TagLib-Sharp, moves files to match.",
             "Undo last move reverses everything from the last apply, no manual cleanup.",
