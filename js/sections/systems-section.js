@@ -36,10 +36,10 @@ export const systemsSection = {
           }
         },
         {
-          id: "v1-library-pipeline",
+          id: "music-library-pipeline",
           variant: "mini",
           eyebrow: "tool / music",
-          title: "V1 Library Pipeline",
+          title: "The ｡♪˚ Pipeline",
           hook: "PowerShell + Python tooling that keeps a large Serato library tagged, deduped, and reconciled — safely.",
           expandBullets: [
             "One-click Refresh + Move: rescans Serato crates, syncs colors/genres via TagLib-Sharp, moves files to match.",
