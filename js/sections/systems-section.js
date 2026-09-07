@@ -9,19 +9,16 @@ export const systemsSection = {
           id: "ideocam-pipeline",
           variant: "featured",
           eyebrow: "data / analytics",
-          title: "ideo.cam Analytics Pipeline",
-          hook: "A full SQL pipeline built from raw event exports — staging, dimensional modeling, fact tables, and a QA layer that documents its own bugs.",
+          title: "ideo.cam Analytics SQL",
+          hook: "A full SQL pipeline built from raw event exports.",
           stats: [
-            { label: "raw rows",     value: "23,071" },
             { label: "visits",       value: "391 / 10 weeks" },
-            { label: "pipeline stages", value: "10" },
-            { label: "engine",       value: "SQLite" }
+            { value: "1,649",        label: "kisses clicked" },
+            { value: "3,929",        label: "photos clicked" },
+            { value: "175",          label: "Spotify goals scored" },
+            { value: "304",          label: "outbound links clicked" }
           ],
           takeaways: [
-            "Caught a silent bug that zeroed every feature-usage metric — a missing comma hidden inside a SQL comment.",
-            "Found and fixed a missing-value mismatch that had misclassified 71% of all traffic as referral instead of Direct.",
-            "Feature-based classification instead of URL-based, since the site is a single-page app.",
-            "Layered architecture (staging → dimensions → facts → analysis → QA) so every bug was traceable to one file."
           ],
           download: {
             label: "download write-up (.zip)",
