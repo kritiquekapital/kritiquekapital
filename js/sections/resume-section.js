@@ -67,7 +67,7 @@ export const resumeSection = {
       items: [
         {
           title: "UMass Boston",
-          copy: "Supply Chain Management B.S. | Finance Minor",
+          copy: "Supply Chain Management & Finance B.S. (Double Major)",
           subTitle: "coursework",
           subCopy: "Financial Management, Computer and Information Systems, Professional Communication & Critical Analysis, Globalization & Labor, Architecture, Design & Society"
         },
@@ -84,8 +84,8 @@ export const resumeSection = {
       title: "languages",
       items: [
         "Russian",
-        "Portuguese",
-        "Spanish"
+        "Spanish",
+        "Portuguese"
       ]
     },
     {
